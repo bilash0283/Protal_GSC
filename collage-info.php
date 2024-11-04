@@ -14,7 +14,7 @@ $id = isset($_GET['id']) && $_GET['id'];
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <div class="ml-3">
-    <h1> Collage Informatoins</h1> <?php echo $id ?>
+    <h1> Collage Informatoins GSC</h1> <?php echo $id ?>
 
     <div class="col-md-12">
       <a href="collage-info.php?<?php echo "id=" . $i ?>" class="card">
