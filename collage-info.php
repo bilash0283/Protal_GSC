@@ -40,7 +40,8 @@ if (isset($_GET['id'])) {
       <a href="collage-info.php?<?php echo "id=" . $i ?>" class="card">
         <div class="card-body">
           <img class="w-100 h-auto img-fluid" src="<?php echo $img; ?>" />
-          <h3><?php echo $title; ?></h3>
+          <h3 class="my-2"><?php echo $title; ?></h3>
+          <p class="my-2"><?php echo $description; ?></p>
         </div>
       </a>
     </div>

@@ -37,7 +37,6 @@
 
                 <li class="nav-item ">
                     <a href="?id=<?php echo $_row['id']; ?> " class="nav-link">
-                        <!-- <i class="nav-icon fas fa-user text-sm ">USA</i> -->
                         <?php echo $_row['country_name']; ?>
                     </a>
                 </li>
