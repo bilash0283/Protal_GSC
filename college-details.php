@@ -8,8 +8,8 @@
 $agentname        = $_SESSION['name'];
 $agentemail       = $_SESSION['email'];
 
-if (isset($_GET['name'])) {
-  $country = $_GET['name'];
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
 }
 
 
@@ -26,7 +26,7 @@ if (isset($_GET['name'])) {
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <div class="ml-3">
-    <h1 class="text-bold text-uppercase text-info">list off <span class="text-primary"><?php echo $country; ?></span> institutes</h1>
+    <h1 class="text-bold text-uppercase text-info">list off <span class="text-primary"><?php echo $id; ?></span> institutes</h1>
 
     <div class="mt-5">
       <div class="row">
@@ -35,6 +35,7 @@ if (isset($_GET['name'])) {
         $unity_info = "SELECT * FROM `university_info` WHERE country='$country' ";
         $uniinfo_query = mysqli_query($db, $unity_info);
         $infodata = mysqli_num_rows($uniinfo_query);
+
 
 
         while ($row = mysqli_fetch_assoc($uniinfo_query)) { ?>

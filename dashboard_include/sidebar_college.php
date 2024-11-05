@@ -36,11 +36,10 @@
         while ($_row = mysqli_fetch_assoc($country_query)) { ?>
 
                 <li class="nav-item ">
-                    <a href="?name=<?php $_row['id']; ?> " class="nav-link">
+                    <a href="?id=<?php echo $_row['id']; ?> " class="nav-link">
                         <!-- <i class="nav-icon fas fa-user text-sm ">USA</i> -->
-                        <img style="width: 28px;height: 28px;margin-right: 20px;" src="<?php echo "img"; ?>" alt="usa flags">
-                        <?php echo $_row['country_name']; ?>
-                        USA
+                        <img style="width: 28px;height: 28px;margin-right: 20px;" src="<?php echo $_row['country_flag']; ?>" alt="usa flags">
+                        <?php echo $_row['country_flag']; ?>
                     </a>
                 </li>
 
