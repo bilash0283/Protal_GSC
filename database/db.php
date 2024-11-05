@@ -2,5 +2,7 @@
     $db = mysqli_connect('localhost', 'root', '', 'gsc');
     if(!$db){
         echo "Databas connection Error!";
+    }else{
+        echo "db";
     }
 ?>

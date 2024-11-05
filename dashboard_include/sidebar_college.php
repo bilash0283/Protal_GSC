@@ -38,8 +38,7 @@
                 <li class="nav-item ">
                     <a href="?id=<?php echo $_row['id']; ?> " class="nav-link">
                         <!-- <i class="nav-icon fas fa-user text-sm ">USA</i> -->
-                        <img style="width: 28px;height: 28px;margin-right: 20px;" src="<?php echo $_row['country_flag']; ?>" alt="usa flags">
-                        <?php echo $_row['country_flag']; ?>
+                        <?php echo $_row['country_name']; ?>
                     </a>
                 </li>
 
