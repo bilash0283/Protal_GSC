@@ -113,7 +113,7 @@ $agentemail       = $_SESSION['email'];
                 <p>Visit Instutute </p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+              <i class="ion ion-university"></i>
                 <!-- <i class="fa-solid fa-building-columns"></i> -->
               </div>
               <!-- <a href="https://gsc.co.com" class="small-box-footer">View Site <i class="fas fa-arrow-circle-right"></i></a> -->
