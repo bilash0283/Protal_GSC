@@ -3,18 +3,20 @@
 <?php ob_start(); ?>
 <?php
 
-$id = isset($_GET['id']) && $_GET['id'];
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+}
 
 ?>
 
 
 <!-- Main Sidebar Container -->
-<?php  include('dashboard_include/sidebar_college.php') ?>
+<?php  include('dashboard_include/sidebar_info.php') ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <div class="ml-3">
-    <h1> Collage Informatoins GSC</h1> <?php echo $id ?>
+    <h1> Collage Informatoins</h1> 
 
     <div class="col-md-12">
       <a href="collage-info.php?<?php echo "id=" . $i ?>" class="card">

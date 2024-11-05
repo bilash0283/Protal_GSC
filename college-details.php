@@ -38,8 +38,8 @@ if(isset($_GET['name'])){
         while ($row = mysqli_fetch_assoc($uniinfo_query))
 
         { ?>
-          <div class="col-md-4">
-            <a href="collage-info.php?<?php echo $row['id']; ?>" class="card">
+          <div class="col-md-2">
+            <a href="collage-info.php?id=<?php $row['id'];?><?php echo $row['id']; ?>" class="card">
               <div class="card-body">
                 <img class="w-100 rounded-md" src="<?php echo $row['img']; ?>" />
                 <h4 class="mt-2 text-black"><?php echo $row['title']; ?></h3>
