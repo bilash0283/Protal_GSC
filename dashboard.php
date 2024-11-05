@@ -118,7 +118,7 @@ $agentemail       = $_SESSION['email'];
               </div>
               <!-- <a href="https://gsc.co.com" class="small-box-footer">View Site <i class="fas fa-arrow-circle-right"></i></a> -->
 
-              <a href="college-details.php?name=usa" class="small-box-footer">View Institute <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="college-details.php?id=1" class="small-box-footer">View Institute <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

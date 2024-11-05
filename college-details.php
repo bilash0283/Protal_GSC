@@ -8,12 +8,14 @@
 $agentname        = $_SESSION['name'];
 $agentemail       = $_SESSION['email'];
 
-if(isset($_GET['name'])){
+if (isset($_GET['name'])) {
   $country = $_GET['name'];
 }
 
 
 ?>
+
+
 
 
 
@@ -24,29 +26,28 @@ if(isset($_GET['name'])){
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <div class="ml-3">
-    <h1 class="text-bold text-uppercase text-info">list off <span class="text-primary"><?php echo $country; ?></span>  institutes</h1>
+    <h1 class="text-bold text-uppercase text-info">list off <span class="text-primary"><?php echo $country; ?></span> institutes</h1>
 
     <div class="mt-5">
       <div class="row">
-        <?php 
+        <?php
         include './database/db.php';
-          $unity_info = "SELECT * FROM `university_info` WHERE country='$country' ";
-          $uniinfo_query = mysqli_query($db, $unity_info);
-          $infodata = mysqli_num_rows($uniinfo_query);
-         
+        $unity_info = "SELECT * FROM `university_info` WHERE country='$country' ";
+        $uniinfo_query = mysqli_query($db, $unity_info);
+        $infodata = mysqli_num_rows($uniinfo_query);
 
-        while ($row = mysqli_fetch_assoc($uniinfo_query))
 
-        { ?>
+        while ($row = mysqli_fetch_assoc($uniinfo_query)) { ?>
+
           <div class="col-md-2">
-            <a href="collage-info.php?id=<?php $row['id'];?><?php echo $row['id']; ?>" class="card">
+            <div class="card">
+              <img class="card-img-top rounded-full" src="<?php echo $row['img']; ?>" alt="Card image cap">
               <div class="card-body">
-                <img class="w-100 rounded-md" src="<?php echo $row['img']; ?>" />
-                <h4 class="mt-2 text-black"><?php echo $row['title']; ?></h3>
-                <p class="text-gray"><?php echo $row['description']; ?></p>
+                <h5 class="card-title mb-2"><?php echo $row['title']; ?></h5>
+                <a href="collage-info.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Details</a>
               </div>
-            </a>
-          </div> 
+            </div>
+          </div>
 
         <?php } ?>
       </div>
