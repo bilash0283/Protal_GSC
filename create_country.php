@@ -88,16 +88,17 @@ if ($_SESSION['role'] == 1) { ?>
                                                     $sql = "SELECT * FROM country_list ";
                                                     $sql_query = mysqli_query($db, $sql);
                                                     $sql_data = mysqli_num_rows($sql_query);
+                                                    $id = 0;
 
                                                     while ($_row = mysqli_fetch_assoc($sql_query)) {
-                                                        $id = $_row['id'];
+                                                        $id++;
                                                         $country_name = $_row['country_name'];
                                                     ?>
                                                         <tr>
                                                             <form action="" action="" method="POST" enctype="multipart/form-data">
                                                                 <th scope="row"><?php echo $id; ?></th>
                                                                 <td><?php echo $country_name; ?></td>
-                                                                <td><button id="id<?php echo $id?> class="bg-red" type="submit" name="deletebtn"><i class="fas fa-trash"></i></button></td>
+                                                                <td><button  type="submit" name="deletebtn"><i class="fas fa-trash"></i></button></td>
                                                             </form>
                                                         </tr>
                                                     <?php } ?>
