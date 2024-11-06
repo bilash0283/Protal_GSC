@@ -6,3 +6,5 @@
         echo "db";
     }
 ?>
+
+<!-- college-details.php?name=uk -->

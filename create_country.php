@@ -48,7 +48,7 @@ if ($_SESSION['role'] == 1) { ?>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                            <i class="fas fa-minus"></i>
+                                            <h3 class="card-title text-white">Edit Country</h3>
                                         </button>
                                     </div>
                                 </div>
@@ -73,8 +73,49 @@ if ($_SESSION['role'] == 1) { ?>
 
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <h2 class="text-bold">Country List</h1>
+                                            <table class="table table-dark">
+                                                <thead>
+                                                    <tr class="bg-primary">
+                                                        <th scope="col">#ID</th>
+                                                        <th scope="col">Country Name</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $sql = "SELECT * FROM country_list ";
+                                                    $sql_query = mysqli_query($db, $sql);
+                                                    $sql_data = mysqli_num_rows($sql_query);
+
+                                                    while ($_row = mysqli_fetch_assoc($sql_query)) {
+                                                        $id = $_row['id'];
+                                                        $country_name = $_row['country_name'];
+                                                    ?>
+                                                        <tr>
+                                                            <form action="" action="" method="POST" enctype="multipart/form-data">
+                                                                <th scope="row"><?php echo $id; ?></th>
+                                                                <td><?php echo $country_name; ?></td>
+                                                                <td><button id="id<?php echo $id?> class="bg-red" type="submit" name="deletebtn"><i class="fas fa-trash"></i></button></td>
+                                                            </form>
+                                                        </tr>
+                                                    <?php } ?>
+                                                </tbody>
+                                            </table>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
+
+                                <!-- delete funcation workding -->
+
+                                <?php 
+                                    if(isset($_POST['deletebtn'])){
+                                        echo "delete click";
+                                        $delete_sql = "DELETE FROM `country_list` WHERE id='$id' ";
+                                    }
+                                
+                                ?>
 
                             </div>
 
@@ -103,8 +144,7 @@ if ($_SESSION['role'] == 1) { ?>
 
                     // country name query check hear 
                     if ($country_name_data == $countryName) {
-                        echo "This Country already Exists !".mysqli_error($db);
-                        
+                        echo "This Country already Exists !" . mysqli_error($db);
                     } else {
                         // Check if the country name and the image are provided
                         if (!empty($countryName) && !empty($CountryFlag)) {
@@ -139,7 +179,7 @@ if ($_SESSION['role'] == 1) { ?>
                             if ($stmt->execute()) {
                                 // Move the uploaded file to the destination folder
                                 if (move_uploaded_file($temporary_location, $upload_path)) {
-                                    header('Location: index.php');
+                                    header('Location: create_country.php');
                                     exit;  // Ensure no further code is executed after the redirect
                                 } else {
                                     echo "<div class='alert alert-danger mt-2'>Failed to upload the image.</div>";
