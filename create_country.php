@@ -8,6 +8,7 @@
 <?php include('dashboard_include/sidebar.php') ?>
 
 
+
 <?php
 
 if ($_SESSION['role'] == 1) { ?>
@@ -95,52 +96,64 @@ if ($_SESSION['role'] == 1) { ?>
                     $CountryFlag = $_FILES['image']['name'];
                     $temporary_location = $_FILES['image']['tmp_name'];
 
+                    $Cuntry_query_database = "SELECT country_name FROM country_list WHERE country_name = '$countryName'";
+                    $country_query = mysqli_query($db, $Cuntry_query_database);
+                    $row = mysqli_fetch_assoc($country_query);
+                    $country_name_data = $row['country_name'];
 
-                    // Check if the country name and the image are provided
-                    if (!empty($countryName) && !empty($CountryFlag)) {
-
-                        // Generate a unique name for the uploaded image
-                        $rand = rand(0, 999999);
-                        $final_image_name = 'agent_photo' . "_" . $rand . time() . basename($CountryFlag);
-
-                        // Define the destination folder for the uploaded image
-                        $upload_dir = 'dist/img/country_flag/';
-                        $upload_path = $upload_dir . $final_image_name;
-
-                        // Check if the upload directory exists, if not create it
-                        if (!is_dir($upload_dir)) {
-                            mkdir($upload_dir, 0777, true);  // Create the directory with full permissions
-                        }
-
-                        // Ensure that the file is an image (optional)
-                        $allowed_exts = ['jpg', 'jpeg', 'png', 'gif'];
-                        $file_extension = pathinfo($CountryFlag, PATHINFO_EXTENSION);
-                        if (!in_array(strtolower($file_extension), $allowed_exts)) {
-                            echo "<div class='alert alert-danger mt-2'>Invalid image type! Only JPG, JPEG, PNG, GIF are allowed.</div>";
-                            exit;
-                        }
-
-                        // Prepared SQL query to insert data into the database
-                        $stmt = $db->prepare("INSERT INTO `country_list` (`country_name`, `country_flag`) VALUES (?, ?)");
-                        $stmt->bind_param("ss", $countryName, $final_image_name);  // Bind parameters (string, string)
-
-                        // Execute the query
-                        if ($stmt->execute()) {
-                            // Move the uploaded file to the destination folder
-                            if (move_uploaded_file($temporary_location, $upload_path)) {
-                                header('Location: index.php');
-                                exit;  // Ensure no further code is executed after the redirect
-                            } else {
-                                echo "<div class='alert alert-danger mt-2'>Failed to upload the image.</div>";
-                            }
-                        } else {
-                            echo "<div class='alert alert-danger mt-2'>Country Creation Failed!</div>";
-                        }
-
-                        // Close the prepared statement
-                        $stmt->close();
+                    // country name query check hear 
+                    if ($country_name_data == $countryName) {
+                        echo "This Country already Exists !".mysqli_error($db);
+                        
                     } else {
-                        echo "<div class='alert alert-danger mt-2'>Please fill in all fields.</div>";
+                        // Check if the country name and the image are provided
+                        if (!empty($countryName) && !empty($CountryFlag)) {
+
+                            // Generate a unique name for the uploaded image
+                            $rand = rand(0, 999999);
+                            $final_image_name = 'agent_photo' . "_" . $rand . time() . basename($CountryFlag);
+
+                            // Define the destination folder for the uploaded image
+                            $upload_dir = 'dist/img/country_flag/';
+                            $upload_path = $upload_dir . $final_image_name;
+
+                            // Check if the upload directory exists, if not create it
+                            if (!is_dir($upload_dir)) {
+                                mkdir($upload_dir, 0777, true);  // Create the directory with full permissions
+                            }
+
+                            // Ensure that the file is an image (optional)
+                            $allowed_exts = ['jpg', 'jpeg', 'png', 'gif'];
+                            $file_extension = pathinfo($CountryFlag, PATHINFO_EXTENSION);
+                            if (!in_array(strtolower($file_extension), $allowed_exts)) {
+                                echo "<div class='alert alert-danger mt-2'>Invalid image type! Only JPG, JPEG, PNG, GIF are allowed.</div>";
+                                exit;
+                            }
+
+                            // Prepared SQL query to insert data into the database
+                            $stmt = $db->prepare("INSERT INTO `country_list` (`country_name`, `country_flag`) VALUES (?, ?)");
+                            $stmt->bind_param("ss", $countryName, $final_image_name);  // Bind parameters (string, string)
+
+
+                            // Execute the query
+                            if ($stmt->execute()) {
+                                // Move the uploaded file to the destination folder
+                                if (move_uploaded_file($temporary_location, $upload_path)) {
+                                    header('Location: index.php');
+                                    exit;  // Ensure no further code is executed after the redirect
+                                } else {
+                                    echo "<div class='alert alert-danger mt-2'>Failed to upload the image.</div>";
+                                }
+                            } else {
+                                echo "<div class='alert alert-danger mt-2'>Country Creation Failed!</div>";
+                            }
+
+
+                            // Close the prepared statement
+                            $stmt->close();
+                        } else {
+                            echo "<div class='alert alert-danger mt-2'>Please fill in all fields.</div>";
+                        }
                     }
                 }
                 ?>

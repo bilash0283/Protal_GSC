@@ -6,6 +6,7 @@
         <span class="brand-text font-weight-light">Institute Information</span>
     </a>
 
+    
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -37,7 +38,7 @@
 
                 <li class="nav-item ">
                     <a href="?id=<?php echo $_row['id']; ?> " class="nav-link">
-                        <img src="../dist/?php echo $_row['country_flag'] ?>" alt="">
+                        <!-- <img class="w-2 h-2 rounded-full" src="https://images.pexels.com/photos/53957/striped-core-butterflies-butterfly-brown-53957.jpeg?auto=comp" alt=""> -->
                         <?php echo $_row['country_name']; ?>
                     </a>
                 </li>
@@ -50,3 +51,5 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+
+
