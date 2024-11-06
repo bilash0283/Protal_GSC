@@ -34,31 +34,14 @@ $country_flag = $country_data['country_flag'];
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  <div class="ml-3">
-    <h1 class="text-bold text-uppercase text-info">list off <span class="text-primary"><?php echo $country_name; ?></span> institutes</h1>
+  <div class="ml-2">
+    <h1 class="text-bold text-uppercase text-info"> list off <span class="text-primary"><?php echo $country_name; ?></span> institutes</h1>
 
-    <div class="mt-5">
-      <div class="row">
-        <?php
-        $unity_info = "SELECT * FROM `university_info` WHERE country='$country_name' ";
-        $uniinfo_query = mysqli_query($db, $unity_info);
-        $infodata = mysqli_num_rows($uniinfo_query);
-
-
-
-        while ($row = mysqli_fetch_assoc($uniinfo_query)) { ?>
-
-          <div class="col-md-2">
-            <div class="card">
-              <img class="card-img-top rounded-full" src="<?php echo $row['img']; ?>" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title mb-2"><?php echo $row['title']; ?></h5>
-                <a href="collage-info.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Details</a>
-              </div>
-            </div>
+    <div class="mt-1">
+      <div class="row" style="height:1000px;">
+          <div class="col h-100">
+            <iframe class="w-100 h-100" src="dist/Country_University/<?php echo $country_flag; ?>" frameborder="0"></iframe>
           </div>
-
-        <?php } ?>
       </div>
     </div>
 

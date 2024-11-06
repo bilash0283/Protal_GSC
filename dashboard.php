@@ -108,7 +108,7 @@ $agentemail       = $_SESSION['email'];
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>Institute</h3>
+                <h3>Institute Info</h3>
 
                 <p>Visit Instutute </p>
               </div>
