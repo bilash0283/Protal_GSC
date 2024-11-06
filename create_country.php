@@ -63,7 +63,7 @@ if ($_SESSION['role'] == 1) { ?>
 
 
                                             <div class="form-group">
-                                                <label for="inputProjectLeader">Country Flag</label>
+                                                <label for="inputProjectLeader">Institute Information (PDF file)</label>
                                                 <input type="file" name="image" id="inputName">
                                             </div>
 
@@ -92,14 +92,14 @@ if ($_SESSION['role'] == 1) { ?>
 
                                                     while ($_row = mysqli_fetch_assoc($sql_query)) {
                                                         $id++;
+                                                        $coun_id      = $_row['id'];
                                                         $country_name = $_row['country_name'];
                                                     ?>
                                                         <tr>
-                                                            <form action="" action="" method="POST" enctype="multipart/form-data">
-                                                                <th scope="row"><?php echo $id; ?></th>
-                                                                <td><?php echo $country_name; ?></td>
-                                                                <td><button  type="submit" name="deletebtn"><i class="fas fa-trash"></i></button></td>
-                                                            </form>
+                                                            <th scope="row"><?php echo $id; ?></th>
+                                                            <td><?php echo $country_name; ?></td>
+
+                                                            <td><a href="?delete_id=<?php echo $coun_id; ?>" onclick="alert('Are you sure you want to delete this Country?')"  name="deletebtn"><i class="fas fa-trash"></i></a></td>
                                                         </tr>
                                                     <?php } ?>
                                                 </tbody>
@@ -110,12 +110,21 @@ if ($_SESSION['role'] == 1) { ?>
 
                                 <!-- delete funcation workding -->
 
-                                <?php 
-                                    if(isset($_POST['deletebtn'])){
-                                        echo "delete click";
-                                        $delete_sql = "DELETE FROM `country_list` WHERE id='$id' ";
+                                <?php
+                                if (isset($_GET['delete_id'])) {
+                                 echo $did = $_GET['delete_id'];  
+                                 
+                                 $delete_sql = "DELETE FROM country_list WHERE id=$did ";
+                                    $query = mysqli_query($db, $delete_sql);
+                                    if ($query) {
+                                        echo "Delete Successfully!";
+                                        header('create_country.php');
+                                    } else {
+                                        echo "Country Delete Failed!" . mysqli_error($db);
                                     }
-                                
+
+
+                                }
                                 ?>
 
                             </div>
@@ -152,10 +161,10 @@ if ($_SESSION['role'] == 1) { ?>
 
                             // Generate a unique name for the uploaded image
                             $rand = rand(0, 999999);
-                            $final_image_name = 'agent_photo' . "_" . $rand . time() . basename($CountryFlag);
+                            $final_image_name = $countryName . "_" . $rand . time() . basename($CountryFlag);
 
                             // Define the destination folder for the uploaded image
-                            $upload_dir = 'dist/img/country_flag/';
+                            $upload_dir = 'dist/Country_University/';
                             $upload_path = $upload_dir . $final_image_name;
 
                             // Check if the upload directory exists, if not create it
@@ -164,10 +173,10 @@ if ($_SESSION['role'] == 1) { ?>
                             }
 
                             // Ensure that the file is an image (optional)
-                            $allowed_exts = ['jpg', 'jpeg', 'png', 'gif'];
+                            $allowed_exts = ['jpg', 'jpeg', 'png', 'pdf'];
                             $file_extension = pathinfo($CountryFlag, PATHINFO_EXTENSION);
                             if (!in_array(strtolower($file_extension), $allowed_exts)) {
-                                echo "<div class='alert alert-danger mt-2'>Invalid image type! Only JPG, JPEG, PNG, GIF are allowed.</div>";
+                                echo "<div class='alert alert-danger mt-2'>Invalid image type! Only JPG, pdf, JPEG, PNG, GIF are allowed.</div>";
                                 exit;
                             }
 
