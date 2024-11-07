@@ -78,7 +78,7 @@ if ($_SESSION['role'] == 1) { ?>
                                             <table class="table table-dark">
                                                 <thead>
                                                     <tr class="bg-primary">
-                                                        <th scope="col">#ID</th>
+                                                        <th scope="col">ID</th>
                                                         <th scope="col">Country Name</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
@@ -115,13 +115,6 @@ if ($_SESSION['role'] == 1) { ?>
                                 if (isset($_GET['delete_id'])) {
                                  echo $did = $_GET['delete_id']; 
                                  echo $institute_img;
-
-                                //  $sql = "SELECT country_flag FROM country_list WHERE id=$did; ";
-                                //  $viewsql = mysqli_query($db,$sql);
-                                //  $num_qu = mysqli_num_rows($viewsql);
-                                //  $rowdata = mysqli_fetch_assoc($viewsql);
-                                //  echo $img = $viewsql['country_flag'];
-
 
                                  
                                  $delete_sql = "DELETE FROM country_list WHERE id=$did ";
