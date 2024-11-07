@@ -113,8 +113,8 @@ if ($_SESSION['role'] == 1) { ?>
 
                                 <?php
                                 if (isset($_GET['delete_id'])) {
-                                 echo $did = $_GET['delete_id']; 
-                                 echo $institute_img;
+                                  $did = $_GET['delete_id']; 
+                                  $institute_img;
 
                                  
                                  $delete_sql = "DELETE FROM country_list WHERE id=$did ";

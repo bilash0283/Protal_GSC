@@ -3,7 +3,7 @@
     if(!$db){
         echo "Databas connection Error!";
     }else{
-        echo "db";
+        
     }
 ?>
 
