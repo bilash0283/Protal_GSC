@@ -228,7 +228,7 @@
         <li class="nav-item">
           <a href="create_country.php" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Add Country</p>
+            <p>Add Country & Info</p>
           </a>
         </li>
 
