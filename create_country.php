@@ -94,12 +94,13 @@ if ($_SESSION['role'] == 1) { ?>
                                                         $id++;
                                                         $coun_id      = $_row['id'];
                                                         $country_name = $_row['country_name'];
+                                                        $institute_img= $_row['country_flag'];
                                                     ?>
                                                         <tr>
                                                             <th scope="row"><?php echo $id; ?></th>
                                                             <td><?php echo $country_name; ?></td>
 
-                                                            <td><a href="?delete_id=<?php echo $coun_id; ?>" onclick="alert('Are you sure you want to delete this Country?')"  name="deletebtn"><i class="fas fa-trash"></i></a></td>
+                                                            <td><a href="?delete_id=<?php echo $coun_id;?> && <?php echo $institute_img; ?>" onclick="alert('Are you sure you want to delete this Country?')"  name="deletebtn"><i class="fas fa-trash"></i></a></td>
                                                         </tr>
                                                     <?php } ?>
                                                 </tbody>
@@ -112,16 +113,28 @@ if ($_SESSION['role'] == 1) { ?>
 
                                 <?php
                                 if (isset($_GET['delete_id'])) {
-                                 echo $did = $_GET['delete_id'];  
+                                 echo $did = $_GET['delete_id']; 
+                                 echo $institute_img;
+
+                                //  $sql = "SELECT country_flag FROM country_list WHERE id=$did; ";
+                                //  $viewsql = mysqli_query($db,$sql);
+                                //  $num_qu = mysqli_num_rows($viewsql);
+                                //  $rowdata = mysqli_fetch_assoc($viewsql);
+                                //  echo $img = $viewsql['country_flag'];
+
+
                                  
                                  $delete_sql = "DELETE FROM country_list WHERE id=$did ";
-                                    $query = mysqli_query($db, $delete_sql);
-                                    if ($query) {
-                                        echo "Delete Successfully!";
-                                        header('create_country.php');
-                                    } else {
-                                        echo "Country Delete Failed!" . mysqli_error($db);
-                                    }
+                                 $query = mysqli_query($db, $delete_sql);
+
+                                 if ($query) {
+                                     unlink("dist/Country_University/".$institute_img);
+                                     echo "Delete Successfully!";
+                                     header("location:create_country.php");
+                                 } else {
+                                     echo "Country Delete Failed!" . mysqli_error($db);
+                                 }
+                                
 
 
                                 }
