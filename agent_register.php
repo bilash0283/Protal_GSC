@@ -4,6 +4,7 @@ ob_start();
 
 
 $successfull = null;
+echo "Bialsh";
 
 ?>
 
@@ -27,8 +28,6 @@ $successfull = null;
 </head>
 
 <body class="hold-transition login-page">
-
-<h1>Hello Bilash</h1>
 
     <!-- Main content -->
     <section class="content">
