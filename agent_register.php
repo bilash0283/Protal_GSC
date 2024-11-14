@@ -110,6 +110,7 @@ $successfull = null;
                                             <label for="inputClientCompany">Company Year of Establishment</label>
                                             <input type="text" name="year" id="inputClientCompany" class="form-control">
                                         </div>
+                                        <a href="index.php" class="text-center ">I already have a Agent</a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -168,14 +169,10 @@ $successfull = null;
                                             <label for="inputClientCompany">Company Year of Establishment</label>
                                             <input type="text" name="year" id="inputClientCompany" class="form-control">
                                         </div>
-
-                                        <div class="form-group">
-                                            <input type="submit" name="submit" value="Register Now" class="btn btn-lg btn-primary">
-                                        </div>
-
-                                        <a href="index.php" class="text-center">I already have a Agent</a>
                                     </div>
+                                    <input type="submit" name="submit" value="Register Now" class="btn btn-md float-right m-3 btn-primary">
                                 </div>
+                                
                             </div>
                             <!-- /.card-body -->
 
