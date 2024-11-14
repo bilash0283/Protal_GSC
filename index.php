@@ -12,7 +12,7 @@ session_start();
     <!-- Card for New Agent Register -->
     <div class="col-lg-5 mb-5 p-3">
       <div class="card shadow-lg border-0 rounded-4" style="min-height: 452px;">
-        <img class="card-img-top rounded-4" src="./dist/img/call_y22jrr.png" alt="Card image cap" />
+          <img class="card-img-top rounded-4 " src="./dist/img/call_y22jrr.png" alt="Card image cap" />
         <div class="card-body text-center">
           <a href="agent_register.php" class="btn btn-primary btn-block my-3 w-100">New Agent Registation</a>
         </div>
