@@ -29,88 +29,88 @@ $successfull = null;
                         <!-- input file start  -->
                         <div class="form-group">
                             <label for="inputName">Agent Name</label>
-                            <input type="text" name="agent_name" id="inputName" class="form-control">
+                            <input type="text" name="agent_name" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputName"> Phone</label>
-                            <input type="text" name="phone" id="inputName" class="form-control">
+                            <input type="text" name="phone" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputProjectLeader">Designation</label>
-                            <input type="text" name="designation" id="inputProjectLeader" class="form-control">
+                            <input type="text" name="designation" id="inputProjectLeader" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputProjectLeader">Country</label>
-                            <input type="text" name="country" id="inputProjectLeader" class="form-control">
+                            <input type="text" name="country" id="inputProjectLeader" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputName">Email</label>
-                            <input type="email" name="email" id="inputName" class="form-control">
+                            <input type="email" name="email" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputName">Password</label>
-                            <input type="password" name="password" id="inputName" class="form-control">
+                            <input type="password" name="password" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputName">Confirm Password</label>
-                            <input type="password" name="confirm_password" id="inputName" class="form-control">
+                            <input type="password" name="confirm_password" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label class="input-group-text w-100" for="inputGroupFile01">Click Me To Upload Profile Image</label>
-                            <input type="file" class="form-control d-none" name="profile_image" id="inputGroupFile01">
+                            <input type="file" class="form-control d-none" name="profile_image" id="inputGroupFile01" required>
                         </div>
                         <div class="form-group">
                             <label for="inputClientCompany"> Company Name</label>
-                            <input type="text" name="company_name" id="inputClientCompany" class="form-control">
+                            <input type="text" name="company_name" id="inputClientCompany" class="form-control" required>
                         </div>
                     </div>  
-                     <!-- input file end(1) -->
+                    <!-- input file end(1) -->
                     <div class="col-12 col-md-6 px-2">
                         <div class="form-group">
                             <label for="inputProjectLeader">Company Address</label>
-                            <input type="text" name="company_address" id="inputProjectLeader" class="form-control">
+                            <input type="text" name="company_address" id="inputProjectLeader" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputClientCompany">Company Year of Establishment</label>
-                            <input type="text" name="conpany_year" id="inputClientCompany" class="form-control">
+                            <input type="text" name="company_year" id="inputClientCompany" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputName">Bank Name</label>
-                            <input type="text" name="bank_name" id="inputName" class="form-control">
+                            <input type="text" name="bank_name" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputName">Bank Account Name</label>
-                            <input type="text" name="bank_acc_name" id="inputName" class="form-control">
+                            <input type="text" name="bank_acc_name" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputName">Bank Account Number</label>
-                            <input type="number" name="bank_acc_number" id="inputName" class="form-control">
+                            <input type="number" name="bank_acc_number" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputName">Bank Address</label>
-                            <input type="text" name="back_address" id="inputName" class="form-control">
+                            <input type="text" name="bank_address" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="inputName">Brance Name</label>
-                            <input type="text" name="branch_name" id="inputName" class="form-control">
+                            <label for="inputName">Branch Name</label>
+                            <input type="text" name="branch_name" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="inputName">Bank Swift Code</label>
-                            <input type="text" name="swift_code" id="inputName" class="form-control">
+                            <input type="text" name="swift_code" id="inputName" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label class="input-group-text w-100" for="inputGroupFile01">Click Me To Upload Company Logo</label>
                             <input type="file" class="form-control d-none" name="company_logo_img" id="inputGroupFile01">
                         </div>
                         <div class="form-group">
-                            <label class="input-group-text w-100" for="inputGroupFile01">Company Registation Critificate</label>
-                            <input type="file" class="form-control d-none" name="company_reg_critficate" id="inputGroupFile01">
+                            <label class="input-group-text w-100" for="inputGroupFile01">Company Registration Certificate</label>
+                            <input type="file" class="form-control d-none" name="company_reg_certificate" id="inputGroupFile01">
                         </div>
                         <p class="mb-0">
-                            <a href="index.php" class="text-center">I already have a Agent</a>
+                            <a href="index.php" class="text-center">I already have an Agent</a>
                         </p>
                         <button type="submit" name="submit" class="btn btn-primary btn-arrow px-4 mt-3">
-                        Register Now <i class="fas fa-arrow-right ml-3"></i>
+                            Register Now <i class="fas fa-arrow-right ml-3"></i>
                         </button>
                     </div>
                 </div>
@@ -133,19 +133,34 @@ $query_email = $row['email'];
 
 if (isset($_POST['submit'])) {
 
-// Collecting form data
-$name             = $_POST['name'];
-$email            = $_POST['email'];
-$phone            = $_POST['phone'];
-$password         = md5($_POST['password']);
-$confirm_password = md5($_POST['confirm_password']);
-$designation      = $_POST['designation'];
-$company          = $_POST['company'];
-$year             = $_POST['year'];
-$address          = $_POST['address'];
-$country          = $_POST['country'];
-$status           = '2';
-$role             = '2';
+    // Collecting form data
+    $agent_name                = $_POST['agent_name'];
+    $phone                     = $_POST['phone'];
+    $designation               = $_POST['designation'];
+    $country                   = $_POST['country'];
+    $email                     = $_POST['email'];
+    $password                  = md5($_POST['password']);
+    $confirm_password          = md5($_POST['confirm_password']);
+    $company_name              = $_POST['company_name'];
+    $company_address           = $_POST['company_address'];
+    $company_year              = $_POST['company_year'];
+    $bank_name                 = $_POST['bank_name'];
+    $bank_acc_name             = $_POST['bank_acc_name'];
+    $bank_acc_number           = $_POST['bank_acc_number'];
+    $bank_address              = $_POST['bank_address'];
+    $branch_name               = $_POST['branch_name'];
+    $swift_code                = $_POST['swift_code'];
+    $status                    = '2';
+    $role                      = '2';
+    $profile_image             = $_FILES['profile_image'];
+    $company_logo_img          = $_FILES['company_logo_img'];
+    $company_reg_certificate   = $_FILES['company_reg_certificate'];
+   
+    
+
+
+    
+
 $image            = $_FILES['image']['name'];
 $temporary_location = $_FILES['image']['tmp_name'];
 $errors = [];
