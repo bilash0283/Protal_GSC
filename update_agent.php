@@ -73,6 +73,8 @@
                                     $address      = $row['address'];
                                     $country      = $row['country'];
                                     $joining      = $row['joining'];
+                                    $fb_url       = $row['fb_url'];
+                                    $website_url  = $row['web_url'];
 
                                 }
                             }
@@ -134,13 +136,13 @@
                                     </div>
 
                                     <div class="form-group">
-                                    <label for="inputName">Password</label>
-                                    <input type="password" disabled name="password" id="inputName" class="form-control">
+                                    <label for="inputName">Facebook URL</label>
+                                    <input type="url"  name="password" id="inputName" class="form-control">
                                     </div>
 
                                     <div class="form-group">
-                                    <label for="inputName">Confirm Password</label>
-                                    <input type="password" disabled name="confirm_password" id="inputName" class="form-control">
+                                    <label for="inputName">Website URL</label>
+                                    <input type="url"  name="confirm_password" id="inputName" class="form-control">
                                     </div>
 
                                     <div class="form-group">
