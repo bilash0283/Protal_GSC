@@ -25,7 +25,7 @@ $successfull = null;
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12 col-md-6 px-4">
+                    <div class="col-12 col-md-6 px-2">
                         <!-- input file start  -->
                         <div class="form-group">
                             <label for="inputName">Agent Name</label>
@@ -63,13 +63,13 @@ $successfull = null;
                             <label for="inputClientCompany"> Company Name</label>
                             <input type="text" name="company" id="inputClientCompany" class="form-control">
                         </div>
+                    </div>  
+                     <!-- input file end(1) -->
+                    <div class="col-12 col-md-6 px-2">
                         <div class="form-group">
                             <label for="inputProjectLeader">Company Address</label>
                             <input type="text" name="address" id="inputProjectLeader" class="form-control">
                         </div>
-                    </div>  
-                     <!-- input file end(1) -->
-                    <div class="col-12 col-md-6 px-4">
                         <div class="form-group">
                             <label for="inputClientCompany">Company Year of Establishment</label>
                             <input type="text" name="year" id="inputClientCompany" class="form-control">
@@ -106,7 +106,12 @@ $successfull = null;
                             <label class="input-group-text w-100" for="inputGroupFile01">Company Registation Critificate</label>
                             <input type="file" class="form-control d-none" name="image" id="inputGroupFile01">
                         </div>
-                        <input type="submit" name="submit" value="Register Now" class="btn btn-md float-right m-3 btn-primary">
+                        <p class="mb-0">
+                            <a href="index.php" class="text-center">I already have a Agent</a>
+                        </p>
+                        <button type="submit" name="submit" class="btn btn-primary btn-arrow px-4 mt-3">
+                        Register Now <i class="fas fa-arrow-right ml-3"></i>
+                        </button>
                     </div>
                 </div>
             </div>
