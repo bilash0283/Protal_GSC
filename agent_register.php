@@ -158,15 +158,20 @@ if (isset($_POST['submit'])) {
    
     
 
+$profile_image            = $_FILES['profile_image']['name'];
+$temporary_location       = $_FILES['profile_image']['tmp_name'];
 
-    
+$company_logo_img         = $_FILES['company_logo_img']['name'];
+$temporary_location       = $_FILES['company_logo_img']['tmp_name'];
 
-$image            = $_FILES['image']['name'];
-$temporary_location = $_FILES['image']['tmp_name'];
+$company_reg_certificate  = $_FILES['company_reg_certificate']['name'];
+$temporary_location       = $_FILES['company_reg_certificate']['tmp_name'];
+
+
 $errors = [];
 
 // 5. Validate image file (if uploaded)
-if (!empty($image)) {
+if (!empty($profile_image) && (!empty($company_logo_img) && (!empty($company_logo_img)) {
 $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
 $image_extension = strtolower(pathinfo($image, PATHINFO_EXTENSION));
 
@@ -198,7 +203,10 @@ if ($query_email !== $email) {
 if (!empty($image)) {
     // Generate a unique image name
     $rand = rand(0, 999999);
-    $final_image_name = $name . "_" . $rand . time() . $image;
+    $final_image_profile    = $name . "_" . $rand . time() . $image;
+    $final_company_logo_img = $name . "_" . $rand . time() . $image;
+    $final_company_logo_img = $name . "_" . $rand . time() . $image;
+    
 
     // Move the uploaded image to the target directory
     move_uploaded_file($temporary_location, 'dist/img/agent_image/' . $final_image_name);
