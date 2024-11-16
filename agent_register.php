@@ -21,7 +21,7 @@ $successfull = null;
     <div class="container fluid">
         <div class="card card-primary">
             <div class="card-header text-center top-fixed">
-                <h3 class="card-title"></h3>
+                <h3 class="card-title">Agent Registation </h3>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -44,10 +44,6 @@ $successfull = null;
                             <input type="text" name="country" id="inputProjectLeader" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label class="input-group-text w-100" for="inputGroupFile01">Click Me To Upload Profile Image</label>
-                            <input type="file" class="form-control d-none" name="image" id="inputGroupFile01">
-                        </div>
-                        <div class="form-group">
                             <label for="inputName">Email</label>
                             <input type="email" name="email" id="inputName" class="form-control">
                         </div>
@@ -60,6 +56,10 @@ $successfull = null;
                             <input type="password" name="confirm_password" id="inputName" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label class="input-group-text w-100" for="inputGroupFile01">Click Me To Upload Profile Image</label>
+                            <input type="file" class="form-control d-none" name="image" id="inputGroupFile01">
+                        </div>
+                        <div class="form-group">
                             <label for="inputClientCompany"> Company Name</label>
                             <input type="text" name="company" id="inputClientCompany" class="form-control">
                         </div>
@@ -67,6 +67,9 @@ $successfull = null;
                             <label for="inputProjectLeader">Company Address</label>
                             <input type="text" name="address" id="inputProjectLeader" class="form-control">
                         </div>
+                    </div>  
+                     <!-- input file end(1) -->
+                    <div class="col-12 col-md-6 px-4">
                         <div class="form-group">
                             <label for="inputClientCompany">Company Year of Establishment</label>
                             <input type="text" name="year" id="inputClientCompany" class="form-control">
@@ -79,9 +82,6 @@ $successfull = null;
                             <label for="inputName">Bank Account Name</label>
                             <input type="text" name="phone" id="inputName" class="form-control">
                         </div>
-                    </div>  
-                     <!-- input file end(1) -->
-                    <div class="col-12 col-md-6 px-4">
                         <div class="form-group">
                             <label for="inputName">Bank Account Number</label>
                             <input type="number" name="phone" id="inputName" class="form-control">
@@ -105,43 +105,6 @@ $successfull = null;
                         <div class="form-group">
                             <label class="input-group-text w-100" for="inputGroupFile01">Company Registation Critificate</label>
                             <input type="file" class="form-control d-none" name="image" id="inputGroupFile01">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputProjectLeader">Designation</label>
-                            <input type="text" name="designation" id="inputProjectLeader" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputClientCompany"> Company Name</label>
-                            <input type="text" name="company" id="inputClientCompany" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputProjectLeader">Company Address</label>
-                            <input type="text" name="address" id="inputProjectLeader" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputProjectLeader">Country</label>
-                            <input type="text" name="country" id="inputProjectLeader" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputName">Email</label>
-                            <input type="email" name="email" id="inputName" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputName">Password</label>
-                            <input type="password" name="password" id="inputName" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputName">Confirm Password</label>
-                            <input type="password" name="confirm_password" id="inputName" class="form-control">
-                        </div>
-
-                            <div class="form-group">
-                                <label for="inputClientCompany">Company Year of Establishment</label>
-                                <input type="text" name="year" id="inputClientCompany" class="form-control">
-                            </div>
                         </div>
                         <input type="submit" name="submit" value="Register Now" class="btn btn-md float-right m-3 btn-primary">
                     </div>
