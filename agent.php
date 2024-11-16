@@ -39,7 +39,7 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Students Status</th>
+                      <th scope="col">Agents Status</th>
                       <th scope="col">Image</th>
                       <th scope="col">Company</th>
                       <th scope="col">Name</th>
@@ -87,8 +87,8 @@
 
                           <tr>
                           <td><?php ?>
-                            
-                            <a href="agent-student.php?edit=<?php echo $id; ?>"><i class="fas fa-eye"></i></a>
+                          <!-- agent-student.php?edit= -->
+                            <a href="view_agent.php?id=<?php echo $id; ?>"><i class="fas fa-eye"></i></a>
                             <?php 
                             ?></td>
                             <td>

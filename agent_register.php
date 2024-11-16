@@ -178,40 +178,38 @@ if (isset($_POST['submit'])) {
     $errors = [];
 
     // Validate image files
-    if (!empty($profile_image) || !empty($company_logo_img) || !empty($company_reg_certificate)) {
-        $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
 
-        // Check profile image
-        if (!empty($profile_image)) {
-            $profile_extension = strtolower(pathinfo($profile_image, PATHINFO_EXTENSION));
-            if (!in_array($profile_extension, $allowed_extensions)) {
-                $errors[] = "Profile image should be JPG, JPEG, PNG, or GIF.";
-            }
-            if ($_FILES['profile_image']['size'] > 2 * 1024 * 1024) {
-                $errors[] = "Profile image size should not exceed 2MB.";
-            }
+    // Check profile image
+    if (!empty($profile_image)) {
+        $profile_extension = strtolower(pathinfo($profile_image, PATHINFO_EXTENSION));
+        if (!in_array($profile_extension, $allowed_extensions)) {
+            $errors[] = "Profile image should be JPG, JPEG, PNG, or GIF.";
         }
-
-        // Check company logo image
-        if (!empty($company_logo_img)) {
-            $logo_extension = strtolower(pathinfo($company_logo_img, PATHINFO_EXTENSION));
-            if (!in_array($logo_extension, $allowed_extensions)) {
-                $errors[] = "Company logo image should be JPG, JPEG, PNG, or GIF.";
-            }
-            if ($_FILES['company_logo_img']['size'] > 2 * 1024 * 1024) {
-                $errors[] = "Company logo image size should not exceed 2MB.";
-            }
+        if ($_FILES['profile_image']['size'] > 2 * 1024 * 1024) {
+            $errors[] = "Profile image size should not exceed 2MB.";
         }
+    }
 
-        // Check company registration certificate
-        if (!empty($company_reg_certificate)) {
-            $cert_extension = strtolower(pathinfo($company_reg_certificate, PATHINFO_EXTENSION));
-            if (!in_array($cert_extension, $allowed_extensions)) {
-                $errors[] = "Company registration certificate image should be JPG, JPEG, PNG, or GIF.";
-            }
-            if ($_FILES['company_reg_certificate']['size'] > 2 * 1024 * 1024) {
-                $errors[] = "Company registration certificate size should not exceed 2MB.";
-            }
+    // Check company logo image
+    if (!empty($company_logo_img)) {
+        $logo_extension = strtolower(pathinfo($company_logo_img, PATHINFO_EXTENSION));
+        if (!in_array($logo_extension, $allowed_extensions)) {
+            $errors[] = "Company logo image should be JPG, JPEG, PNG, or GIF.";
+        }
+        if ($_FILES['company_logo_img']['size'] > 2 * 1024 * 1024) {
+            $errors[] = "Company logo image size should not exceed 2MB.";
+        }
+    }
+
+    // Check company registration certificate
+    if (!empty($company_reg_certificate)) {
+        $cert_extension = strtolower(pathinfo($company_reg_certificate, PATHINFO_EXTENSION));
+        if (!in_array($cert_extension, $allowed_extensions)) {
+            $errors[] = "Company registration certificate image should be JPG, JPEG, PNG, or GIF.";
+        }
+        if ($_FILES['company_reg_certificate']['size'] > 2 * 1024 * 1024) {
+            $errors[] = "Company registration certificate size should not exceed 2MB.";
         }
     }
 
@@ -234,33 +232,51 @@ if (isset($_POST['submit'])) {
         $final_logo_image = time() . "_" . $rand . "_" . $company_logo_img;
         $final_cert_image = time() . "_" . $rand . "_" . $company_reg_certificate;
 
+        // Define directories
+        $upload_dir_profile = 'dist/img/agent_image/';
+        $upload_dir_logo = 'dist/img/agent_company_logo/';
+        $upload_dir_cert = 'dist/img/agent_registation_cartificate/';
+
         // Move uploaded files to their respective directories
         if (!empty($profile_image)) {
-            move_uploaded_file($profile_temp, 'dist/img/agent_image/' . $final_profile_image);
+            if (!move_uploaded_file($profile_temp, $upload_dir_profile . $final_profile_image)) {
+                $errors[] = "Error uploading profile image.";
+            }
         }
         if (!empty($company_logo_img)) {
-            move_uploaded_file($logo_temp, 'dist/img/agent_company_logo/' . $final_logo_image);
+            if (!move_uploaded_file($logo_temp, $upload_dir_logo . $final_logo_image)) {
+                $errors[] = "Error uploading company logo image.";
+            }
         }
         if (!empty($company_reg_certificate)) {
-            move_uploaded_file($cert_temp, 'dist/img/agent_registation_cartificate/' . $final_cert_image);
+            if (!move_uploaded_file($cert_temp, $upload_dir_cert . $final_cert_image)) {
+                $errors[] = "Error uploading company registration certificate.";
+            }
         }
 
-        // Insert data into the database
-        $agent_insert = "INSERT INTO agents 
-        (name, email, password, phone, company, designation, year, country, role, status, address, image, joining, bank_name, bank_acc_name, bank_acc_number, bank_address, branch_name, swift_code, company_logo, company_reg_cert, fb_url, web_url) 
-        VALUES 
-        ('$agent_name', '$email', '$password', '$phone', '$company_name', '$designation', '$company_year', '$country', '$role', '$status', '$company_address', '$final_profile_image', NOW(), '$bank_name', '$bank_acc_name', '$bank_acc_number', '$bank_address', '$branch_name', '$swift_code', '$final_logo_image', '$final_cert_image', '$fb_url', '$website_url')";
+        // If no errors occurred during the upload process
+        if (empty($errors)) {
+            // Insert data into the database
+            $agent_insert = "INSERT INTO agents 
+            (name, email, password, phone, company, designation, year, country, role, status, address, image, joining, bank_name, bank_acc_name, bank_acc_number, bank_address, branch_name, swift_code, company_logo, company_reg_cert, fb_url, web_url) 
+            VALUES 
+            ('$agent_name', '$email', '$password', '$phone', '$company_name', '$designation', '$company_year', '$country', '$role', '$status', '$company_address', '$final_profile_image', NOW(), '$bank_name', '$bank_acc_name', '$bank_acc_number', '$bank_address', '$branch_name', '$swift_code', '$final_logo_image', '$final_cert_image', '$fb_url', '$website_url')";
 
-        $agent_sql = mysqli_query($db, $agent_insert);
+            $agent_sql = mysqli_query($db, $agent_insert);
 
-        // Check if the insertion was successful
-        if ($agent_sql) {
-            header("Location: " . $_SERVER['PHP_SELF'] . "?success=1");
-            exit();
+            // Check if the insertion was successful
+            if ($agent_sql) {
+                header("Location: " . $_SERVER['PHP_SELF'] . "?success=1");
+                exit();
+            } else {
+                echo "<div class='alert alert-danger mt-2'>An error occurred while registering the agent. Please try again.</div>";
+            }
         } else {
-            echo "<div class='alert alert-danger mt-2'>An error occurred while registering the agent. Please try again.</div>";
+            // Display errors
+            foreach ($errors as $error) {
+                echo "<div class='alert alert-danger mt-2'>$error</div>";
+            }
         }
-
     } else {
         // Display errors
         foreach ($errors as $error) {
