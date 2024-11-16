@@ -37,19 +37,19 @@ $agentname        = $_SESSION['name'];
 
         $view_id = $_GET['id'];
 
-        $agents = "SELECT * FROM agents WHERE id = '$view_id'";
+        $agents = "SELECT * FROM agents WHERE id = $view_id ";
         $agents_query = mysqli_query($db, $agents);
 
         while ($row = mysqli_fetch_assoc($agents_query)) {
 
-            $agent_name                = $row['agent_name'];
+            $agent_name                = $row['name'];
             $phone                     = $row['phone'];
             $designation               = $row['designation'];
             $country                   = $row['country'];
             $email                     = $row['email'];
-            $company_name              = $row['company_name'];
-            $company_address           = $row['company_address'];
-            $company_year              = $row['company_year'];
+            $company_name              = $row['company'];
+            $company_address           = $row['address'];
+            $company_year              = $row['year'];
             $bank_name                 = $row['bank_name'];
             $bank_acc_name             = $row['bank_acc_name'];
             $bank_acc_number           = $row['bank_acc_number'];
@@ -58,12 +58,16 @@ $agentname        = $_SESSION['name'];
             $swift_code                = $row['swift_code'];
             $fb_url                    = $row['fb_url'];
             $website_url               = $row['website_url'];
-            $profile_image             = $row['profile_image'];
+            $profile_image             = $row['image'];
             $company_logo_img          = $row['company_logo_img'];
             $company_reg_certificate   = $row['company_reg_certificate'];
         }
 
     }
+
+    
+
+
     
 ?>
 
@@ -107,7 +111,7 @@ $agentname        = $_SESSION['name'];
                             <div class="card card-primary">
 
                             <div class="card-header">
-                                <h3 class="card-title">Student's Information</h3>
+                                <h3 class="card-title">Agent Details Information</h3>
 
                                 <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -122,15 +126,8 @@ $agentname        = $_SESSION['name'];
 
                                         <table class="table table-bordered">
                                             <tr>
-                                                <th>Status</th>
-                                                <td><?php 
-                                                    switch($status) {
-                                                        case 1: echo "Pending"; break;
-                                                        case 2: echo "Approved"; break;
-                                                        case 3: echo "On-Process"; break;
-                                                        case 4: echo "Declined"; break;
-                                                    }
-                                                ?></td>
+                                                <th>Agent Name</th>
+                                                <td><?php echo $agent_name; ?></td>
                                             </tr>
 
                                             <tr>
