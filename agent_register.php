@@ -171,7 +171,7 @@ $temporary_location       = $_FILES['company_reg_certificate']['tmp_name'];
 $errors = [];
 
 // 5. Validate image file (if uploaded)
-if (!empty($profile_image) && (!empty($company_logo_img) && (!empty($company_logo_img)) {
+if (!empty($profile_image) && !empty($company_logo_img) && !empty($company_logo_img)) {
 $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
 $image_extension = strtolower(pathinfo($image, PATHINFO_EXTENSION));
 
@@ -209,7 +209,9 @@ if (!empty($image)) {
     
 
     // Move the uploaded image to the target directory
-    move_uploaded_file($temporary_location, 'dist/img/agent_image/' . $final_image_name);
+    move_uploaded_file($temporary_location, 'dist/img/agent_image/' . $final_image_profile);
+    move_uploaded_file($temporary_location, 'dist/img/agent_company_logo/' . $final_company_logo_img);
+    move_uploaded_file($temporary_location, 'dist/img/agent_registation_cartificate/' . $final_company_logo_img);
 
     // Insert data into the database
     $agent_insert = "INSERT INTO agents (name, email, password, phone, company, designation, year, 
