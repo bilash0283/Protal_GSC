@@ -3,7 +3,14 @@ include('login_include/header.php');
 ob_start();
 ?>
 
-<div class="card">
+
+<div class="login-logo mt-5">
+    <a href="index.php" class="text-center">
+      <b>Global Study Contacts</b>
+    </a>
+  </div>
+
+<div class="card" style="width:365px;margin:0 auto;">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
 

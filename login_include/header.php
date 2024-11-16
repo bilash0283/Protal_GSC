@@ -18,8 +18,5 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="index.php"><b>Global Study Contacts</b></a>
-  </div>
+<body class="hold-transition">
+<div class="">

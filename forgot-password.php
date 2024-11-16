@@ -4,7 +4,13 @@ session_start();
 ob_start();
 ?>
   <!-- /.login-logo -->
-  <div class="card">
+  <div class="login-logo mt-5">
+    <a href="index.php" class="text-center">
+      <b>Global Study Contacts</b>
+    </a>
+  </div>
+
+  <div class="card" style="width:365px;margin:0 auto;">
     <div class="card-body login-card-body">
       <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
 
