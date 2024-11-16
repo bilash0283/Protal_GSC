@@ -57,10 +57,10 @@ $agentname        = $_SESSION['name'];
             $branch_name               = $row['branch_name'];
             $swift_code                = $row['swift_code'];
             $fb_url                    = $row['fb_url'];
-            $website_url               = $row['website_url'];
+            $website_url               = $row['web_url'];
             $profile_image             = $row['image'];
-            $company_logo_img          = $row['company_logo_img'];
-            $company_reg_certificate   = $row['company_reg_certificate'];
+            // $company_logo_img          = $row['company_logo_img'];
+            // $company_reg_certificate   = $row['company_reg_certificate'];
         }
 
     }
@@ -84,7 +84,7 @@ $agentname        = $_SESSION['name'];
 
                                     <?php 
                             
-                                    if ($profile == '') { ?>
+                                    if ($profile_image == '') { ?>
                                     <img src="dist/img/agent_image/demo.png" class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
                                     <?php } else { ?>
                                     <img src="dist/img/agent_image/<?php echo $profile_image; ?>" class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
@@ -131,13 +131,13 @@ $agentname        = $_SESSION['name'];
                                             </tr>
 
                                             <tr>
-                                                <th>Comments</th>
-                                                <td><?php echo htmlspecialchars($comment); ?></td>
+                                                <th>Phone Number</th>
+                                                <td><?php echo htmlspecialchars($phone); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>Student Full Name</th>
-                                                <td><?php echo htmlspecialchars($name); ?></td>
+                                                <th>Designation</th>
+                                                <td><?php echo htmlspecialchars($designation); ?></td>
                                             </tr>
 
                                             <tr>
@@ -146,254 +146,64 @@ $agentname        = $_SESSION['name'];
                                             </tr>
 
                                             <tr>
-                                                <th>Student Phone No.</th>
-                                                <td><?php echo htmlspecialchars($phone); ?></td>
+                                                <th>Country</th>
+                                                <td><?php echo htmlspecialchars($country); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>Date Of Birth</th>
-                                                <td><?php echo htmlspecialchars($dob); ?></td>
+                                                <th>Company Name</th>
+                                                <td><?php echo htmlspecialchars($company_name); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>Gender</th>
-                                                <td><?php echo htmlspecialchars($gender); ?></td>
+                                                <th>Company Address</th>
+                                                <td><?php echo htmlspecialchars($company_address); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>Address (According To Passport)</th>
-                                                <td><?php echo htmlspecialchars($address); ?></td>
+                                                <th>company Year</th>
+                                                <td><?php echo htmlspecialchars($company_year); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>Student Nationality</th>
-                                                <td><?php echo htmlspecialchars($nationality); ?></td>
+                                                <th>Bank Name</th>
+                                                <td><?php echo htmlspecialchars($bank_name); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>Passport No.</th>
-                                                <td><?php echo htmlspecialchars($passport); ?></td>
+                                                <th>Bank Account Name</th>
+                                                <td><?php echo htmlspecialchars($bank_acc_name); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>SSC / O Level's GPA & Group</th>
-                                                <td><?php echo htmlspecialchars($ssc); ?></td>
+                                                <th>Bank Account Number</th>
+                                                <td><?php echo htmlspecialchars($bank_acc_number); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>SSC / O Level's Year Of Passing</th>
-                                                <td><?php echo htmlspecialchars($sscyear); ?></td>
+                                                <th>Bank Address</th>
+                                                <td><?php echo htmlspecialchars($bank_address); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>HSC / A Level's GPA & Group</th>
-                                                <td><?php echo htmlspecialchars($hsc); ?></td>
+                                                <th>Branch Name</th>
+                                                <td><?php echo htmlspecialchars($branch_name); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>HSC / A Level's Year Of Passing</th>
-                                                <td><?php echo htmlspecialchars($hscyear); ?></td>
+                                                <th>Bank Swift Code</th>
+                                                <td><?php echo htmlspecialchars($swift_code); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>Diploma Course & GPA</th>
-                                                <td><?php echo htmlspecialchars($diploma); ?></td>
+                                                <th>Facebook URL</th>
+                                                <td><?php echo htmlspecialchars($fb_url); ?></td>
                                             </tr>
 
                                             <tr>
-                                                <th>Diploma Year Of Passing</th>
-                                                <td><?php echo htmlspecialchars($diplomayear); ?></td>
+                                                <th>Website URL</th>
+                                                <td><?php echo htmlspecialchars($website_url); ?></td>
                                             </tr>
-
-                                            <tr>
-                                                <th>Bachelor's Major & CGPA</th>
-                                                <td><?php echo htmlspecialchars($undergrad); ?></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Bachelor's Year Of Passing</th>
-                                                <td><?php echo htmlspecialchars($undergradyear); ?></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Master's Major & CGPA</th>
-                                                <td><?php echo htmlspecialchars($level); ?></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Master's Year Of Passing</th>
-                                                <td><?php echo htmlspecialchars($qualificationyear); ?></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>English Test Result (Language Proficiency Tests)</th>
-                                                <td><?php echo htmlspecialchars($ielts); ?></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Preferable Program</th>
-                                                <td><?php 
-                                                    switch($program) {
-                                                        case 1: echo "Foundation"; break;
-                                                        case 2: echo "Bachelor's"; break;
-                                                        case 3: echo "Master's"; break;
-                                                        case 4: echo "Pre-Master's"; break;
-                                                    }
-                                                ?></td>
-                                            </tr>
- 
-                                            <tr>
-                                                <th>Preferable Intake</th>
-                                                <td><?php echo htmlspecialchars($semester); ?></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Study Destination</th>
-                                                <td><?php 
-                                                
-                                                if ($gscdestination != '') {
-                                                    echo htmlspecialchars($gscdestination); 
-                                                } else {
-                                                    switch($destination) {
-                                                        case 1: echo "USA"; break;
-                                                        case 2: echo "UK"; break;
-                                                        case 3: echo "Canada"; break;
-                                                        case 4: echo "Australia"; break;
-                                                        case 5: echo "Denmark"; break;
-                                                        case 6: echo "Cyprus"; break;
-                                                        case 7: echo "Ireland"; break;
-                                                        case 8: echo "Malaysia"; break;
-                                                        case 9: echo "Dubai"; break;
-                                                        case 10: echo "Hungary"; break;
-                                                        case 11: echo "Bulgaria"; break;
-                                                        case 12: echo "Malta"; break;
-                                                        case 13: echo "Romania"; break;
-                                                        case 14: echo "Russia"; break;
-                                                        case 15: echo "Turkey"; break;
-                                                        case 16: echo "Georgia"; break;
-                                                        case 17: echo "China"; break;
-                                                        case 18: echo "Latvia"; break;
-                                                        case 19: echo "Netherland"; break;
-                                                        case 20: echo "Poland"; break;
-                                                        case 21: echo "France"; break;
-                                                        case 22: echo "Spain"; break;
-                                                    }
-                                                }
-
-                                                ?></td>
-                                            </tr>
-                                
-
-                                            <tr>
-                                                <th>Preferable University</th>
-                                                <td>
-                                                <?php 
-                                                
-                                                if ($university == '') {
-                                                    echo htmlspecialchars($gscuniversity); 
-                                                } else {
-                                                    echo htmlspecialchars($university);
-                                                }
-
-                                                ?>
-
-                                                </td>
-                                            </tr>
-                                            
-
-                                            <tr>
-                                                <th>Preferable Subject</th>
-                                                <td><?php echo htmlspecialchars($subject); ?></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Student's Profile Picture</th>
-                                                <td>
-                                                    <?php 
-                                                    $profilename = $profile; 
-                                                    $profile_url = 'dist/student_profile/' . $profilename;
-                                                    ?>
-                                                    <a href="#" onclick="showPreviewModalProfile('<?php echo $profile_url; ?>'); return false;"><?php echo $profilename; ?></a>
-
-                                                    <!-- Modal for Profile Picture Preview -->
-                                                    <div id="previewModalProfile" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.8); align-items:center; justify-content:center;">
-                                                        <div style="background:rgba(255, 255, 255, 0.9); padding:20px; border-radius:8px; max-width:500px; text-align:center; box-shadow:0 4px 10px rgba(0, 0, 0, 0.3);">
-                                                            <img id="previewImageProfile" src="" alt="Profile Picture" style="max-width:100%; height:auto; border-radius:8px;">
-                                                            <a id="downloadLinkProfile" href="#" download>
-                                                                <button type="button" style="margin-top:10px;">Download</button>
-                                                            </a>
-                                                            <button type="button" onclick="closePreviewModalProfile()" style="margin-top:10px;">Cancel</button>
-                                                        </div>
-                                                    </div>
-
-                                                    <script>
-                                                        function showPreviewModalProfile(profileUrl) {
-                                                            document.getElementById("previewImageProfile").src = profileUrl;
-                                                            document.getElementById("downloadLinkProfile").href = profileUrl;
-                                                            document.getElementById("previewModalProfile").style.display = "flex";
-                                                        }
-
-                                                        function closePreviewModalProfile() {
-                                                            document.getElementById("previewModalProfile").style.display = "none";
-                                                        }
-                                                    </script>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Documents of Student (Initial File Upload)</th>
-                                                <td>
-                                                    <?php
-                                                    if ($count < 1) {
-                                                        $filename = $qualification;
-                                                        $file_url = 'dist/student_file/' . $filename;
-                                                    ?>
-                                                        <a href="#" onclick="showPreviewModalDocuments('<?php echo $file_url; ?>'); return false;"><?php echo $filename; ?></a>
-                                                    <?php } else {
-                                                        $i = 1;
-                                                        $filename = $qualification;
-                                                        $file_url = 'dist/student_file/' . $filename;
-                                                    ?>
-                                                        <a href="#" onclick="showPreviewModalDocuments('<?php echo $file_url; ?>'); return false;"><?php echo $i . ". " . $filename; ?></a>
-                                                        
-                                                        <?php
-                                                        $students = "SELECT * FROM missingfiles WHERE passport = '$passport' AND agent = '$agent' AND student = '$name'";
-                                                        $students_query = mysqli_query($db, $students);
-
-                                                        while ($row = mysqli_fetch_assoc($students_query)) {
-                                                            $file = $row['missing'];
-                                                            $file_url = 'dist/student_file_missing_documents/' . $file;
-                                                            $i++;
-                                                        ?>
-                                                            <br>
-                                                            <a href="#" onclick="showPreviewModalDocuments('<?php echo $file_url; ?>'); return false;"><?php echo $i . ". " . $file; ?></a>
-                                                        <?php }
-                                                    } ?>
-                                                </td>
-                                            </tr>
-
-                                            <!-- Modal for Document Preview -->
-                                            <div id="previewModalDocuments" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.8); align-items:center; justify-content:center;">
-                                                <div style="background:rgba(255, 255, 255, 0.9); padding:20px; border-radius:8px; max-width:500px; text-align:center; box-shadow:0 4px 10px rgba(0, 0, 0, 0.3);">
-                                                    <iframe id="previewFrameDocuments" src="" style="width:100%; height:400px; border:none;"></iframe>
-                                                    <a id="downloadLinkDocuments" href="#" download>
-                                                        <button type="button" style="margin-top:10px;">Download</button>
-                                                    </a>
-                                                    <button type="button" onclick="closePreviewModalDocuments()" style="margin-top:10px;">Cancel</button>
-                                                </div>
-                                            </div>
-
-                                            <script>
-                                                function showPreviewModalDocuments(fileUrl) {
-                                                    document.getElementById("previewFrameDocuments").src = fileUrl;
-                                                    document.getElementById("downloadLinkDocuments").href = fileUrl;
-                                                    document.getElementById("previewModalDocuments").style.display = "flex";
-                                                }
-
-                                                function closePreviewModalDocuments() {
-                                                    document.getElementById("previewModalDocuments").style.display = "none";
-                                                }
-                                            </script>
 
                                         </table>
 
