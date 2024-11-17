@@ -1,38 +1,38 @@
 <?php include('dashboard_include/header.php') ?>
 <?php ob_start(); ?>
-  <!-- Navbar -->
-  <?php include('dashboard_include/top_header.php') ?>
-  <!-- /.navbar -->
+<!-- Navbar -->
+<?php include('dashboard_include/top_header.php') ?>
+<!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <?php include('dashboard_include/sidebar.php')?>
+<!-- Main Sidebar Container -->
+<?php include('dashboard_include/sidebar.php') ?>
 
 <?php
-$agentname        = $_SESSION['name'];
+$agentname = $_SESSION['name'];
 ?>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Agent Information </h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard v1</li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard v1</li>
                     </ol>
                 </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
 
-<?php
+    <?php
     if (isset($_GET['id'])) {
 
         $view_id = $_GET['id'];
@@ -42,52 +42,47 @@ $agentname        = $_SESSION['name'];
 
         while ($row = mysqli_fetch_assoc($agents_query)) {
 
-            $agent_name                = $row['name'];
-            $phone                     = $row['phone'];
-            $designation               = $row['designation'];
-            $country                   = $row['country'];
-            $email                     = $row['email'];
-            $company_name              = $row['company'];
-            $company_address           = $row['address'];
-            $company_year              = $row['year'];
-            $bank_name                 = $row['bank_name'];
-            $bank_acc_name             = $row['bank_acc_name'];
-            $bank_acc_number           = $row['bank_acc_number'];
-            $bank_address              = $row['bank_address'];
-            $branch_name               = $row['branch_name'];
-            $swift_code                = $row['swift_code'];
-            $fb_url                    = $row['fb_url'];
-            $website_url               = $row['web_url'];
-            $profile_image             = $row['image'];
-            // $company_logo_img          = $row['company_logo_img'];
-            // $company_reg_certificate   = $row['company_reg_certificate'];
+            $agent_name = $row['name'];
+            $phone = $row['phone'];
+            $designation = $row['designation'];
+            $country = $row['country'];
+            $email = $row['email'];
+            $company_name = $row['company'];
+            $company_address = $row['address'];
+            $company_year = $row['year'];
+            $bank_name = $row['bank_name'];
+            $bank_acc_name = $row['bank_acc_name'];
+            $bank_acc_number = $row['bank_acc_number'];
+            $bank_address = $row['bank_address'];
+            $branch_name = $row['branch_name'];
+            $swift_code = $row['swift_code'];
+            $fb_url = $row['fb_url'];
+            $website_url = $row['web_url'];
+            $profile_image = $row['image'];
+            $company_logo_img = $row['company_logo'];
+            $company_reg_certificate = $row['company_reg_cert'];
         }
 
     }
 
-    
+    ?>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="card card-primary card-outline">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
 
+                                    <?php
 
-    
-?>
-
-
-
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-5">
-                            <div class="card card-primary card-outline">
-                                <div class="card-body box-profile">
-                                    <div class="text-center">
-
-                                    <?php 
-                            
                                     if ($profile_image == '') { ?>
-                                    <img src="dist/img/agent_image/demo.png" class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
+                                        <img src="dist/img/agent_image/demo.png"
+                                            class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
                                     <?php } else { ?>
-                                    <img src="dist/img/agent_image/<?php echo $profile_image; ?>" class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
+                                        <img src="dist/img/agent_image/<?php echo $profile_image; ?>"
+                                            class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
                                     <?php }
                                     ?>
 
@@ -96,27 +91,28 @@ $agentname        = $_SESSION['name'];
                         </div>
                     </div>
                 </div>
-            </section>
+    </section>
 
 
-            <!-- Main content -->
-            <section class="content">
-            <div class="container-fluid">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
 
-                <form action="" method="POST" enctype="multipart/form-data">
+            <form action="" method="POST" enctype="multipart/form-data">
 
-                    <div class="row">
+                <div class="row">
 
-                        <div class="col-md-12">
-                            <div class="card card-primary">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
 
                             <div class="card-header">
                                 <h3 class="card-title">Agent Details Information</h3>
 
                                 <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"
+                                        title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
                                 </div>
                             </div>
 
@@ -204,6 +200,121 @@ $agentname        = $_SESSION['name'];
                                                 <th>Website URL</th>
                                                 <td><?php echo htmlspecialchars($website_url); ?></td>
                                             </tr>
+                                            <tr>
+                                                <th>Agent Profile Picture</th>
+                                                <td>
+                                                    <?php
+                                                    $profilename = $profile_image;
+                                                    $profile_url = 'dist/img/agent_image/' . $profilename;
+                                                    ?>
+                                                    <a href="#"
+                                                        onclick="showPreviewModalProfile('<?php echo $profile_url; ?>'); return false;"><?php echo $profilename; ?></a>
+
+                                                    <!-- Modal for Profile Picture Preview -->
+                                                    <div id="previewModalProfile"
+                                                        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.8); align-items:center; justify-content:center;">
+                                                        <div
+                                                            style="background:rgba(255, 255, 255, 0.9); padding:20px; border-radius:8px; max-width:500px; text-align:center; box-shadow:0 4px 10px rgba(0, 0, 0, 0.3);">
+                                                            <img id="previewImageProfile" src="" alt="Profile Picture"
+                                                                style="max-width:100%; height:auto; border-radius:8px;">
+                                                            <a id="downloadLinkProfile" href="#" download>
+                                                                <button type="button"
+                                                                    style="margin-top:10px;">Download</button>
+                                                            </a>
+                                                            <button type="button" onclick="closePreviewModalProfile()"
+                                                                style="margin-top:10px;">Cancel</button>
+                                                        </div>
+                                                    </div>
+
+                                                    <script>
+                                                        function showPreviewModalProfile(profileUrl) {
+                                                            document.getElementById("previewImageProfile").src = profileUrl;
+                                                            document.getElementById("downloadLinkProfile").href = profileUrl;
+                                                            document.getElementById("previewModalProfile").style.display = "flex";
+                                                        }
+
+                                                        function closePreviewModalProfile() {
+                                                            document.getElementById("previewModalProfile").style.display = "none";
+                                                        }
+                                                    </script>
+                                                </td>
+                                            </tr>
+                                            <th>Company Logo</th>
+                                            <td>
+                                                <?php
+                                                $profilename = $company_logo_img;
+                                                $profile_url = 'dist/img/agent_company_logo/' . $profilename;
+                                                ?>
+                                                <a href="#"
+                                                    onclick="showPreviewModalProfile('<?php echo $profile_url; ?>'); return false;"><?php echo $profilename; ?></a>
+
+                                                <!-- Modal for Profile Picture Preview -->
+                                                <div id="previewModalProfile"
+                                                    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.8); align-items:center; justify-content:center;">
+                                                    <div
+                                                        style="background:rgba(255, 255, 255, 0.9); padding:20px; border-radius:8px; max-width:500px; text-align:center; box-shadow:0 4px 10px rgba(0, 0, 0, 0.3);">
+                                                        <img id="previewImageProfile" src="" alt="Profile Picture"
+                                                            style="max-width:100%; height:auto; border-radius:8px;">
+                                                        <a id="downloadLinkProfile" href="#" download>
+                                                            <button type="button"
+                                                                style="margin-top:10px;">Download</button>
+                                                        </a>
+                                                        <button type="button" onclick="closePreviewModalProfile()"
+                                                            style="margin-top:10px;">Cancel</button>
+                                                    </div>
+                                                </div>
+
+                                                <script>
+                                                    function showPreviewModalProfile(profileUrl) {
+                                                        document.getElementById("previewImageProfile").src = profileUrl;
+                                                        document.getElementById("downloadLinkProfile").href = profileUrl;
+                                                        document.getElementById("previewModalProfile").style.display = "flex";
+                                                    }
+
+                                                    function closePreviewModalProfile() {
+                                                        document.getElementById("previewModalProfile").style.display = "none";
+                                                    }
+                                                </script>
+                                            </td>
+                                            </tr>
+                                            <th>Company Registation Certificate</th>
+                                            <td>
+                                                <?php
+                                                $profilename = $company_reg_certificate;
+                                                $profile_url = 'dist/img/agent_registation_cartificate/' . $profilename;
+                                                ?>
+                                                <a href="#"
+                                                    onclick="showPreviewModalProfile('<?php echo $profile_url; ?>'); return false;"><?php echo $profilename; ?></a>
+
+                                                <!-- Modal for Profile Picture Preview -->
+                                                <div id="previewModalProfile"
+                                                    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.8); align-items:center; justify-content:center;">
+                                                    <div
+                                                        style="background:rgba(255, 255, 255, 0.9); padding:20px; border-radius:8px; max-width:500px; text-align:center; box-shadow:0 4px 10px rgba(0, 0, 0, 0.3);">
+                                                        <img id="previewImageProfile" src="" alt="Profile Picture"
+                                                            style="max-width:100%; height:auto; border-radius:8px;">
+                                                        <a id="downloadLinkProfile" href="#" download>
+                                                            <button type="button"
+                                                                style="margin-top:10px;">Download</button>
+                                                        </a>
+                                                        <button type="button" onclick="closePreviewModalProfile()"
+                                                            style="margin-top:10px;">Cancel</button>
+                                                    </div>
+                                                </div>
+
+                                                <script>
+                                                    function showPreviewModalProfile(profileUrl) {
+                                                        document.getElementById("previewImageProfile").src = profileUrl;
+                                                        document.getElementById("downloadLinkProfile").href = profileUrl;
+                                                        document.getElementById("previewModalProfile").style.display = "flex";
+                                                    }
+
+                                                    function closePreviewModalProfile() {
+                                                        document.getElementById("previewModalProfile").style.display = "none";
+                                                    }
+                                                </script>
+                                            </td>
+                                            </tr>
 
                                         </table>
 
@@ -214,27 +325,25 @@ $agentname        = $_SESSION['name'];
 
                             <!-- /.card-body -->
 
-                            </div>
-
                         </div>
-                    
+
                     </div>
 
-                    </form>
+                </div>
 
-        
+            </form>
+
+
         </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
 
 
-  <?php
-    ob_end_flush();
-   ?>
+<?php
+ob_end_flush();
+?>
 
-  <!-- /.main-footer -->
-   <?php include('dashboard_include/footer.php') ?>
-
-  
+<!-- /.main-footer -->
+<?php include('dashboard_include/footer.php') ?>

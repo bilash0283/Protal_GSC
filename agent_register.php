@@ -99,12 +99,12 @@ $successfull = null;
                             <input type="text" name="swift_code" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label class="input-group-text w-100" for="inputGroupFile01">Click Me To Upload Company Logo</label>
-                            <input type="file" class="form-control d-none" name="company_logo_img" id="inputGroupFile01">
+                            <label class="input-group-text w-100" for="company_logo_img1">Click Me To Upload Company Logo</label>
+                            <input type="file" class="form-control d-none" name="company_logo_img" id="company_logo_img1">
                         </div>
                         <div class="form-group">
-                            <label class="input-group-text w-100" for="inputGroupFile01">Company Registration Certificate</label>
-                            <input type="file" class="form-control d-none" name="company_reg_certificate" id="inputGroupFile01">
+                            <label class="input-group-text w-100" for="company_reg_certificate2">Company Registration Certificate</label>
+                            <input type="file" class="form-control d-none" name="company_reg_certificate" id="company_reg_certificate2">
                         </div>
                         <div class="form-group">
                             <label for="inputProjectLeader">Facebook URL</label>
@@ -143,28 +143,27 @@ while ($row = mysqli_fetch_assoc($emailquery)) {
 if (isset($_POST['submit'])) {
 
     // Collecting form data
-    $agent_name = $_POST['agent_name'];
-    $phone = $_POST['phone'];
-    $designation = $_POST['designation'];
-    $country = $_POST['country'];
-    $email = $_POST['email'];
-    $password = md5($_POST['password']);
-    $confirm_password = md5($_POST['confirm_password']);
-    $company_name = $_POST['company_name'];
-    $company_address = $_POST['company_address'];
-    $company_year = $_POST['company_year'];
-    $bank_name = $_POST['bank_name'];
-    $bank_acc_name = $_POST['bank_acc_name'];
-    $bank_acc_number = $_POST['bank_acc_number'];
-    $bank_address = $_POST['bank_address'];
-    $branch_name = $_POST['branch_name'];
-    $swift_code = $_POST['swift_code'];
-    $status = '2'; // default value
-    $role = '2'; // default value
-    $fb_url = $_POST['fb_url'];
-    $website_url = $_POST['website_url'];
-    
-    // Handle file uploads
+    $agent_name             = $_POST['agent_name'];
+    $phone                  = $_POST['phone'];
+    $designation            = $_POST['designation'];
+    $country                = $_POST['country'];
+    $email                  = $_POST['email'];
+    $password               = md5($_POST['password']);
+    $confirm_password       = md5($_POST['confirm_password']);
+    $company_name           = $_POST['company_name'];
+    $company_address        = $_POST['company_address'];
+    $company_year           = $_POST['company_year'];
+    $bank_name              = $_POST['bank_name'];
+    $bank_acc_name          = $_POST['bank_acc_name'];
+    $bank_acc_number        = $_POST['bank_acc_number'];
+    $bank_address           = $_POST['bank_address'];
+    $branch_name            = $_POST['branch_name'];
+    $swift_code             = $_POST['swift_code'];
+    $status                 = '2'; // default value
+    $role                   = '2'; // default value
+    $fb_url                 = $_POST['fb_url'];
+    $website_url            = $_POST['website_url'];
+
     $profile_image = $_FILES['profile_image']['name'];
     $company_logo_img = $_FILES['company_logo_img']['name'];
     $company_reg_certificate = $_FILES['company_reg_certificate']['name'];
@@ -283,6 +282,8 @@ if (isset($_POST['submit'])) {
             echo "<div class='alert alert-danger mt-2'>$error</div>";
         }
     }
+
+    
 }
 ?>
 
