@@ -218,8 +218,8 @@ if ($_SESSION['role'] == 1) { ?>
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="submit" name="submit" value="Update Client"
-                                                    class="btn btn-lg btn-primary">
+                                                <input type="submit" name="submit" value="Update Agent"
+                                                    class="btn btn-lg btn-primary px-2">
                                             </div>
 
 
@@ -245,7 +245,6 @@ if ($_SESSION['role'] == 1) { ?>
                     $phone = $_POST['phone'];
                     $designation = $_POST['designation'];
                     $company = $_POST['company'];
-                    $year = $_POST['year'];
                     $address = $_POST['address'];
                     $country = $_POST['country'];
                     $status = $_POST['status'];
@@ -294,7 +293,6 @@ if ($_SESSION['role'] == 1) { ?>
                         phone = '$phone', 
                         designation = '$designation', 
                         company = '$company', 
-                        year = '$year', 
                         address = '$address', 
                         country = '$country', 
                         status = '$status', 
