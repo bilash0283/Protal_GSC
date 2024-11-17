@@ -56,8 +56,8 @@ $successfull = null;
                             <input type="password" name="confirm_password" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label class="input-group-text w-100" for="inputGroupFile01">Click Me To Upload Profile Image *</label>
-                            <input type="file" class="form-control d-none" name="profile_image" id="inputGroupFile01" required>
+                            <label class="input-group" for="inputGroupFile01">Click Me To Upload Profile Image *</label>
+                            <input type="file" class="form-control" name="profile_image" id="inputGroupFile01" required>
                         </div>
                         <div class="form-group">
                             <label for="inputClientCompany"> Company Name *</label>
@@ -99,12 +99,12 @@ $successfull = null;
                             <input type="text" name="swift_code" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label class="input-group-text w-100" for="company_logo_img1">Click Me To Upload Company Logo</label>
-                            <input type="file" class="form-control d-none" name="company_logo_img" id="company_logo_img1">
+                            <label class="input-group" for="company_logo_img1">Click Me To Upload Company Logo</label>
+                            <input type="file" class="form-control" name="company_logo_img" id="company_logo_img1">
                         </div>
                         <div class="form-group">
-                            <label class="input-group-text w-100" for="company_reg_certificate2">Company Registration Certificate</label>
-                            <input type="file" class="form-control d-none" name="company_reg_certificate" id="company_reg_certificate2">
+                            <label class="input-group" for="company_reg_certificate2">Company Registration Certificate</label>
+                            <input type="file" class="form-control" name="company_reg_certificate" id="company_reg_certificate2">
                         </div>
                         <div class="form-group">
                             <label for="inputProjectLeader">Facebook URL</label>
@@ -113,7 +113,7 @@ $successfull = null;
                         <div class="form-group">
                             <label for="inputClientCompany">Website URL</label>
                             <input type="url" name="website_url" id="inputClientCompany" class="form-control" >
-                        </div>
+                        </div> 
                         <p class="mb-0">
                             <a href="index.php" class="text-center">I already have an Agent</a>
                         </p>
@@ -228,8 +228,8 @@ if (isset($_POST['submit'])) {
         // Generate unique filenames for uploaded files
         $rand = rand(0, 999999);
         $final_profile_image = time() . "_" . $rand . "_" . $profile_image;
-        $final_logo_image = time() . "_" . $rand . "_" . $company_logo_img;
-        $final_cert_image = time() . "_" . $rand . "_" . $company_reg_certificate;
+        // $final_logo_image = time() . "_" . $rand . "_" . $company_logo_img;
+        // $final_cert_image = time() . "_" . $rand . "_" . $company_reg_certificate;
 
         // Define directories
         $upload_dir_profile = 'dist/img/agent_image/';
@@ -243,12 +243,12 @@ if (isset($_POST['submit'])) {
             }
         }
         if (!empty($company_logo_img)) {
-            if (!move_uploaded_file($logo_temp, $upload_dir_logo . $final_logo_image)) {
+            if (!move_uploaded_file($logo_temp, $upload_dir_logo . $logo_temp)) {
                 $errors[] = "Error uploading company logo image.";
             }
         }
         if (!empty($company_reg_certificate)) {
-            if (!move_uploaded_file($cert_temp, $upload_dir_cert . $final_cert_image)) {
+            if (!move_uploaded_file($cert_temp, $upload_dir_cert . $cert_temp)) {
                 $errors[] = "Error uploading company registration certificate.";
             }
         }
@@ -259,7 +259,7 @@ if (isset($_POST['submit'])) {
             $agent_insert = "INSERT INTO agents 
             (name, email, password, phone, company, designation, year, country, role, status, address, image, joining, bank_name, bank_acc_name, bank_acc_number, bank_address, branch_name, swift_code, company_logo, company_reg_cert, fb_url, web_url) 
             VALUES 
-            ('$agent_name', '$email', '$password', '$phone', '$company_name', '$designation', '$company_year', '$country', '$role', '$status', '$company_address', '$final_profile_image', NOW(), '$bank_name', '$bank_acc_name', '$bank_acc_number', '$bank_address', '$branch_name', '$swift_code', '$final_logo_image', '$final_cert_image', '$fb_url', '$website_url')";
+            ('$agent_name', '$email', '$password', '$phone', '$company_name', '$designation', '$company_year', '$country', '$role', '$status', '$company_address', '$final_profile_image', NOW(), '$bank_name', '$bank_acc_name', '$bank_acc_number', '$bank_address', '$branch_name', '$swift_code', '$logo_temp', '$cert_temp', '$fb_url', '$website_url')";
 
             $agent_sql = mysqli_query($db, $agent_insert);
 

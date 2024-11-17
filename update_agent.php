@@ -250,118 +250,87 @@ if ($_SESSION['role'] == 1) { ?>
                     $country = $_POST['country'];
                     $status = $_POST['status'];
                     $role = $_POST['role'];
-                    $image = $_FILES['image']['name'];
-                    $temporary_location = $_FILES['image']['tmp_name'];
                     $fb_url = $_POST['fb_url'];
                     $web_url = $_POST['web_url'];
 
-                    $company_logo =$_FILES['company_logo']['name'];
-                    $company_logo_location = $_FILES['company_logo']['tmp_name'];
+                    // Handle Image upload
+                    $image = $_FILES['image']['name'];
+                    $image_tmp_location = $_FILES['image']['tmp_name'];
+                    $final_image_name = '';
 
-                    $company_reg_cart =$_FILES['company_reg_cart']['name'];
-                    $company_reg_cart_location = $_FILES['company_reg_cart']['tmp_name'];
+                    // Handle Company Logo upload
+                    $company_logo = $_FILES['company_logo']['name'];
+                    $company_logo_tmp_location = $_FILES['company_logo']['tmp_name'];
+                    $final_company_logo_name = '';
 
+                    // Handle Company Registration Certificate upload
+                    $company_reg_cart = $_FILES['company_reg_cart']['name'];
+                    $company_reg_cart_tmp_location = $_FILES['company_reg_cart']['tmp_name'];
+                    $final_company_reg_cart_name = '';
 
-                    if (!empty($image) ) {
+                    // Generate random file names if files are uploaded
+                    if (!empty($image)) {
                         $rand = rand(0, 999999);
-                        $final_image_name = 'agent_photo' . "_" . $rand . time() . $image;
-
-                        move_uploaded_file($temporary_location, 'dist/img/agent_image/' . $final_image_name);
-
-                        $update_agent = "UPDATE agents SET name = '$name', email = '$email', phone = '$phone',
-                    designation = '$designation', company = '$company', year = '$year', address = '$address', 
-                    country = '$country', status = '$status', role = '$role', image = '$final_image_name', fb_url = '$fb_url', web_url = '$web_url' 
-                    WHERE id = '$edit_id'";
-
-                        $agent_sql = mysqli_query($db, $update_agent);
-
-                        if ($agent_sql) {
-                            header('location:agent.php');
-                        } else {
-                            echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
-                        }
-                    } else {
-                        $update_agent = "UPDATE agents SET name = '$name', email = '$email', phone = '$phone',
-                        designation = '$designation', company = '$company', year = '$year', address = '$address', 
-                        country = '$country', status = '$status', role = '$role', fb_url = '$fb_url', web_url = '$web_url' WHERE id = '$edit_id'";
-
-                        $agent_sql = mysqli_query($db, $update_agent);
-
-                        if ($agent_sql) {
-                            header('location:agent.php');
-                        } else {
-                            echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
-                        }
+                        $final_image_name = 'agent_photo_' . $rand . time() . $image;
+                        move_uploaded_file($image_tmp_location, 'dist/img/agent_image/' . $final_image_name);
                     }
 
-                    if (!empty($company_logo) ) {
+                    if (!empty($company_logo)) {
                         $rand = rand(0, 999999);
-                        $final_image_namr = 'agent_company_logo' . "_" . $rand . time() . $company_logo;
-
-                        move_uploaded_file($company_logo_location, 'dist/img/agent_company_logo/' . $final_image_namr);
-
-                        $update_agent = "UPDATE agents SET name = '$name', email = '$email', phone = '$phone',
-                    designation = '$designation', company = '$company', year = '$year', address = '$address', 
-                    country = '$country', status = '$status', role = '$role', image = '$final_image_name', company_logo = '$final_image_namr', fb_url = '$fb_url', web_url = '$web_url' 
-                    WHERE id = '$edit_id'";
-
-                        $agent_sql = mysqli_query($db, $update_agent);
-
-                        if ($agent_sql) {
-                            header('location:agent.php');
-                        } else {
-                            echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
-                        }
-                    } else {
-                        $update_agent = "UPDATE agents SET name = '$name', email = '$email', phone = '$phone',
-                        designation = '$designation', company = '$company', year = '$year', address = '$address', 
-                        country = '$country', status = '$status', role = '$role', fb_url = '$fb_url', web_url = '$web_url' WHERE id = '$edit_id'";
-
-                        $agent_sql = mysqli_query($db, $update_agent);
-
-                        if ($agent_sql) {
-                            header('location:agent.php');
-                        } else {
-                            echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
-                        }
+                        $final_company_logo_name = 'agent_company_logo_' . $rand . time() . $company_logo;
+                        move_uploaded_file($company_logo_tmp_location, 'dist/img/agent_company_logo/' . $final_company_logo_name);
                     }
 
-                    if (!empty($company_reg_cart) ) {
+                    if (!empty($company_reg_cart)) {
                         $rand = rand(0, 999999);
-                        $final_image_namrr = 'agent_companry_reg_car' . "_" . $rand . time() . $final_image_namrr;
-
-                        move_uploaded_file($company_reg_cart_location, 'dist/img/agent_registation_cartificate/'.$final_image_namrr);
-
-                        $update_agent = "UPDATE agents SET name = '$name', email = '$email', phone = '$phone',
-                    designation = '$designation', company = '$company', year = '$year', address = '$address', 
-                    country = '$country', status = '$status', role = '$role', image = '$final_image_name', company_logo = '$final_image_namr', company_reg_cert = '$final_image_namrr', fb_url = '$fb_url', web_url = '$web_url' 
-                    WHERE id = '$edit_id'";
-
-                        $agent_sql = mysqli_query($db, $update_agent);
-
-                        if ($agent_sql) {
-                            header('location:agent.php');
-                        } else {
-                            echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
-                        }
-                    } else {
-                        $update_agent = "UPDATE agents SET name = '$name', email = '$email', phone = '$phone',
-                        designation = '$designation', company = '$company', year = '$year', address = '$address', 
-                        country = '$country', status = '$status', role = '$role', fb_url = '$fb_url', web_url = '$web_url' WHERE id = '$edit_id'";
-
-                        $agent_sql = mysqli_query($db, $update_agent);
-
-                        if ($agent_sql) {
-                            header('location:agent.php');
-                        } else {
-                            echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
-                        }
+                        $final_company_reg_cart_name = 'agent_company_reg_cart_' . $rand . time() . $company_reg_cart;
+                        move_uploaded_file($company_reg_cart_tmp_location, 'dist/img/agent_registation_cartificate/' . $final_company_reg_cart_name);
                     }
-                
 
+                    // Construct the SQL query to update the agent's information
+                    $update_agent = "UPDATE agents SET 
+                        name = '$name', 
+                        email = '$email', 
+                        phone = '$phone', 
+                        designation = '$designation', 
+                        company = '$company', 
+                        year = '$year', 
+                        address = '$address', 
+                        country = '$country', 
+                        status = '$status', 
+                        role = '$role', 
+                        fb_url = '$fb_url', 
+                        web_url = '$web_url'";
+
+                    // Include file upload fields in the query if files are uploaded
+                    if (!empty($final_image_name)) {
+                        $update_agent .= ", image = '$final_image_name'";
+                    }
+
+                    if (!empty($final_company_logo_name)) {
+                        $update_agent .= ", company_logo = '$final_company_logo_name'";
+                    }
+
+                    if (!empty($final_company_reg_cart_name)) {
+                        $update_agent .= ", company_reg_cert = '$final_company_reg_cart_name'";
+                    }
+
+                    // Add WHERE condition to update specific agent
+                    $update_agent .= " WHERE id = '$edit_id'";
+
+                    // Execute the query
+                    $agent_sql = mysqli_query($db, $update_agent);
+
+                    // Check if the query was successful and redirect
+                    if ($agent_sql) {
+                        header('Location: agent.php');
+                        exit();
+                    } else {
+                        echo "<div class='alert alert-danger mt-2'>An Error Occurred!</div>";
+                    }
                 }
-
                 ?>
+
                 <!-- Form Updating Code -->
 
             </div><!-- /.container-fluid -->

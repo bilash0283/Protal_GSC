@@ -89,9 +89,9 @@ if ($_SESSION['role'] == 1) { ?>
                                         required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="input-group-text w-100" for="inputGroupFile01">Click Me To Upload Profile
+                                    <label class="input-group" for="inputGroupFile01">Click Me To Upload Profile
                                         Image *</label>
-                                    <input type="file" class="form-control d-none" name="profile_image"
+                                    <input type="file" class="form-control" name="profile_image"
                                         id="inputGroupFile01" required>
                                 </div>
                                 <div class="form-group">
@@ -138,15 +138,15 @@ if ($_SESSION['role'] == 1) { ?>
                                     <input type="text" name="swift_code" id="inputName" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="input-group-text w-100" for="company_logo_img1">Click Me To Upload Company
+                                    <label class="input-group" for="company_logo_img1">Click Me To Upload Company
                                         Logo</label>
-                                    <input type="file" class="form-control d-none" name="company_logo_img"
+                                    <input type="file" class="form-control" name="company_logo_img"
                                         id="company_logo_img1">
                                 </div>
                                 <div class="form-group">
-                                    <label class="input-group-text w-100" for="company_reg_certificate2">Company
+                                    <label class="input-group" for="company_reg_certificate2">Company
                                         Registration Certificate</label>
-                                    <input type="file" class="form-control d-none" name="company_reg_certificate"
+                                    <input type="file" class="form-control" name="company_reg_certificate"
                                         id="company_reg_certificate2">
                                 </div>
                                 <div class="form-group">
