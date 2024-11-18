@@ -150,7 +150,7 @@ if ($_SESSION['role'] == 1) { ?>
 
                                             <div class="form-group">
                                                 <label for="inputProjectLeader">Email</label>
-                                                <input type="email" name="email" value="<?php echo $email; ?>"
+                                                <input type="email" disabled name="email" value="<?php echo $email; ?>"
                                                     id="inputProjectLeader" class="form-control">
                                             </div>
                                             <div>
@@ -167,12 +167,6 @@ if ($_SESSION['role'] == 1) { ?>
                                                 <input type="file" name="image" id="inputName">
                                             </div>
 
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="card-body">
-
                                             <div class="form-group">
                                                 <label for="inputName">Bank Name</label>
                                                 <input type="text" name="bank_name" value="<?php echo $bank_name; ?>" id="inputName"
@@ -184,6 +178,12 @@ if ($_SESSION['role'] == 1) { ?>
                                                 <input type="text" name="bank_acc_name" value="<?php echo $bank_acc_name; ?>" id="inputName"
                                                     class="form-control">
                                             </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="card-body">
 
                                             <div class="form-group">
                                                 <label for="inputName">Bank Account Number</label>
@@ -200,6 +200,12 @@ if ($_SESSION['role'] == 1) { ?>
                                             <div class="form-group">
                                                 <label for="inputName">Branch Name</label>
                                                 <input type="text" name="branch_name" value="<?php echo $branch_name; ?>" id="inputName"
+                                                    class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="inputName">Bank Swift Code</label>
+                                                <input type="text" name="swift_code" value="<?php echo $branch_name; ?>" id="inputName"
                                                     class="form-control">
                                             </div>
 
@@ -297,16 +303,25 @@ if ($_SESSION['role'] == 1) { ?>
                 if (isset($_POST['submit'])) {
 
                     $name = $_POST['name'];
-                    $email = $_POST['email'];
-                    $phone = $_POST['phone'];
                     $designation = $_POST['designation'];
                     $company = $_POST['company'];
                     $address = $_POST['address'];
+                    $company_year = $_POST['year'];
                     $country = $_POST['country'];
-                    $status = $_POST['status'];
-                    $role = $_POST['role'];
+                    $phone = $_POST['phone'];
                     $fb_url = $_POST['fb_url'];
                     $web_url = $_POST['web_url'];
+                    $bank_name = $_POST['bank_name'];
+                    $bank_acc_name = $_POST['bank_acc_name'];
+                    $bank_acc_number = $_POST['bank_acc_number'];
+                    $bank_address = $_POST['bank_address'];
+                    $branch_name = $_POST['branch_name'];
+                    $swift_code = $_POST['swift_code'];
+                    $status = $_POST['status'];
+                    $role = $_POST['role'];
+
+
+
 
                     // Handle Image upload
                     $image = $_FILES['image']['name'];
@@ -345,16 +360,23 @@ if ($_SESSION['role'] == 1) { ?>
                     // Construct the SQL query to update the agent's information
                     $update_agent = "UPDATE agents SET 
                         name = '$name', 
-                        email = '$email', 
-                        phone = '$phone', 
                         designation = '$designation', 
                         company = '$company', 
                         address = '$address', 
+                        year = '$company_year',
                         country = '$country', 
+                        phone = '$phone', 
+                        fb_url = '$fb_url',
+                        web_url = '$web_url',
+                        bank_name = '$bank_name',
+                        bank_acc_name = '$bank_acc_name',
+                        bank_acc_number = '$bank_acc_number',
+                        bank_address = '$bank_address',
+                        branch_name = '$branch_name',
+                        swift_code = '$swift_code',
                         status = '$status', 
-                        role = '$role', 
-                        fb_url = '$fb_url', 
-                        web_url = '$web_url'";
+                        role = '$role'";
+
 
                     // Include file upload fields in the query if files are uploaded
                     if (!empty($final_image_name)) {
