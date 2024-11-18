@@ -3,7 +3,6 @@ include('login_include/header.php');
 session_start();
 ob_start();
 ?>
-<h1>Today done</h1>
 <div class="text-center login-logo my-5">
   <a href="index.php"><b>Global Study Contacts</b></a>
 </div>
