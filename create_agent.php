@@ -54,116 +54,104 @@ if ($_SESSION['role'] == 1) { ?>
                     <div class="card-header text-center top-fixed">
                         <h3 class="card-title">Agent Registation </h3>
                     </div>
-                    <div class="card-body">
-                        <div class="row">
+                        <div class="card-body">
+                            <div class="row">
                             <div class="col-12 col-md-6 px-2">
-                                <!-- input file start  -->
-                                <div class="form-group">
-                                    <label for="inputName">Agent Name *</label>
-                                    <input type="text" name="agent_name" id="inputName" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName"> Phone *</label>
-                                    <input type="text" name="phone" id="inputName" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputProjectLeader">Designation*</label>
-                                    <input type="text" name="designation" id="inputProjectLeader" class="form-control"
-                                        required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputProjectLeader">Country *</label>
-                                    <input type="text" name="country" id="inputProjectLeader" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName">Email *</label>
-                                    <input type="email" name="email" id="inputName" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName">Password *</label>
-                                    <input type="password" name="password" id="inputName" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName">Confirm Password *</label>
-                                    <input type="password" name="confirm_password" id="inputName" class="form-control"
-                                        required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="input-group" for="inputGroupFile01">Click Me To Upload Profile
-                                        Image *</label>
-                                    <input type="file" class="form-control" name="profile_image"
-                                        id="inputGroupFile01" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputClientCompany"> Company Name *</label>
-                                    <input type="text" name="company_name" id="inputClientCompany" class="form-control"
-                                        required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputProjectLeader">Company Address *</label>
-                                    <input type="text" name="company_address" id="inputProjectLeader" class="form-control"
-                                        required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputClientCompany">Company Year of Establishment *</label>
-                                    <input type="text" name="company_year" id="inputClientCompany" class="form-control"
-                                        required>
-                                </div>
+                            <!-- input file start  -->
+                            <div class="form-group">
+                                <label for="inputName">Agent Name *</label>
+                                <input type="text" name="agent_name" id="inputName" class="form-control" required>
                             </div>
-                            <!-- input file end(1) -->
-                            <div class="col-12 col-md-6 px-2">
-                                <div class="form-group">
-                                    <label for="inputName">Bank Name *</label>
-                                    <input type="text" name="bank_name" id="inputName" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName">Bank Account Name *</label>
-                                    <input type="text" name="bank_acc_name" id="inputName" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName">Bank Account Number *</label>
-                                    <input type="number" name="bank_acc_number" id="inputName" class="form-control"
-                                        required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName">Bank Address *</label>
-                                    <input type="text" name="bank_address" id="inputName" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName">Branch Name *</label>
-                                    <input type="text" name="branch_name" id="inputName" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName">Bank Swift Code *</label>
-                                    <input type="text" name="swift_code" id="inputName" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="input-group" for="company_logo_img1">Click Me To Upload Company
-                                        Logo</label>
-                                    <input type="file" class="form-control" name="company_logo_img"
-                                        id="company_logo_img1">
-                                </div>
-                                <div class="form-group">
-                                    <label class="input-group" for="company_reg_certificate2">Company
-                                        Registration Certificate</label>
-                                    <input type="file" class="form-control" name="company_reg_certificate"
-                                        id="company_reg_certificate2">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputProjectLeader">Facebook URL</label>
-                                    <input type="url" name="fb_url" id="inputProjectLeader" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputClientCompany">Website URL</label>
-                                    <input type="url" name="website_url" id="inputClientCompany" class="form-control">
-                                </div>
-                                <p class="mb-0">
-                                    <a href="index.php" class="text-center">I already have an Agent</a>
-                                </p>
-                                <button type="submit" name="submit" class="btn btn-primary btn-block btn-arrow px-4 mt-3">
-                                    Register Now <i class="fas fa-arrow-right ml-3"></i>
-                                </button>
+                            <div class="form-group">
+                                <label for="inputProjectLeader">Designation*</label>
+                                <input type="text" name="designation" id="inputProjectLeader" class="form-control" required>
                             </div>
+                            <div class="form-group">
+                                <label for="inputClientCompany"> Company Name *</label>
+                                <input type="text" name="company_name" id="inputClientCompany" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputProjectLeader">Company Address *</label>
+                                <input type="text" name="company_address" id="inputProjectLeader" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputClientCompany">Company Year of Establishment *</label>
+                                <input type="text" name="company_year" id="inputClientCompany" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputProjectLeader">Country *</label>
+                                <input type="text" name="country" id="inputProjectLeader" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName"> Phone *</label>
+                                <input type="text" name="phone" id="inputName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName">Email *</label>
+                                <input type="email" name="email" id="inputName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="input-group" for="inputGroupFile01">Click Me To Upload Profile Image </label>
+                                <input type="file" class="form-control" name="profile_image" id="inputGroupFile01">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName">Password *</label>
+                                <input type="password" name="password" id="inputName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName">Confirm Password *</label>
+                                <input type="password" name="confirm_password" id="inputName" class="form-control" required>
+                            </div>
+                        </div>  
+                        <!-- input file end(1) -->
+                        <div class="col-12 col-md-6 px-2">
+                            <div class="form-group">
+                                <label for="inputName">Bank Name </label>
+                                <input type="text" name="bank_name" id="inputName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName">Bank Account Name </label>
+                                <input type="text" name="bank_acc_name" id="inputName" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName">Bank Account Number </label>
+                                <input type="number" name="bank_acc_number" id="inputName" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName">Bank Address </label>
+                                <input type="text" name="bank_address" id="inputName" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName">Branch Name </label>
+                                <input type="text" name="branch_name" id="inputName" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName">Bank Swift Code </label>
+                                <input type="text" name="swift_code" id="inputName" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <label class="input-group" for="company_logo_img1">Click Me To Upload Company Logo</label>
+                                <input type="file" class="form-control" name="company_logo_img" id="company_logo_img1">
+                            </div>
+                            <div class="form-group">
+                                <label class="input-group" for="company_reg_certificate2">Company Registration Certificate</label>
+                                <input type="file" class="form-control" name="company_reg_certificate" id="company_reg_certificate2">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputProjectLeader">Facebook URL</label>
+                                <input type="url" name="fb_url" id="inputProjectLeader" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <label for="inputClientCompany">Website URL</label>
+                                <input type="url" name="website_url" id="inputClientCompany" class="form-control" >
+                            </div> 
+                            <p class="mb-0">
+                                <a href="index.php" class="text-center">I already have an Agent</a>
+                            </p>
+                            <button type="submit" name="submit" class="btn btn-primary btn-block btn-arrow px-4 mt-3">
+                                Register Now <i class="fas fa-arrow-right ml-3"></i>
+                            </button>
+                        </div>
                         </div>
                     </div>
                 </div>

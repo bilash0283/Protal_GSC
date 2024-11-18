@@ -32,32 +32,8 @@ $successfull = null;
                             <input type="text" name="agent_name" id="inputName" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="inputName"> Phone *</label>
-                            <input type="text" name="phone" id="inputName" class="form-control" required>
-                        </div>
-                        <div class="form-group">
                             <label for="inputProjectLeader">Designation*</label>
                             <input type="text" name="designation" id="inputProjectLeader" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputProjectLeader">Country *</label>
-                            <input type="text" name="country" id="inputProjectLeader" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputName">Email *</label>
-                            <input type="email" name="email" id="inputName" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputName">Password *</label>
-                            <input type="password" name="password" id="inputName" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputName">Confirm Password *</label>
-                            <input type="password" name="confirm_password" id="inputName" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="input-group" for="inputGroupFile01">Click Me To Upload Profile Image *</label>
-                            <input type="file" class="form-control" name="profile_image" id="inputGroupFile01" required>
                         </div>
                         <div class="form-group">
                             <label for="inputClientCompany"> Company Name *</label>
@@ -71,32 +47,56 @@ $successfull = null;
                             <label for="inputClientCompany">Company Year of Establishment *</label>
                             <input type="text" name="company_year" id="inputClientCompany" class="form-control" required>
                         </div>
+                        <div class="form-group">
+                            <label for="inputProjectLeader">Country *</label>
+                            <input type="text" name="country" id="inputProjectLeader" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName"> Phone *</label>
+                            <input type="text" name="phone" id="inputName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName">Email *</label>
+                            <input type="email" name="email" id="inputName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="input-group" for="inputGroupFile01">Click Me To Upload Profile Image </label>
+                            <input type="file" class="form-control" name="profile_image" id="inputGroupFile01">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName">Password *</label>
+                            <input type="password" name="password" id="inputName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName">Confirm Password *</label>
+                            <input type="password" name="confirm_password" id="inputName" class="form-control" required>
+                        </div>
                     </div>  
                     <!-- input file end(1) -->
                     <div class="col-12 col-md-6 px-2">
                         <div class="form-group">
-                            <label for="inputName">Bank Name *</label>
-                            <input type="text" name="bank_name" id="inputName" class="form-control" required>
+                            <label for="inputName">Bank Name </label>
+                            <input type="text" name="bank_name" id="inputName" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="inputName">Bank Account Name *</label>
-                            <input type="text" name="bank_acc_name" id="inputName" class="form-control" required>
+                            <label for="inputName">Bank Account Name </label>
+                            <input type="text" name="bank_acc_name" id="inputName" class="form-control" >
                         </div>
                         <div class="form-group">
-                            <label for="inputName">Bank Account Number *</label>
-                            <input type="number" name="bank_acc_number" id="inputName" class="form-control" required>
+                            <label for="inputName">Bank Account Number </label>
+                            <input type="number" name="bank_acc_number" id="inputName" class="form-control" >
                         </div>
                         <div class="form-group">
-                            <label for="inputName">Bank Address *</label>
-                            <input type="text" name="bank_address" id="inputName" class="form-control" required>
+                            <label for="inputName">Bank Address </label>
+                            <input type="text" name="bank_address" id="inputName" class="form-control" >
                         </div>
                         <div class="form-group">
-                            <label for="inputName">Branch Name *</label>
-                            <input type="text" name="branch_name" id="inputName" class="form-control" required>
+                            <label for="inputName">Branch Name </label>
+                            <input type="text" name="branch_name" id="inputName" class="form-control" >
                         </div>
                         <div class="form-group">
-                            <label for="inputName">Bank Swift Code *</label>
-                            <input type="text" name="swift_code" id="inputName" class="form-control" required>
+                            <label for="inputName">Bank Swift Code </label>
+                            <input type="text" name="swift_code" id="inputName" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label class="input-group" for="company_logo_img1">Click Me To Upload Company Logo</label>
