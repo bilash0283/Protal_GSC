@@ -5,8 +5,6 @@ ob_start();
 $successfull = null;
 ?>
 
-<h1>Done</h1>
-
 <div class="text-center login-logo mt-3">
   <a href="index.php"><b>New Agent Registation Form</b></a>
 </div>
