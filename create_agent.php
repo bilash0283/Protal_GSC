@@ -285,6 +285,7 @@ if ($_SESSION['role'] == 1) { ?>
                     }
                 }
 
+                
                 // If no errors occurred during the upload process
                 if (empty($errors)) {
                     // Insert data into the database

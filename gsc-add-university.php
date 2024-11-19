@@ -73,7 +73,9 @@ $add_id           = $_GET['add'];
                             </div>
 
                             <div class="form-group">  
-                              <label for="inputProjectLeader">Please upload Student's documents (CV) in a single PDF File.</label>
+                            <!-- Please upload Student's documents (CV) in a single PDF File -->
+                              <label for="inputProjectLeader">Please upload Student's All documents in a single PDF File </label>
+                              <p class="text-sm text-red">(Ex.Passport,All Certificate & Transcript,CV,IELTS,Reference Letter & Others)</p>
                               <input type="file" name="image" id="inputName" required>
                             </div>
 
