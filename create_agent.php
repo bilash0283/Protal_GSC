@@ -138,11 +138,11 @@ if ($_SESSION['role'] == 1) { ?>
                                 <input type="file" class="form-control" name="company_reg_certificate" id="company_reg_certificate2">
                             </div>
                             <div class="form-group">
-                                <label for="inputProjectLeader">Facebook URL</label>
+                                <label for="inputProjectLeader">Company Facebook URL</label>
                                 <input type="url" name="fb_url" id="inputProjectLeader" class="form-control" >
                             </div>
                             <div class="form-group">
-                                <label for="inputClientCompany">Website URL</label>
+                                <label for="inputClientCompany">Company Website URL</label>
                                 <input type="url" name="website_url" id="inputClientCompany" class="form-control" >
                             </div> 
                             <p class="mb-0">
