@@ -169,6 +169,7 @@ if ($_SESSION['role'] == 1) { ?>
         while ($row = mysqli_fetch_assoc($emailquery)) {
             $existing_emails[] = $row['email'];
         }
+        
 
         // Check if form is submitted
         if (isset($_POST['submit'])) {
