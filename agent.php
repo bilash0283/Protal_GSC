@@ -39,8 +39,7 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Agent Student Status</th>
-                      <th scope="col">Agents Details</th>
+                      <th scope="col">Student Status</th>
                       <th scope="col">Image</th>
                       <th scope="col">Company</th>
                       <th scope="col">Name</th>
@@ -93,12 +92,6 @@
                             <?php 
                             ?>
                           </td>
-                          <td><?php ?>
-                            <!-- agent-student.php?edit= -->
-                            <a href="view_agent.php?id=<?php echo $id; ?>"><i class="fas fa-eye"></i></a>
-                            <?php 
-                            ?>
-                          </td>
                             <td>
                               <?php
                                 if (empty($image)) {
@@ -109,7 +102,7 @@
                               ?>
                             </td>
                             <td><?php echo $company; ?></td>
-                            <td><?php echo $name; ?></td>
+                            <td><a href="view_agent.php?id=<?php echo $id; ?>"><?php echo $name; ?></a></td>
                             <td><?php echo $phone; ?></td>
                             <td><?php echo $email; ?></td>
                             <td><?php echo $year; ?></td>
