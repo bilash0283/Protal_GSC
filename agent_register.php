@@ -268,11 +268,11 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="form-group">
                             <label for="inputProjectLeader">Company Facebook URL</label>
-                            <input type="url" name="fb_url" id="inputProjectLeader" class="form-control" >
+                            <input type="text" name="fb_url" id="inputProjectLeader" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label for="inputClientCompany">Company Website URL</label>
-                            <input type="url" name="website_url" id="inputClientCompany" class="form-control" >
+                            <input type="text" name="website_url" id="inputClientCompany" class="form-control" >
                         </div> 
                         <p class="mb-0">
                             <a href="index.php" class="text-center">I already have an Agent</a>
