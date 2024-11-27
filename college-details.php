@@ -18,7 +18,6 @@ $country_name = $country_data['country_name'];
 $country_flag = $country_data['country_flag'];
 
 }
-
 ?>
   <!-- Navbar -->
   <?php include('dashboard_include/top_header.php') ?>

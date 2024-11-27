@@ -127,8 +127,23 @@ $agentname = $_SESSION['name'];
                                             </tr>
 
                                             <tr>
+                                                <th>Phone Number</th>
+                                                <td><?php echo htmlspecialchars($phone); ?></td>
+                                            </tr>
+
+                                            <tr>
                                                 <th>Designation</th>
                                                 <td><?php echo htmlspecialchars($designation); ?></td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Email</th>
+                                                <td><?php echo htmlspecialchars($email); ?></td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Country</th>
+                                                <td><?php echo htmlspecialchars($country); ?></td>
                                             </tr>
 
                                             <tr>
@@ -142,23 +157,8 @@ $agentname = $_SESSION['name'];
                                             </tr>
 
                                             <tr>
-                                                <th>Company Year of Establishment </th>
+                                                <th>company Year</th>
                                                 <td><?php echo htmlspecialchars($company_year); ?></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Country</th>
-                                                <td><?php echo htmlspecialchars($country); ?></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Phone Number</th>
-                                                <td><?php echo htmlspecialchars($phone); ?></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Email</th>
-                                                <td><?php echo htmlspecialchars($email); ?></td>
                                             </tr>
 
                                             <tr>

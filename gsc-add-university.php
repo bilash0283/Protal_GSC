@@ -68,14 +68,12 @@ $add_id           = $_GET['add'];
                             </div>
 
                             <div class="form-group">  
-                              <label for="inputProjectLeader">Please upload Student Picture (Profile)</label>
-                              <input type="file" name="profile" id="inputName" >
+                              <label for="inputProjectLeader">Please upload Student Picture (Profile / Passport Copy)</label>
+                              <input type="file" name="profile" id="inputName" required>
                             </div>
 
                             <div class="form-group">  
-                            <!-- Please upload Student's documents (CV) in a single PDF File -->
-                              <label for="inputProjectLeader">Please upload Student's All documents in a single PDF File </label>
-                              <p class="text-sm text-red">(Ex.Passport,All Certificate & Transcript,CV,IELTS,Reference Letter & Others)</p>
+                              <label for="inputProjectLeader">Please upload Student's documents (CV) in a single PDF File.</label>
                               <input type="file" name="image" id="inputName" required>
                             </div>
 

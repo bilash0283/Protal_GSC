@@ -28,18 +28,15 @@
           </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-
         <!-- Main content -->
         <section class="content">
           <div class="container-fluid">
-
           <div class="row">
             <div class="col-md-12">
-
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Student Status</th>
+                      <th scope="col">Agents Status</th>
                       <th scope="col">Image</th>
                       <th scope="col">Company</th>
                       <th scope="col">Name</th>
@@ -48,28 +45,22 @@
                       <th scope="col">Est.</th>
                       <th scope="col">Status</th>
                       <th scope="col">Role</th>
-
                       <?php 
                         if ($_SESSION['role'] == 1) { ?>
                           <th scope="col">Action</th>
                       <?php  }
                       ?>
-                      
                     </tr>
                   </thead>
                   <tbody>
-
                     <?php
-                    
-                      $agents = "SELECT * FROM agents";
+                      $agents = "SELECT * FROM agents ORDER BY id DESC";
                       $agents_query = mysqli_query($db, $agents);
-
                       $count = mysqli_num_rows($agents_query);
 
                       if ($count < 1) {
                         echo "There are no Active Agents!!";
                       } else {
-
                         while ($row = mysqli_fetch_assoc($agents_query)) {
                           $id           = $row['id'];
                           $image        = $row['image'];
@@ -83,15 +74,13 @@
                           $role         = $row['role'];
                           $joining      = $row['joining'];?>
 
-                          
 
                           <tr>
                           <td><?php ?>
-                            <!-- agent-student.php?edit= -->
-                            <a href="agent-student.php?edit=<?php echo $id; ?>"><i class="fas fa-eye"></i></a>
+                          <!-- agent-student.php?edit= -->
+                            <a href="view_agent.php?id=<?php echo $id; ?>"><i class="fas fa-eye"></i></a>
                             <?php 
-                            ?>
-                          </td>
+                            ?></td>
                             <td>
                               <?php
                                 if (empty($image)) {
@@ -102,7 +91,7 @@
                               ?>
                             </td>
                             <td><?php echo $company; ?></td>
-                            <td><a href="view_agent.php?id=<?php echo $id; ?>"><?php echo $name; ?></a></td>
+                            <td><?php echo $name; ?></td>
                             <td><?php echo $phone; ?></td>
                             <td><?php echo $email; ?></td>
                             <td><?php echo $year; ?></td>
@@ -147,7 +136,6 @@
                               ?>
 
                            
-
                             <div class="modal fade" id="id<?php echo $id?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                 <div class="modal-content">
@@ -174,7 +162,6 @@
                     ?>
                   </tbody>
                 </table>
-
             </div>
           </div>
 

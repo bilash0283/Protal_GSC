@@ -101,6 +101,20 @@
                   <p>Add Agent</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="active_agent.php" class="nav-link bg-success">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Active Agent</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="inactive_agent.php" class="nav-link bg-danger">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inactive Agent</p>
+                </a>
+              </li>
             <?php }
             ?>
 

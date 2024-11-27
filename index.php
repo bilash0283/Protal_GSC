@@ -81,8 +81,6 @@ ob_start();
                     $_SESSION['status'] = $row['status'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['joining'] = $row['joining'];
-                    $active_Status = $row['status'];
-
 
                     if ($input_password == $password && $_SESSION['status'] == 1) {
                       header('location:dashboard.php');
@@ -116,11 +114,6 @@ ob_start();
 ob_end_flush();
 include('login_include/footer.php'); 
 ?>
-
-
-
-
-
 
 
 

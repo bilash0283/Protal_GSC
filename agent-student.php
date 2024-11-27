@@ -11,8 +11,8 @@
                                 $agents_query = mysqli_query($db, $agents);
             
                                 while ($row = mysqli_fetch_assoc($agents_query)) {
-                                  $agentnames               = $row['name'];
-                                  $agentemails              = $row['email'];
+                                  $agentname               = $row['name'];
+                                  $agentemail              = $row['email'];
                                 }
 
                             }
@@ -32,7 +32,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Status Of <?php echo $agentnames."'s" ?> Students</h1>
+            <h1 class="m-0">Status Of <?php echo $agentname."'s" ?> Students</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -71,7 +71,7 @@
 
                     <?php
 
-                      $agents = "SELECT * FROM newstudents WHERE agent = '$agentnames' AND agentemail = '$agentemails' ORDER BY id DESC";
+                      $agents = "SELECT * FROM newstudents WHERE agent = '$agentname' AND agentemail = '$agentemail' ORDER BY id DESC";
                       $agents_query = mysqli_query($db, $agents);
 
                       $count = mysqli_num_rows($agents_query);
@@ -208,3 +208,5 @@
 
   <!-- /.main-footer -->
    <?php include('dashboard_include/footer.php') ?>
+
+  
