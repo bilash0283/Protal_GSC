@@ -39,7 +39,7 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Agents Status</th>
+                      <th scope="col">Student Status</th>
                       <th scope="col">Image</th>
                       <th scope="col">Company</th>
                       <th scope="col">Name</th>
@@ -59,6 +59,7 @@
                   <tbody>
 
                     <?php
+
                     
                       $agents = "SELECT * FROM agents WHERE status = 1 && role = 2";
                       $agents_query = mysqli_query($db, $agents);

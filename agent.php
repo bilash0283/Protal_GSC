@@ -36,7 +36,7 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Agents Status</th>
+                      <th scope="col">Student Status</th>
                       <th scope="col">Image</th>
                       <th scope="col">Company</th>
                       <th scope="col">Name</th>
