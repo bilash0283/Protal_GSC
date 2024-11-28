@@ -87,7 +87,7 @@
                           <tr>
                           <td><?php ?>
                           <!-- agent-student.php?edit= -->
-                            <a href="view_agent.php?id=<?php echo $id; ?>"><i class="fas fa-eye"></i></a>
+                            <a href="agent-student.php?edit=<?php echo $id; ?>"><i class="fas fa-eye"></i></a>
                             <?php 
                             ?></td>
                             <td>
@@ -100,7 +100,7 @@
                               ?>
                             </td>
                             <td><?php echo $company; ?></td>
-                            <td><?php echo $name; ?></td>
+                            <td><a href="view_agent.php?id=<?php echo $id; ?>"><?php echo $name; ?></a></td>
                             <td><?php echo $phone; ?></td>
                             <td><?php echo $email; ?></td>
                             <td>
