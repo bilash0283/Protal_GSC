@@ -220,16 +220,13 @@ if ($_SESSION['role'] == 1) { ?>
             $errors = [];
 
             // Validate image files
-            $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+            $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif','pdf'];
 
             // Check profile image
             if (!empty($profile_image)) {
                 $profile_extension = strtolower(pathinfo($profile_image, PATHINFO_EXTENSION));
                 if (!in_array($profile_extension, $allowed_extensions)) {
-                    $errors[] = "Profile image should be JPG, JPEG, PNG, or GIF.";
-                }
-                if ($_FILES['profile_image']['size'] > 2 * 1024 * 1024) {
-                    $errors[] = "Profile image size should not exceed 2MB.";
+                    $errors[] = "Profile image should be JPG, JPEG, PNG, GIF or PDF";
                 }
             }
 
@@ -239,9 +236,6 @@ if ($_SESSION['role'] == 1) { ?>
                 if (!in_array($logo_extension, $allowed_extensions)) {
                     $errors[] = "Company logo image should be JPG, JPEG, PNG, or GIF.";
                 }
-                if ($_FILES['company_logo_img']['size'] > 2 * 1024 * 1024) {
-                    $errors[] = "Company logo image size should not exceed 2MB.";
-                }
             }
 
             // Check company registration certificate
@@ -249,9 +243,6 @@ if ($_SESSION['role'] == 1) { ?>
                 $cert_extension = strtolower(pathinfo($company_reg_certificate, PATHINFO_EXTENSION));
                 if (!in_array($cert_extension, $allowed_extensions)) {
                     $errors[] = "Company registration certificate image should be JPG, JPEG, PNG, or GIF.";
-                }
-                if ($_FILES['company_reg_certificate']['size'] > 2 * 1024 * 1024) {
-                    $errors[] = "Company registration certificate size should not exceed 2MB.";
                 }
             }
 
