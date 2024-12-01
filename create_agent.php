@@ -220,13 +220,13 @@ if ($_SESSION['role'] == 1) { ?>
             $errors = [];
 
             // Validate image files
-            $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif','pdf'];
+            $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif','pdf','webp'];
 
             // Check profile image
             if (!empty($profile_image)) {
                 $profile_extension = strtolower(pathinfo($profile_image, PATHINFO_EXTENSION));
                 if (!in_array($profile_extension, $allowed_extensions)) {
-                    $errors[] = "Profile image should be JPG, JPEG, PNG, GIF or PDF";
+                    $errors[] = "Profile image should be JPG, JPEG, PNG, GIF ,WEBP or PDF";
                 }
             }
 
@@ -234,7 +234,7 @@ if ($_SESSION['role'] == 1) { ?>
             if (!empty($company_logo_img)) {
                 $logo_extension = strtolower(pathinfo($company_logo_img, PATHINFO_EXTENSION));
                 if (!in_array($logo_extension, $allowed_extensions)) {
-                    $errors[] = "Company logo image should be JPG, JPEG, PNG, or GIF.";
+                    $errors[] = "Profile image should be JPG, JPEG, PNG, GIF ,WEBP or PDF";
                 }
             }
 
@@ -242,7 +242,7 @@ if ($_SESSION['role'] == 1) { ?>
             if (!empty($company_reg_certificate)) {
                 $cert_extension = strtolower(pathinfo($company_reg_certificate, PATHINFO_EXTENSION));
                 if (!in_array($cert_extension, $allowed_extensions)) {
-                    $errors[] = "Company registration certificate image should be JPG, JPEG, PNG, or GIF.";
+                    $errors[] = "Profile image should be JPG, JPEG, PNG, GIF ,WEBP or PDF";
                 }
             }
 
