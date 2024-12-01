@@ -89,10 +89,10 @@ if ($_SESSION['role'] == 1) { ?>
                                         required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="input-group-text w-100" for="inputGroupFile01">Click Me To Upload Profile
-                                        Image *</label>
-                                    <input type="file" class="form-control d-none" name="profile_image"
-                                        id="inputGroupFile01" required>
+                                    <label class="input-group w-100" for="inputGroupFile01">Click Me To Upload Profile
+                                        Image</label>
+                                    <input type="file"  name="profile_image"
+                                        id="inputGroupFile01">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputClientCompany"> Company Name *</label>
@@ -105,48 +105,48 @@ if ($_SESSION['role'] == 1) { ?>
                                         required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputClientCompany">Company Year of Establishment *</label>
+                                    <label for="inputClientCompany">Company Year of Establishment</label>
                                     <input type="text" name="company_year" id="inputClientCompany" class="form-control"
-                                        required>
+                                        >
                                 </div>
                             </div>
                             <!-- input file end(1) -->
                             <div class="col-12 col-md-6 px-2">
                                 <div class="form-group">
-                                    <label for="inputName">Bank Name *</label>
-                                    <input type="text" name="bank_name" id="inputName" class="form-control" required>
+                                    <label for="inputName">Bank Name </label>
+                                    <input type="text" name="bank_name" id="inputName" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputName">Bank Account Name *</label>
-                                    <input type="text" name="bank_acc_name" id="inputName" class="form-control" required>
+                                    <label for="inputName">Bank Account Name </label>
+                                    <input type="text" name="bank_acc_name" id="inputName" class="form-control" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputName">Bank Account Number *</label>
+                                    <label for="inputName">Bank Account Number </label>
                                     <input type="number" name="bank_acc_number" id="inputName" class="form-control"
-                                        required>
+                                        >
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputName">Bank Address *</label>
-                                    <input type="text" name="bank_address" id="inputName" class="form-control" required>
+                                    <label for="inputName">Bank Address </label>
+                                    <input type="text" name="bank_address" id="inputName" class="form-control" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputName">Branch Name *</label>
-                                    <input type="text" name="branch_name" id="inputName" class="form-control" required>
+                                    <label for="inputName">Branch Name </label>
+                                    <input type="text" name="branch_name" id="inputName" class="form-control" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputName">Bank Swift Code *</label>
-                                    <input type="text" name="swift_code" id="inputName" class="form-control" required>
+                                    <label for="inputName">Bank Swift Code </label>
+                                    <input type="text" name="swift_code" id="inputName" class="form-control" >
                                 </div>
                                 <div class="form-group">
-                                    <label class="input-group-text w-100" for="company_logo_img1">Click Me To Upload Company
+                                    <label class=" w-100" for="company_logo_img1">Click Me To Upload Company
                                         Logo</label>
-                                    <input type="file" class="form-control d-none" name="company_logo_img"
+                                    <input type="file"  name="company_logo_img"
                                         id="company_logo_img1">
                                 </div>
                                 <div class="form-group">
-                                    <label class="input-group-text w-100" for="company_reg_certificate2">Company
+                                    <label class=" w-100" for="company_reg_certificate2">Company
                                         Registration Certificate</label>
-                                    <input type="file" class="form-control d-none" name="company_reg_certificate"
+                                    <input type="file" name="company_reg_certificate"
                                         id="company_reg_certificate2">
                                 </div>
                                 <div class="form-group">
