@@ -21,23 +21,6 @@ ob_start();
         </div>
       </div>
 
-      <div>
-        <div class="container container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card p-2">
-                  <div class="card-head">
-                    <h1 class="text-center">Card Title</h1>
-                  </div>
-                  <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae repudiandae animi deleniti aut, earum ipsam labore sequi odio consequuntur repellendus, eligendi pariatur nostrum placeat officiis? Minus in accusantium adipisci suscipit.</p>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="col-12 col-md-5">
         <div class="card shadow-lg border-0 rounded-4 px-2" style="min-height:370px;">
           <div class="card-body">
