@@ -21,6 +21,16 @@ ob_start();
         </div>
       </div>
 
+      <div>
+        <div class="container container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="col-12 col-md-5">
         <div class="card shadow-lg border-0 rounded-4 px-2" style="min-height:370px;">
           <div class="card-body">
