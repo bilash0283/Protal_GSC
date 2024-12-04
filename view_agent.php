@@ -238,8 +238,9 @@ $agentname = $_SESSION['name'];
                                                                 style="margin-top:10px;">Cancel</button>
                                                         </div>
                                                     </div>
+                                                    <br>
 
-                                                    <!-- image type pdf or not check  -->
+                                                    <!-- image anent profile type pdf or not check  -->
                                                     <?php 
                                                         if (!empty($profilename)) {
                                                             $pathInfo = pathinfo($profilename);
@@ -291,7 +292,7 @@ $agentname = $_SESSION['name'];
                                                             style="margin-top:10px;">Cancel</button>
                                                     </div>
                                                 </div>
-
+                                                <br>
                                                 <!-- company logo pdf or not check  -->
                                                 <?php 
                                                     if (!empty($profilename)) {
@@ -345,7 +346,9 @@ $agentname = $_SESSION['name'];
                                                             style="margin-top:10px;">Cancel</button>
                                                     </div>
                                                 </div>
-                                                    
+                                                <br>
+
+                                                <!-- grgistation pdf or not check  -->
                                                 <?php 
                                                     if (!empty($profilename)) {
                                                         $pathInfo = pathinfo($profilename);
