@@ -194,12 +194,12 @@ $agentname = $_SESSION['name'];
 
                                             <tr>
                                                 <th>Facebook URL</th>
-                                                <td><?php echo htmlspecialchars($fb_url); ?></td>
+                                                <td><a href="<?php echo htmlspecialchars($fb_url); ?>" target="_blank"><?php echo htmlspecialchars($fb_url); ?></a></td>
                                             </tr>
 
                                             <tr>
                                                 <th>Website URL</th>
-                                                <td><?php echo htmlspecialchars($website_url); ?></td>
+                                                <td><a  href="<?php echo htmlspecialchars($website_url); ?>" target="_blank"><?php echo htmlspecialchars($website_url); ?></a></td>
                                             </tr>
                                             <tr>
                                                 <th>Agent Profile Picture</th>
@@ -265,6 +265,8 @@ $agentname = $_SESSION['name'];
                                                     </div>
                                                 </div>
 
+                                                
+
                                                 <script>
                                                     function showPreviewModalProfile(profileUrl) {
                                                         document.getElementById("previewImageProfile").src = profileUrl;
@@ -282,6 +284,7 @@ $agentname = $_SESSION['name'];
                                             <td>
                                                 <?php
                                                 $profilename = $company_reg_certificate;
+
                                                 $profile_url = 'dist/img/agent_registation_cartificate/' . $profilename;
                                                 ?>
                                                 <a href="#"
@@ -301,9 +304,17 @@ $agentname = $_SESSION['name'];
                                                         <button type="button" onclick="closePreviewModalProfile()"
                                                             style="margin-top:10px;">Cancel</button>
                                                     </div>
+                                                    <iframe src="<?php echo $profile_url; ?>" frameborder="0"></iframe>
                                                 </div>
-
+                                                    
+                                                 <?php 
+                                                    $pathInfo = pathinfo($profilename);
+                                                   $extension = strtolower($pathInfo['extension']);
+                                                   if($extension == 'pdf'){ echo $extension;}
+                                                 ?>
+                                                
                                                 <iframe src="<?php echo $profile_url; ?>" frameborder="0"></iframe>
+                                                
 
                                                 <script>
                                                     function showPreviewModalProfile(profileUrl) {
