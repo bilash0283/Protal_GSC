@@ -77,12 +77,13 @@ $agentname = $_SESSION['name'];
 
                                     <?php
 
+
                                     if ($profile_image == '') { ?>
                                         <img src="dist/img/agent_image/demo.png"
                                             class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
                                     <?php } else { ?>
-                                        <img src="dist/img/agent_image/<?php echo $profile_image; ?>"
-                                            class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
+                                        <img src="dist/img/agent_image/<?php echo $profile_image; ?>" class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
+                                        <iframe class="w-100 h-100" src="dist/img/agent_image/<?php echo $profile_image; ?>" frameborder="0"></iframe>
                                     <?php }
                                     ?>
 
@@ -301,6 +302,8 @@ $agentname = $_SESSION['name'];
                                                             style="margin-top:10px;">Cancel</button>
                                                     </div>
                                                 </div>
+
+                                                <iframe src="<?php echo $profile_url; ?>" frameborder="0"></iframe>
 
                                                 <script>
                                                     function showPreviewModalProfile(profileUrl) {
