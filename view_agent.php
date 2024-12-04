@@ -83,6 +83,7 @@ $agentname = $_SESSION['name'];
                                             class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
                                     <?php } else { ?>
                                         <?php 
+                                            // profile image pdf or not check 
                                             if (!empty($profile_image)) {
                                                 $pathInfo = pathinfo($profile_image);
                                                 $extension = isset($pathInfo['extension']) ? strtolower($pathInfo['extension']) : '';
@@ -93,10 +94,9 @@ $agentname = $_SESSION['name'];
                                                     echo '<img src="dist/img/agent_image/' . htmlspecialchars($profile_image) . '" class="profile-user-img img-fluid img-circle" alt="User Profile Picture">';
                                                 }
                                             } else {
-                                                echo '<p>No profile image available.</p>';
+                                                echo '<p class="text-red">No profile image available.</p>';
                                             }
-                                            ?>
-
+                                        ?>
                                     <?php } ?>
 
                                 </div>
