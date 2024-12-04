@@ -239,6 +239,21 @@ $agentname = $_SESSION['name'];
                                                         </div>
                                                     </div>
 
+                                                    <!-- image type pdf or not check  -->
+                                                    <?php 
+                                                        if (!empty($profilename)) {
+                                                            $pathInfo = pathinfo($profilename);
+                                                            $extension = isset($pathInfo['extension']) ? strtolower($pathInfo['extension']) : '';
+                                                            
+                                                            if ($extension == 'pdf') { ?>
+                                                                <iframe class="w-sm h-sm " src="<?php echo $profile_url;?>" frameborder="0"></iframe>
+                                                        <?php } 
+
+                                                        } else {
+                                                            echo '<p class="text-red">No Agent image available.</p>';
+                                                        }
+                                                    ?>
+
                                                     <script>
                                                         function showPreviewModalProfile(profileUrl) {
                                                             document.getElementById("previewImageProfile").src = profileUrl;
@@ -277,7 +292,20 @@ $agentname = $_SESSION['name'];
                                                     </div>
                                                 </div>
 
-                                                
+                                                <!-- company logo pdf or not check  -->
+                                                <?php 
+                                                    if (!empty($profilename)) {
+                                                        $pathInfo = pathinfo($profilename);
+                                                        $extension = isset($pathInfo['extension']) ? strtolower($pathInfo['extension']) : '';
+                                                        
+                                                        if ($extension == 'pdf') { ?>
+                                                            <iframe class="w-sm h-sm " src="<?php echo $profile_url;?>" frameborder="0"></iframe>
+                                                    <?php } 
+
+                                                    } else {
+                                                        echo '<p class="text-red">No Company Logo image available.</p>';
+                                                    }
+                                                ?>
 
                                                 <script>
                                                     function showPreviewModalProfile(profileUrl) {
@@ -324,13 +352,11 @@ $agentname = $_SESSION['name'];
                                                         $extension = isset($pathInfo['extension']) ? strtolower($pathInfo['extension']) : '';
                                                         
                                                         if ($extension == 'pdf') { ?>
-                                                            <iframe src="<?php echo $profile_url;?>" frameborder="0"></iframe>
-                                                    <?php } else { ?>
-                                                            <img src="<?php echo $profile_url; ?>" class="w-sm h-sm img-fluid" alt="User Profile Picture">
-                                                    <?php }
+                                                            <iframe class="w-sm h-sm " src="<?php echo $profile_url;?>" frameborder="0"></iframe>
+                                                    <?php } 
 
                                                     } else {
-                                                        echo '<p>No Registation Cartificate image available.</p>';
+                                                        echo '<p class="text-red">No Registation Cartificate image available.</p>';
                                                     }
                                                 ?>
 
