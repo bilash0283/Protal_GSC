@@ -82,20 +82,22 @@ $agentname = $_SESSION['name'];
                                         <img src="dist/img/agent_image/demo.png"
                                             class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
                                     <?php } else { ?>
-                                            <?php 
+                                        <?php 
+                                            if (!empty($profile_image)) {
                                                 $pathInfo = pathinfo($profile_image);
-                                                $extension = strtolower($pathInfo['extension']);
-                                                if($extension == 'pdf'){ ?>
+                                                $extension = isset($pathInfo['extension']) ? strtolower($pathInfo['extension']) : '';
+                                                
+                                                if ($extension == 'pdf') {
+                                                    echo '<iframe src="dist/img/agent_image/' . htmlspecialchars($profile_image) . '" frameborder="0"></iframe>';
+                                                } else {
+                                                    echo '<img src="dist/img/agent_image/' . htmlspecialchars($profile_image) . '" class="profile-user-img img-fluid img-circle" alt="User Profile Picture">';
+                                                }
+                                            } else {
+                                                echo '<p>No profile image available.</p>';
+                                            }
+                                            ?>
 
-                                                <iframe src="dist/img/agent_image/<?php echo $profile_image; ?>" frameborder="0"></iframe>
-
-                                                <?php }else{ ?>
-                                                    <img src="dist/img/agent_image/<?php echo $profile_image; ?>" class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
-                                                <?php } ?>
-
-                                        
-                                    <?php }
-                                    ?>
+                                    <?php } ?>
 
                                 </div>
                             </div>
@@ -316,15 +318,21 @@ $agentname = $_SESSION['name'];
                                                     </div>
                                                 </div>
                                                     
-                                                 <?php 
-                                                    $extension = null;
-                                                    $pathInfo = pathinfo($profilename);
-                                                   $extension = strtolower($pathInfo['extension']);
-                                                   if($extension == 'pdf'){ ?>
-                                                    <iframe src="<?php echo $profile_url;?>" frameborder="0"></iframe>
-                                                   <?php }else{ echo " ";}
-                                                 ?>
-                                                
+                                                <?php 
+                                                    if (!empty($profilename)) {
+                                                        $pathInfo = pathinfo($profilename);
+                                                        $extension = isset($pathInfo['extension']) ? strtolower($pathInfo['extension']) : '';
+                                                        
+                                                        if ($extension == 'pdf') { ?>
+                                                            <iframe src="<?php echo $profile_url;?>" frameborder="0"></iframe>
+                                                    <?php } else { ?>
+                                                            <img src="<?php echo $profile_url; ?>" class="w-sm h-sm img-fluid" alt="User Profile Picture">
+                                                    <?php }
+
+                                                    } else {
+                                                        echo '<p>No Registation Cartificate image available.</p>';
+                                                    }
+                                                ?>
 
                                                 <script>
                                                     function showPreviewModalProfile(profileUrl) {
