@@ -42,7 +42,7 @@
                       <th scope="col">Student Status</th>
                       <th scope="col">Image</th>
                       <th scope="col">Company</th>
-                      <th scope="col">Name</th>
+                      <th scope="col">View Details / Name</th>
                       <th scope="col">Phone</th>
                       <th scope="col">Email</th>
                       <th scope="col">Status</th>
@@ -100,7 +100,7 @@
                               ?>
                             </td>
                             <td><?php echo $company; ?></td>
-                            <td><a href="view_agent.php?id=<?php echo $id; ?>"><?php echo $name; ?></a></td>
+                            <td><a href="view_agent.php?id=<?php echo $id; ?>"><i class="fas fa-eye pr-2"></i><?php echo $name; ?></a></td>
                             <td><?php echo $phone; ?></td>
                             <td><?php echo $email; ?></td>
                             <td>
