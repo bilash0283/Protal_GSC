@@ -35,6 +35,8 @@ ob_start();
               </div>
             <?php } ?>
 
+            <!-- adding new section for contacts info  -->
+
             <!-- Sign-in Form -->
             <form action="" method="post">
               <!-- Email Field -->
