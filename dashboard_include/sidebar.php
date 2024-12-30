@@ -251,8 +251,8 @@
         </li>
 
         <li class="nav-item text-white">
-          <div class="nav-link bg-info">
-            <p><strong>Address :</strong></p><br>
+          <div class="nav-link bg-info mb-3">
+            <p><strong><i class="ion ion-location pr-1"></i>Address :</strong></p><br>
             <p>House no.-54/A(3rd Floor), Road-132,
               Gulshan-1, Dhaka-1212
             </p>
@@ -270,6 +270,7 @@
             </p>
           </div>
         </li>
+        
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
