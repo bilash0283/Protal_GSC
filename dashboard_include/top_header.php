@@ -22,7 +22,7 @@ $role             = $_SESSION['role'];
         <a href="logout.php" class="nav-link">Logout</a>
       </li>
       <li class="nav-item d-sm-inline-block">
-        <a href="contacts.php" class="nav-link">Contact Us</a>
+        <a href="contacts.php" class="nav-link text-success">Contact</a>
       </li>
     </ul>
 
