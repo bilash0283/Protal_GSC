@@ -252,25 +252,27 @@
 
         <li class="nav-item text-white">
           <div class="nav-link bg-info mb-3">
-            <p><strong><i class="ion ion-location pr-1"></i>Address :</strong></p><br>
-            <p>House no.-54/A(3rd Floor), Road-132,
-              Gulshan-1, Dhaka-1212
-            </p>
-
-            <br>
-            <p><strong><i class="ion ion-ios-telephone pr-1"></i> Phone :</strong></p>
-            <p><br>
-              +880 1990225993
-            </p>
-
-            <br>
-            <p><strong><i class="ion ion-email pr-1"></i> General Support :</strong></p><br>
-            <p>
-              info@ci-gsc.com
-            </p>
+            <div>
+              <p><strong><i class="ion ion-location pr-1"></i>Address :</strong></p><br>
+              <p>House no.-54/A(3rd Floor), Road-132,
+                Gulshan-1, Dhaka-1212
+              </p>
+            </div>
+            <div class="py-3">
+              <p><strong><i class="ion ion-ios-telephone pr-1"></i> Phone :</strong></p>
+              <p><br>
+                +880 1990225993
+              </p>
+            </div>
+            <div>
+              <p><strong><i class="ion ion-email pr-1"></i> General Support :</strong></p><br>
+              <p>
+                info@ci-gsc.com
+              </p>
+            </div>
           </div>
         </li>
-        
+
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
