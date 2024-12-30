@@ -254,7 +254,7 @@
           <div class="nav-link bg-info mb-3">
             <div>
               <p><strong><i class="ion ion-location pr-1"></i>Address :</strong></p><br>
-              <p>House no.-54/A(3rd Floor), Road-132,
+              <p>House no.-54/A(1st Floor), Road-132,
                 Gulshan-1, Dhaka-1212
               </p>
             </div>
