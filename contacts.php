@@ -53,7 +53,7 @@ $agentemail = $_SESSION['email'];
                             </div>
                             <div class="d-flex">
                                 <div class="">
-                                    <i class="ion ion-location pr-4"></i>
+                                    <i class="ion ion-ios-telephone pr-4"></i>
                                 </div>
                                 <div>
                                     <h6><strong>Phone</strong></h6>
@@ -64,7 +64,7 @@ $agentemail = $_SESSION['email'];
                             </div>
                             <div class="d-flex">
                                 <div class="">
-                                    <i class="ion ion-location pr-4"></i>
+                                    <i class="ion ion-email pr-4"></i>
                                 </div>
                                 <div>
                                     <h6><strong>General Support</strong></h6>
@@ -98,3 +98,4 @@ ob_end_flush();
 
 <!-- /.main-footer -->
 <?php include('dashboard_include/footer.php') ?>
+
