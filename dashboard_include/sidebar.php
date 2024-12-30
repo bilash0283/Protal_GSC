@@ -13,12 +13,12 @@
       <div class="image"><?php
 
 
-            if ($_SESSION['image'] == '') { ?>
+      if ($_SESSION['image'] == '') { ?>
           <img src="dist/img/agent_image/demo.png" class="" width="50px" alt="User Image">
         <?php } else { ?>
           <img src="dist/img/agent_image/<?php echo $_SESSION['image']; ?>" class="" width="50px" alt="User Image">
         <?php }
-        ?>
+      ?>
       </div>
 
       <?php
@@ -75,180 +75,201 @@
           <?php
 
           if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
+            ?>
+
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fas fa-user-secret"></i>
+              <p>
+                Agents
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="agent.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Agents</p>
+                </a>
+              </li>
+              <?php
+
+              if ($_SESSION['role'] == 1) { ?>
+                <li class="nav-item">
+                  <a href="create_agent.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Agent</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="active_agent.php" class="nav-link bg-success">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Active Agent</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="inactive_agent.php" class="nav-link bg-danger">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Inactive Agent</p>
+                  </a>
+                </li>
+              <?php }
+              ?>
+
+            </ul>
+          </li>
+
+        <?php }
+
           ?>
+
+
+
 
         <li class="nav-item menu-open">
           <a href="#" class="nav-link active">
-            <i class="nav-icon fas fas fa-user-secret"></i>
+            <i class="nav-icon fas fa-user-graduate"></i>
             <p>
-              Agents
+              Students
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="agent.php" class="nav-link active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>All Agents</p>
-              </a>
-            </li>
+
             <?php
 
-            if ($_SESSION['role'] == 1) { ?>
-              <li class="nav-item">
-                <a href="create_agent.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Agent</p>
-                </a>
-              </li>
+            if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
+              ?>
 
               <li class="nav-item">
-                <a href="active_agent.php" class="nav-link bg-success">
+                <a href="all-student.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Active Agent</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="inactive_agent.php" class="nav-link bg-danger">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Agent</p>
+                  <p>All Students</p>
                 </a>
               </li>
             <?php }
+
+            ?>
+
+            <?php
+            if ($_SESSION['role'] == 2) { ?>
+
+              <li class="nav-item">
+                <a href="add-student.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Student</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="student.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Students Status</p>
+                </a>
+              </li>
+
+            <?php }
+
             ?>
 
           </ul>
         </li>
 
-      <?php  }
+        <?php
 
-      ?>
-
-
-
-
-      <li class="nav-item menu-open">
-        <a href="#" class="nav-link active">
-          <i class="nav-icon fas fa-user-graduate"></i>
-          <p>
-            Students
-            <i class="right fas fa-angle-left"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-
-          <?php
-
-          if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
+        if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
           ?>
 
-            <li class="nav-item">
-              <a href="all-student.php" class="nav-link active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>All Students</p>
-              </a>
-            </li>
-          <?php  }
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fas fa-user-graduate"></i>
+              <p>
+                GSC Students
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
 
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="gsc-add-student.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Student</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="gsc-student.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Students Status</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        <?php }
+
+        ?>
+
+        <?php
+        if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
           ?>
 
-          <?php
-          if ($_SESSION['role'] == 2) { ?>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fas fa-file"></i>
+              <p>
+                Add Missing File
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="edit-file.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Edit Files</p>
+                </a>
+              </li>
+            </ul>
 
+            <?php if ($_SESSION['role'] == 1) { ?>
             <li class="nav-item">
-              <a href="add-student.php" class="nav-link">
+              <a href="gsc-notifications.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Add Student</p>
+                <p>GSC notifications</p>
               </a>
             </li>
+
             <li class="nav-item">
-              <a href="student.php" class="nav-link">
+              <a href="create_country.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Students Status</p>
+                <p>Add Country & Info</p>
               </a>
             </li>
 
           <?php }
-
-          ?>
-
-        </ul>
-      </li>
-
-      <?php
-
-      if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
-      ?>
-
-        <li class="nav-item menu-open">
-          <a href="#" class="nav-link active">
-            <i class="nav-icon fas fas fa-user-graduate"></i>
-            <p>
-              GSC Students
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="gsc-add-student.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Add Student</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="gsc-student.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Students Status</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-      <?php  }
-
-      ?>
-
-      <?php
-      if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
-      ?>
-
-        <li class="nav-item menu-open">
-          <a href="#" class="nav-link active">
-            <i class="nav-icon fas fas fa-file"></i>
-            <p>
-              Add Missing File
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="edit-file.php" class="nav-link active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Edit Files</p>
-              </a>
-            </li>
-          </ul>
-
-          <?php if ($_SESSION['role'] == 1) { ?>
-        <li class="nav-item">
-          <a href="gsc-notifications.php" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>GSC notifications</p>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="create_country.php" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Add Country & Info</p>
-          </a>
-        </li>
-
-    <?php }
         } ?>
-    </li>
+        </li>
+
+        <li class="nav-item text-white">
+          <div class="nav-link bg-info">
+            <p><strong>Address :</strong></p><br>
+            <p>House no.-54/A(3rd Floor), Road-132,
+              Gulshan-1, Dhaka-1212
+            </p>
+
+            <br>
+            <p><strong><i class="ion ion-ios-telephone pr-1"></i> Phone :</strong></p>
+            <p><br>
+              +880 1990225993
+            </p>
+
+            <br>
+            <p><strong><i class="ion ion-email pr-1"></i> General Support :</strong></p><br>
+            <p>
+              info@ci-gsc.com
+            </p>
+          </div>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
