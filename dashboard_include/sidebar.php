@@ -240,7 +240,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="create_country.php" class="nav-link">
+              <a href="create_country.php" class="nav-link bg-danger">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Add Country & Info</p>
               </a>
@@ -250,6 +250,7 @@
         } ?>
         </li>
 
+        <!-- Contacts info navite add  -->
         <li class="nav-item text-white">
           <div class="nav-link bg-info mb-3">
             <div>
