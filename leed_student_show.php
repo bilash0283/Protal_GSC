@@ -1,5 +1,3 @@
-
-
 <?php include('dashboard_include/header.php') ?>
 <?php ob_start(); ?>
   <!-- Navbar -->
@@ -17,7 +15,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0">All Agents</h1>
+                <h1 class="m-0">All Leed Students</h1>
               </div><!-- /.col -->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -33,21 +31,20 @@
         <!-- Main content -->
         <section class="content">
           <div class="container-fluid">
-
           <div class="row">
             <div class="col-md-12">
-
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Student Status</th>
-                      <th scope="col">Image</th>
-                      <th scope="col">Company</th>
-                      <th scope="col">View Details / Name</th>
-                      <th scope="col">Phone</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Status</th>
-                      <th scope="col">Role</th>
+                      <th scope="col">ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Phone / Whatapp</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Interested Country</th>
+                      <th scope="col">last Qualification</th>
+                      <th scope="col">Passing year</th>
+                      <th scope="col">CGPA</th>
+                      <th scope="col">Language Score</th>
                       <?php 
                         if ($_SESSION['role'] == 1) { ?>
                           <th scope="col">Action</th>
@@ -59,81 +56,44 @@
 
                     <?php
                     
-                      $agents = "SELECT * FROM agents WHERE status = 2 && role = 2 ORDER BY id DESC";
+                      $agents = "SELECT * FROM student_leed ORDER BY id DESC";
                       $agents_query = mysqli_query($db, $agents);
 
                       $count = mysqli_num_rows($agents_query);
 
                       if ($count < 1) {
-                        echo "There are no Active Agents!!";
+                        echo "There are no Student!!";
                       } else {
-
+                        $sl = 1;
                         while ($row = mysqli_fetch_assoc($agents_query)) {
-                          $id           = $row['id'];
-                          $image        = $row['image'];
-                          $name         = $row['name'];
-                          $email        = $row['email'];
-                          $phone        = $row['phone'];
-                          $company      = $row['company'];
-                          $year         = $row['year'];
-                          $designation  = $row['designation'];
-                          $status       = $row['status'];
-                          $role         = $row['role'];
-                          $joining      = $row['joining'];?>
+                          $id                           = $row['id'];
+                          $name                          = $row['name'];
+                          $phone                         = $row['phone'];
+                          $email                         = $row['email'];
+                          $interested_country            = $row['interested_country'];
+                          $last_qualification            = $row['last_qualification'];
+                          $pass_year                      = $row['pass_year'];
+                          $gpa                              = $row['gpa'];
+                          $language_score                = $row['language_score'];
 
-
+?>
                           <tr>
-                          <td><?php ?>
-                          <!-- agent-student.php?edit= -->
-                            <a href="agent-student.php?edit=<?php echo $id; ?>"><i class="fas fa-eye"></i></a>
-                            <?php 
-                            ?></td>
-                            <td>
-                              <?php
-                                if (empty($image)) {
-                                  echo "<img src='dist/img/avatar5.png' width='40px'>";
-                                } else{ ?>
-                                  <img src="dist/img/agent_image/<?php echo $image;?>" width="50px" alt="">
-                                <?php }
-                              ?>
-                            </td>
-                            <td><?php echo $company; ?></td>
-                            <td><a href="view_agent.php?id=<?php echo $id; ?>"><i class="fas fa-eye pr-2"></i><?php echo $name; ?></a></td>
+                            <td><?php echo $sl ++; ?></td>
+                            <td><?php echo $name; ?></td>
                             <td><?php echo $phone; ?></td>
                             <td><?php echo $email; ?></td>
-                            <td>
-                              <?php
-                              
-                              
-                              if ($status == 1) {
-                                echo "<div class='badge bg-success' >Active</div>";
-                              } else {
-                                echo "<div class='badge bg-secondary' >Inactive</div>";
-                              }
-
-                              ?>
-                            </td>
-                            <td>
-                            <?php
-
-                              if ($role == 1) {
-                                echo "<div class='badge bg-success' >Admin</div>";
-                              } else if ($role == 2){
-                                echo "<div class='badge bg-warning' >Agent</div>";
-                              } else {
-                                echo "<div class='badge bg-info' >Employee</div>";
-                              }
-
-                              ?>
-                            </td>
-
+                            <td><?php echo $interested_country; ?></td>
+                            <td><?php echo $last_qualification; ?></td>
+                            <td><?php echo $pass_year; ?></td>
+                            <td><?php echo $gpa; ?></td>
+                            <td><?php echo $language_score; ?></td>
+                            
                               <?php 
                               
                               if ($_SESSION['role'] == 1) { ?>
                                 <td>
 
                                 <div class="btn-group">
-                                  <a href="update_agent.php?edit=<?php echo $id?>" class="btn btn-primary btn-sm">Edit</a>
                                   <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#id<?php echo $id?>">Delete</a>
                                 </div>
   
@@ -148,7 +108,7 @@
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Delete Agent</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -158,7 +118,7 @@
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <a href="agent.php?delete=<?php echo $id?>" class="btn btn-primary">Delete Agent</a>
+                                    <a href="leed_student_show.php?delete=<?php echo $id?>" class="btn btn-primary">Delete </a>
                                   </div>
                                 </div>
                               </div>
@@ -177,10 +137,10 @@
             <?php
               if(isset($_GET['delete'])){
                 $delete_id = $_GET['delete'];
-                $delete_sql = "DELETE FROM agents WHERE id = '$delete_id'";
+                $delete_sql = "DELETE FROM student_leed WHERE id = '$delete_id'";
                 $delete = mysqli_query($db,$delete_sql);
                 if($delete){
-                  header('location:agent.php');
+                  header('location:leed_student_show.php');
                 } else {
                   echo "<div class='alert alert-danger mt-2'>An Error Occured While Deleting!</div>";
                 }
