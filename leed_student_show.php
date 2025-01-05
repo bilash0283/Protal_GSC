@@ -118,7 +118,7 @@
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <a href="leed_student_show.php?delete=<?php echo $id?>" class="btn btn-primary">Delete </a>
+                                    <a href="?delete=<?php echo $id; ?>" class="btn btn-primary">Delete </a>
                                   </div>
                                 </div>
                               </div>
