@@ -246,6 +246,13 @@
               </a>
             </li>
 
+            <li class="nav-item">
+              <a href="leed_student_show.php" class="nav-link bg-warning">
+                <i class="nav-icon fas fa-user-graduate text-white"></i>
+                <p class="text-white">Leed Student</p>
+              </a>
+            </li>
+
           <?php }
         } ?>
         </li>

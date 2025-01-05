@@ -1,3 +1,5 @@
+
+
 <?php include('dashboard_include/header.php') ?>
 <?php ob_start(); ?>
   <!-- Navbar -->
@@ -7,7 +9,6 @@
   <?php include('dashboard_include/sidebar.php')?>
 
   <?php
-
     if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
         <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -16,7 +17,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0">All Active Agents</h1>
+                <h1 class="m-0">All Agents</h1>
               </div><!-- /.col -->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -47,21 +48,18 @@
                       <th scope="col">Email</th>
                       <th scope="col">Status</th>
                       <th scope="col">Role</th>
-
                       <?php 
                         if ($_SESSION['role'] == 1) { ?>
                           <th scope="col">Action</th>
                       <?php  }
                       ?>
-                      
                     </tr>
                   </thead>
                   <tbody>
 
                     <?php
-
                     
-                      $agents = "SELECT * FROM agents WHERE status = 1 && role = 2";
+                      $agents = "SELECT * FROM agents WHERE status = 2 && role = 2 ORDER BY id DESC";
                       $agents_query = mysqli_query($db, $agents);
 
                       $count = mysqli_num_rows($agents_query);
@@ -106,6 +104,7 @@
                             <td>
                               <?php
                               
+                              
                               if ($status == 1) {
                                 echo "<div class='badge bg-success' >Active</div>";
                               } else {
@@ -116,7 +115,7 @@
                             </td>
                             <td>
                             <?php
-                              
+
                               if ($role == 1) {
                                 echo "<div class='badge bg-success' >Admin</div>";
                               } else if ($role == 2){
@@ -187,7 +186,6 @@
                 }
               }
             ?>
-
             
           </div><!-- /.container-fluid -->
         </section>
@@ -200,8 +198,6 @@
 
   ?>
 
-
-  
 
   <?php
     ob_end_flush();
