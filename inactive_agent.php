@@ -43,7 +43,7 @@
                       <th scope="col">Company</th>
                       <th scope="col">View Details / Name</th>
                       <th scope="col">Phone</th>
-                      <t scope="col">Email</th>
+                      <th scope="col">Email</th>
                       <th scope="col">Status</th>
                       <th scope="col">Role</th>
                       <?php 

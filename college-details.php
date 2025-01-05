@@ -27,7 +27,7 @@ $country_flag = $country_data['country_flag'];
   <?php include('dashboard_include/sidebar_college.php')?>
 
   <?php 
-    if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
+    if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 2) { ?>
         <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->

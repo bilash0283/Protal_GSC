@@ -21,9 +21,6 @@ $role             = $_SESSION['role'];
       <li class="nav-item d-sm-inline-block">
         <a href="logout.php" class="nav-link">Logout</a>
       </li>
-      <li class="nav-item d-sm-inline-block">
-        <a href="contacts.php" class="nav-link text-success">Contacts</a>
-      </li>
     </ul>
 
     <!-- Right navbar links -->
