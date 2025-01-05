@@ -2,16 +2,7 @@
 include('login_include/header.php');
 include('./database/db.php');
 ob_start();
-$successfull = null;
-?>
-
-<?php
-// Success message
-if (isset($_GET['message'])) {
-    $mes = $_GET['message'];
-
-    print_r($_GET);
-}
+$successfull  = null;
 ?>
 
 
@@ -26,14 +17,18 @@ if (isset($_GET['message'])) {
                             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
                                 <img src="./dist/AdminLTELogo.png" alt="" class="img-fluid"
                                     style="width:65px;height:65px;">
-                                <p class="card-title ml-3 mt-2">Let's help you study abroad and settle. Please fill in
-                                    the following
-                                    details and one of our specialists will contact you soon!</p>
+                                <p class="card-title ml-3 mt-2">Fill in your details to get expert help with studying
+                                    abroad and settling in your desired country!</p>
                             </div>
                         </div>
 
-                        <!-- <div class='alert alert-success mt-2 text-center'></div> -->
-                        
+                        <?php
+                        // Success message
+                        if (isset($_GET['success']) && $_GET['success'] == 'success') {
+                            echo "<div class='alert alert-success mt-2 text-center'>Thank you for submitting your information. We will get in touch with you soon!</div>";
+                        }
+                        ?>
+
                         <div class="card-body">
                             <div>
                                 <!-- input file start  -->
@@ -135,7 +130,7 @@ if (isset($_GET['message'])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="gpa">GPA/CGPA <span class="text-danger">*</span></label>
-                                    <input type="number" name="gpa" id="gpa" class="form-control" required>
+                                    <input type="text" name="gpa" id="gpa" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="language"> Language Score (Ex. IELTS, PTE & Others) </label>
@@ -179,7 +174,9 @@ if (isset($_POST['btn'])) {
 
     $res = mysqli_query($db, $sql);
     if ($res) {
-        header('location:?message = Submit Successful , Thank You!');
+        // Redirect to the same page with a success query parameter
+        header('Location: ' . $_SERVER['PHP_SELF'] . '?success=success');
+        exit();
     } else {
         echo "data not save";
     }
