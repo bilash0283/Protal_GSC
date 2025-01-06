@@ -25,7 +25,7 @@ $successfull = null;
                         <?php
                         // Success message
                         if (isset($_GET['success']) && $_GET['success'] == 'success') {
-                            echo "<div class='alert alert-success mt-2 text-center'>Thank you for submitting your information. We will get in touch with you soon!</div>";
+                            echo "<div class='alert alert-success mt-2 text-center'>Thank you for submitting your information. Please wait for admin approval!</div>";
                         }else if(isset($_GET['success']) && $_GET['success'] == 'wrongPassword'){
                             echo "<div class='alert alert-danger mt-2 text-center'>Password and Confirm Password do not match. Please input same password!</div>";
                         }
@@ -168,15 +168,19 @@ $successfull = null;
 
 if (isset($_POST['btn'])) {
 
-    $agentname               = $_POST['name'];
-    $agentemail              = $_POST['email'];
+    $agentname          = $_POST['name'];
+    $agentemail         = $_POST['email'];
     $password           = $_POST['password'];
     $co_password        = $_POST['co_password'];
     $phone              = $_POST['phone'];
-    $last_qulification = $_POST['last_qulification'];
+    $last_qulification  = $_POST['last_qulification'];
     $pass_year          = $_POST['pass_year'];
-    $last_gpa                = $_POST['gpa'];
-    $ielts           = $_POST['language'];
+    $last_gpa           = $_POST['gpa'];
+    $ielts              = $_POST['language'];
+
+
+    $esql = "SELECT * FROM newstudents WHERE name = '$name' AND email = '$email'";
+
 
     if (isset($_POST['intre_country']) && !empty($_POST['intre_country'])) {
         $selected_countries = $_POST['intre_country'];
