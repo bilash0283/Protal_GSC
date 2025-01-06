@@ -2,7 +2,7 @@
 include('login_include/header.php');
 include('./database/db.php');
 ob_start();
-$successfull  = null;
+$successfull = null;
 ?>
 
 
@@ -26,6 +26,8 @@ $successfull  = null;
                         // Success message
                         if (isset($_GET['success']) && $_GET['success'] == 'success') {
                             echo "<div class='alert alert-success mt-2 text-center'>Thank you for submitting your information. We will get in touch with you soon!</div>";
+                        }else if(isset($_GET['success']) && $_GET['success'] == 'wrongPassword'){
+                            echo "<div class='alert alert-danger mt-2 text-center'>Password and Confirm Password do not match. Please input same password!</div>";
                         }
                         ?>
 
@@ -45,6 +47,12 @@ $successfull  = null;
                                     <label for="inputProjectLeader">Password <span class="text-danger">*</span></label>
                                     <input type="password" name="password" id="inputProjectLeader" class="form-control"
                                         required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputProjectLeader">Confirm Password <span
+                                            class="text-danger">*</span></label>
+                                    <input type="password" name="co_password" id="inputProjectLeader"
+                                        class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputName"> Phone Number/WhatsApp <span
@@ -163,6 +171,7 @@ if (isset($_POST['btn'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $co_password = $_POST['co_password'];
     $phone = $_POST['phone'];
     $last_qualification = $_POST['last_qulification'];
     $pass_year = $_POST['pass_year'];
@@ -176,15 +185,20 @@ if (isset($_POST['btn'])) {
         $countries_str = '';
     }
 
-    $sql = "INSERT INTO student_leed (name, phone, email,password, interested_country, last_qualification, pass_year, gpa, language_score) VALUES ('$name','$phone','$email','$password','$countries_str','$last_qualification','$pass_year','$gpa','$language')";
+    if ($password == $co_password) {
+        $sql = "INSERT INTO student_leed (name, phone, email,password, interested_country, last_qualification, pass_year, gpa, language_score) VALUES ('$name','$phone','$email','$password','$countries_str','$last_qualification','$pass_year','$gpa','$language')";
 
-    $res = mysqli_query($db, $sql);
-    if ($res) {
-        // Redirect to the same page with a success query parameter
-        header('Location: ' . $_SERVER['PHP_SELF'] . '?success=success');
-        exit();
-    } else {
-        echo "data not save";
+        $res = mysqli_query($db, $sql);
+        if ($res) {
+            // Redirect to the same page with a success query parameter
+            header('Location: ' . $_SERVER['PHP_SELF'] . '?success=success');
+            exit();
+        } else {
+            echo "data not save";
+        }
+    }else{
+        header('Location: ' . $_SERVER['PHP_SELF'] . '?success=wrongPassword');
+            exit();
     }
 
 }
