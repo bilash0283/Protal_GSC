@@ -259,7 +259,7 @@
         </li>
 
         <!-- Contacts info navite add  -->
-        <li class="nav-item text-white">
+        <!-- <li class="nav-item text-white">
           <div class="nav-link bg-info mb-3">
             <div>
               <p><strong><i class="ion ion-location pr-1"></i>Address :</strong></p><br>
@@ -280,7 +280,7 @@
               </p>
             </div>
           </div>
-        </li>
+        </li> -->
 
       </ul>
     </nav>

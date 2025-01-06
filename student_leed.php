@@ -37,14 +37,19 @@ $successfull  = null;
                                     <input type="text" name="name" id="inputName" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputName"> Phone Number/WhatsApp <span
-                                            class="text-danger">*</span></label>
-                                    <input type="number" name="phone" id="inputName" class="form-control" required>
-                                </div>
-                                <div class="form-group">
                                     <label for="inputProjectLeader">Email <span class="text-danger">*</span></label>
                                     <input type="email" name="email" id="inputProjectLeader" class="form-control"
                                         required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputProjectLeader">Password <span class="text-danger">*</span></label>
+                                    <input type="password" name="password" id="inputProjectLeader" class="form-control"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName"> Phone Number/WhatsApp <span
+                                            class="text-danger">*</span></label>
+                                    <input type="number" name="phone" id="inputName" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputProjectLeader">Interested Country <span
@@ -156,8 +161,9 @@ $successfull  = null;
 if (isset($_POST['btn'])) {
 
     $name = $_POST['name'];
-    $phone = $_POST['phone'];
     $email = $_POST['email'];
+    $password = $_POST['password'];
+    $phone = $_POST['phone'];
     $last_qualification = $_POST['last_qulification'];
     $pass_year = $_POST['pass_year'];
     $gpa = $_POST['gpa'];
@@ -170,7 +176,7 @@ if (isset($_POST['btn'])) {
         $countries_str = '';
     }
 
-    $sql = "INSERT INTO student_leed (name, phone, email, interested_country, last_qualification, pass_year, gpa, language_score) VALUES ('$name','$phone','$email','$countries_str','$last_qualification','$pass_year','$gpa','$language')";
+    $sql = "INSERT INTO student_leed (name, phone, email,password, interested_country, last_qualification, pass_year, gpa, language_score) VALUES ('$name','$phone','$email','$password','$countries_str','$last_qualification','$pass_year','$gpa','$language')";
 
     $res = mysqli_query($db, $sql);
     if ($res) {
