@@ -108,10 +108,10 @@
                           $qualificationyear  = $row['qualificationyear'];
                           $ielts              = $row['ielts'];
                           $semester           = $row['semester'];
-                          $gscdestination        = $row['gscdestination'];
-                          $gscuniversity            = $row['gscuniversity'];
-                            $destination        = $row['destination'];
-                            $university         = $row['university'];
+                          $gscdestination     = $row['gscdestination'];
+                          $gscuniversity      = $row['gscuniversity'];
+                            $destination      = $row['destination'];
+                            $university       = $row['university'];
                           $program            = $row['program'];
                           $subject            = $row['subject'];
                           $status             = $row['status'];

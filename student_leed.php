@@ -168,15 +168,15 @@ $successfull = null;
 
 if (isset($_POST['btn'])) {
 
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $co_password = $_POST['co_password'];
-    $phone = $_POST['phone'];
-    $last_qualification = $_POST['last_qulification'];
-    $pass_year = $_POST['pass_year'];
-    $gpa = $_POST['gpa'];
-    $language = $_POST['language'];
+    $agentname               = $_POST['name'];
+    $agentemail              = $_POST['email'];
+    $password           = $_POST['password'];
+    $co_password        = $_POST['co_password'];
+    $phone              = $_POST['phone'];
+    $last_qulification = $_POST['last_qulification'];
+    $pass_year          = $_POST['pass_year'];
+    $last_gpa                = $_POST['gpa'];
+    $ielts           = $_POST['language'];
 
     if (isset($_POST['intre_country']) && !empty($_POST['intre_country'])) {
         $selected_countries = $_POST['intre_country'];
@@ -186,7 +186,9 @@ if (isset($_POST['btn'])) {
     }
 
     if ($password == $co_password) {
-        $sql = "INSERT INTO student_leed (name, phone, email,password, interested_country, last_qualification, pass_year, gpa, language_score) VALUES ('$name','$phone','$email','$password','$countries_str','$last_qualification','$pass_year','$gpa','$language')";
+        $sql = "INSERT INTO newstudents (agent, agentemail,password, phone, last_qulification, last_pass_year, last_gpa, 
+                  intre_country,ielts,status) VALUES('$agentname', '$agentemail', '$password', '$phone', '$last_qulification', 
+                  '$pass_year', '$last_gpa','$countries_str', '$ielts','1')";
 
         $res = mysqli_query($db, $sql);
         if ($res) {
@@ -203,6 +205,8 @@ if (isset($_POST['btn'])) {
 
 }
 ?>
+
+
 
 <!--  Form Submission -->
 
