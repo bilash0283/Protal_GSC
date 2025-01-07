@@ -38,6 +38,23 @@ $agentemail       = $_SESSION['email'];
         </div>
         <!-- /.content-header -->
 
+        <?php 
+        
+        $ses_id = $_SESSION['id'];
+
+        $visql = "SELECT * FROM newstudents WHERE id ='$ses_id' ";
+        $vi_res = mysqli_query($db,$visql);
+
+        while ($row = mysqli_fetch_assoc($vi_res)) {
+            $id = $row['id'];
+            $name = $row['name'];
+            $email = $row['email'];
+        }
+        
+        
+        ?>
+
+
         <!-- Main content -->
         <section class="content">
           <div class="container-fluid">
@@ -49,7 +66,7 @@ $agentemail       = $_SESSION['email'];
                     <div class="card card-primary">
 
                       <div class="card-header">
-                        <h3 class="card-title">ADD Information</h3>
+                        <h3 class="card-title">ADD Information <?php echo $email; ?></h3>
 
                         <div class="card-tools">
                           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
