@@ -162,7 +162,7 @@
             <?php if($_SESSION['role'] == 4){ ?>
 
               <li class="nav-item">
-              <a href="add-student.php" class="nav-link bg-info">
+              <a href="std_self_document_update.php" class="nav-link bg-info">
                 <i class="nav-icon fas fas fa-user"></i>
                 <p>complete your profile</p>
               </a>
