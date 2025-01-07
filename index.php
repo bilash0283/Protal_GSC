@@ -98,17 +98,23 @@ ob_start();
                     $_SESSION['joining'] = $row['joining'];
 
 
-
-                    if ($input_password == $password && $_SESSION['status'] == 1) {
+                    if($input_password == $password && $_SESSION['role'] == 4){
                       header('location:dashboard.php');
-                    } else if ($input_password == $password && $_SESSION['status'] != 1) {
-                      echo "<div class='alert alert-danger mt-2 text-center'>Your Account is Not Verified. Please Contact Administrator.</div>";
-                        session_destroy();
-                    } else {
-                      echo "<div class='alert alert-danger mt-2 text-center '>Wrong Password!</div>";
-                        session_destroy();
+                    }else{
+                      if ($input_password == $password && $_SESSION['status'] == 1) {
+                        header('location:dashboard.php');
+                      } else if ($input_password == $password && $_SESSION['status'] != 1) {
+                        echo "<div class='alert alert-danger mt-2 text-center'>Your Account is Not Verified. Please Contact Administrator.</div>";
+                          session_destroy();
+                      } else {
+                        echo "<div class='alert alert-danger mt-2 text-center '>Wrong Password!</div>";
+                          session_destroy();
+                      }
                     }
+
+
                   }
+                  
                 }
               }
               ?>

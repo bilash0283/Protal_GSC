@@ -25,7 +25,7 @@ $successfull = null;
                         <?php
                         // Success message
                         if (isset($_GET['success']) && $_GET['success'] == 'success') {
-                            echo "<div class='alert alert-success mt-2 text-center'>Thank you for submitting your information. Please wait for admin approval!</div>";
+                            echo "<div class='alert alert-success mt-2 text-center'>Congratulations! Your account has been created successfully. Please log in to the portal and complete your profile!</div>";
                         } else if (isset($_GET['success']) && $_GET['success'] == 'wrongPassword') {
                             echo "<div class='alert alert-danger mt-2 text-center'>Password and Confirm Password do not match. Please input same password!</div>";
                         }

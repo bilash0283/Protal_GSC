@@ -56,6 +56,8 @@
                with font-awesome or any other icon font library -->
 
         <li class="nav-item menu-open">
+          <?php  if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 2) { ?>
+
           <a href="#" class="nav-link active">
             <i class="nav-icon fas fas fa-user"></i>
             <p>
@@ -72,9 +74,11 @@
             </li>
           </ul>
 
+          <?php } ?>
+
           <?php
 
-          if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
+          if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 ) {
             ?>
 
           <li class="nav-item menu-open">
@@ -129,19 +133,20 @@
 
 
         <li class="nav-item menu-open">
-          <a href="#" class="nav-link active">
-            <i class="nav-icon fas fa-user-graduate"></i>
-            <p>
-              Students
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
+          <?php
 
-            <?php
+          if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
+            ?>
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-user-graduate"></i>
+              <p>
+                Students
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
 
-            if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
-              ?>
+
 
               <li class="nav-item">
                 <a href="all-student.php" class="nav-link active">
@@ -151,7 +156,19 @@
               </li>
             <?php }
 
-            ?>
+          ?>
+
+            <!-- register student profile complite  -->
+            <?php if($_SESSION['role'] == 4){ ?>
+
+              <li class="nav-item">
+              <a href="add-student.php" class="nav-link bg-info">
+                <i class="nav-icon fas fas fa-user"></i>
+                <p>complete your profile</p>
+              </a>
+            </li>
+
+              <?php } ?>
 
             <?php
             if ($_SESSION['role'] == 2) { ?>
@@ -248,12 +265,12 @@
 
           <?php } ?>
 
-        <li class="nav-item">
-        <a href="leed_student_show.php" class="nav-link bg-warning">
-          <i class="nav-icon fas fa-user-graduate text-white"></i>
-          <p class="text-white">Leed Student</p>
-        </a>
-        </li>
+          <li class="nav-item">
+            <a href="leed_student_show.php" class="nav-link bg-warning">
+              <i class="nav-icon fas fa-user-graduate text-white"></i>
+              <p class="text-white">Leed Student</p>
+            </a>
+          </li>
 
         <?php } ?>
         </li>
