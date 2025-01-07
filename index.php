@@ -9,8 +9,8 @@ ob_start();
 
 
 <div class="container fluid">
-    <div class="row d-flex justify-content-center align-items-center">
-      <div class="col-12 col-md-5">
+    <div class="row d-flex justify-content-center align-items-center p-3">
+      <div class="col-12 col-md-4">
         <div class="card shadow-lg border-0 rounded-4 px-2" style="min-height:370px;">
           <div class="card-body text-center">
             <div class="d-flex justify-content-center align-item-center gap-3 mb-3">
@@ -21,7 +21,18 @@ ob_start();
         </div>
       </div>
 
-      <div class="col-12 col-md-5">
+      <div class="col-12 col-md-4">
+        <div class="card shadow-lg border-0 rounded-4 px-2" style="min-height:370px;">
+          <div class="card-body text-center">
+            <div class="d-flex justify-content-center align-item-center gap-3 mb-3">
+            <img class="card-img-top rounded-4 mt-5" src="./dist/img/ssssss.svg" alt="Card image cap" style="width:100px;height:100px;" />
+            </div>
+            <a href="student_leed.php" class="btn btn-primary mt-5">New Student Registation</a>
+          </div>
+        </div>
+      </div>      
+
+      <div class="col-12 col-md-4">
         <div class="card shadow-lg border-0 rounded-4 px-2" style="min-height:370px;">
           <div class="card-body">
             <!-- <h2 class="text-bold text-dark pb-3 text-center">Sign in Here</h2> -->
@@ -71,6 +82,7 @@ ob_start();
                 if ($count_user < 1) {
                   echo "<div class='alert alert-danger mt-2 text-center'>No Email Found!</div>";
                 } else {
+                    $_SESSION = [];
                   while ($row = mysqli_fetch_assoc($user_sql)) {
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['image'] = $row['image'];
@@ -85,17 +97,22 @@ ob_start();
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['joining'] = $row['joining'];
 
+
+
                     if ($input_password == $password && $_SESSION['status'] == 1) {
                       header('location:dashboard.php');
                     } else if ($input_password == $password && $_SESSION['status'] != 1) {
                       echo "<div class='alert alert-danger mt-2 text-center'>Your Account is Not Verified. Please Contact Administrator.</div>";
+                        session_destroy();
                     } else {
                       echo "<div class='alert alert-danger mt-2 text-center '>Wrong Password!</div>";
+                        session_destroy();
                     }
                   }
                 }
               }
               ?>
+              
 
               <!-- Forgot Password & Register Links -->
               <div class="text-center mt-4">

@@ -26,7 +26,7 @@ $successfull = null;
                         // Success message
                         if (isset($_GET['success']) && $_GET['success'] == 'success') {
                             echo "<div class='alert alert-success mt-2 text-center'>Thank you for submitting your information. Please wait for admin approval!</div>";
-                        }else if(isset($_GET['success']) && $_GET['success'] == 'wrongPassword'){
+                        } else if (isset($_GET['success']) && $_GET['success'] == 'wrongPassword') {
                             echo "<div class='alert alert-danger mt-2 text-center'>Password and Confirm Password do not match. Please input same password!</div>";
                         }
                         ?>
@@ -150,6 +150,9 @@ $successfull = null;
                                     <input type="text" name="language" id="language" class="form-control">
                                 </div>
                                 <button class="btn btn-success btn-block" type="submit" name="btn">Submit</button>
+                                <p class="my-4">
+                                    <a href="index.php" class="text-center">I already have an Student</a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -168,15 +171,15 @@ $successfull = null;
 
 if (isset($_POST['btn'])) {
 
-    $agentname          = $_POST['name'];
-    $agentemail         = $_POST['email'];
-    $password           = $_POST['password'];
-    $co_password        = $_POST['co_password'];
-    $phone              = $_POST['phone'];
-    $last_qulification  = $_POST['last_qulification'];
-    $pass_year          = $_POST['pass_year'];
-    $last_gpa           = $_POST['gpa'];
-    $ielts              = $_POST['language'];
+    $agentname = $_POST['name'];
+    $agentemail = $_POST['email'];
+    $password = $_POST['password'];
+    $co_password = $_POST['co_password'];
+    $phone = $_POST['phone'];
+    $last_qulification = $_POST['last_qulification'];
+    $pass_year = $_POST['pass_year'];
+    $last_gpa = $_POST['gpa'];
+    $ielts = $_POST['language'];
 
 
     $esql = "SELECT * FROM newstudents WHERE name = '$name' AND email = '$email'";
@@ -202,9 +205,9 @@ if (isset($_POST['btn'])) {
         } else {
             echo "data not save";
         }
-    }else{
+    } else {
         header('Location: ' . $_SERVER['PHP_SELF'] . '?success=wrongPassword');
-            exit();
+        exit();
     }
 
 }
