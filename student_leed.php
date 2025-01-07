@@ -171,18 +171,15 @@ $successfull = null;
 
 if (isset($_POST['btn'])) {
 
-    $agentname = $_POST['name'];
-    $agentemail = $_POST['email'];
-    $password = $_POST['password'];
-    $co_password = $_POST['co_password'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+    $co_password = md5($_POST['co_password']);
     $phone = $_POST['phone'];
     $last_qulification = $_POST['last_qulification'];
     $pass_year = $_POST['pass_year'];
     $last_gpa = $_POST['gpa'];
     $ielts = $_POST['language'];
-
-
-    $esql = "SELECT * FROM newstudents WHERE name = '$name' AND email = '$email'";
 
 
     if (isset($_POST['intre_country']) && !empty($_POST['intre_country'])) {
@@ -193,12 +190,17 @@ if (isset($_POST['btn'])) {
     }
 
     if ($password == $co_password) {
-        $sql = "INSERT INTO newstudents (agent, agentemail,password, phone, last_qulification, last_pass_year, last_gpa, 
-                  intre_country,ielts,status) VALUES('$agentname', '$agentemail', '$password', '$phone', '$last_qulification', 
+
+        $agent_sql = "INSERT INTO agents (name, email, password, role ,status ) VALUES('$name', '$email', '$co_password', '4','2')";
+        $agent_res = mysqli_query($db,$agent_sql);
+
+        $sql = "INSERT INTO newstudents (name, email, phone, last_qulification, last_pass_year, last_gpa, 
+                  intre_country,ielts,status) VALUES('$name', '$email', '$phone', '$last_qulification', 
                   '$pass_year', '$last_gpa','$countries_str', '$ielts','1')";
 
         $res = mysqli_query($db, $sql);
-        if ($res) {
+
+        if ($res && $agent_res) {
             // Redirect to the same page with a success query parameter
             header('Location: ' . $_SERVER['PHP_SELF'] . '?success=success');
             exit();
@@ -213,10 +215,7 @@ if (isset($_POST['btn'])) {
 }
 ?>
 
-
-
 <!--  Form Submission -->
-
 
 
 <?php
