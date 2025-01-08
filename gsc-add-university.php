@@ -16,7 +16,7 @@ $add_id           = $_GET['add'];
   <?php include('dashboard_include/sidebar.php')?>
 
   <?php 
-    if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
+    if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) { ?>
       
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -89,7 +89,7 @@ $add_id           = $_GET['add'];
                               <input type="text" name="subject" id="inputClientCompany" class="form-control">
                             </div>
 
-                            <div class="form-group">
+                              <div class="form-group">
                               <label for="inputStatus">Status</label>
                               <select id="inputStatus" name="status" class="form-control custom-select">
                                 <option value="1" selected>Pending</option>
@@ -167,7 +167,8 @@ $add_id           = $_GET['add'];
                     $agent_insertt = "INSERT INTO notifications (id, agent, email, name, message, time) VALUES('$id1', '$agent1', '$email1', '$name1', '$message', now())";
                     $agent_sql = mysqli_query($db, $agent_insertt);
 
-                    header('location:gsc-student.php');
+                    // header('location:gsc-student.php');
+                      echo "successfully submit file";
                     } else {
                       echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
                     }

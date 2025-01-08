@@ -190,6 +190,13 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="stu_single_view.php?edit=<?php echo $id; ?>" class="nav-link bg-success">
+                  <i class="nav-icon fas fas fa-file"></i>
+                  <p>view Your Documents</p>
+                </a>
+              </li>
+
             <?php } ?>
 
             <?php

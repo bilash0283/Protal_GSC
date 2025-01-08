@@ -36,7 +36,7 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">ID</th>
+                      <th scope="col">View Details</th>
                       <th scope="col">Name</th>
                       <th scope="col">Email</th>
                       <th scope="col">Status</th>
@@ -63,11 +63,25 @@
                           $email        = $row['email'];
                           $designation  = $row['designation'];
                           $status       = $row['status'];
-                          $role         = $row['role'];?>
-
+                          $role         = $row['role'];
+                          ?>
 
                           <tr>
-                            <td><?php echo $id; ?></td>
+                          <td><?php ?>
+
+                          <?php 
+                          
+                          $st_id_sql = "SELECT * FROM newstudents WHERE email='$email' ";
+                          $st_id_qu = mysqli_query($db,$st_id_sql);
+                          while($row = mysqli_fetch_assoc($st_id_qu)){
+                            $edit_stid = $row['id'];
+                          }
+                          
+                          ?>
+                            
+                            <a href="stu_single_view.php?edit=<?php echo $edit_stid; ?>"><i class="fas fa-eye"></i></a>
+                            <?php 
+                            ?></td>
                             <td><?php echo $name; ?></td>
                             <td><?php echo $email; ?></td>
                             <td>

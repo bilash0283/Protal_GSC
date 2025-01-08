@@ -171,6 +171,9 @@
                   address='$address', 
                   passport='$passport' 
               WHERE email='$email'";
+
+              $up_agent = "UPDATE agents SET name='$name' WHERE email='$email' ";
+              $up_qul = mysqli_query($db,$up_agent);
         
                   $agent_sql = mysqli_query($db, $agent_insert);
 
@@ -181,8 +184,9 @@
                         $id   = $row['id'];
                       }
         
-                  if ($agent_sql){
+                  if ($agent_sql && $up_qul){
                     // header('location:gsc-add-qualification.php?add=' . $id);
+                    header('location:stu_add_qul.php?add=' .$id);
                   } else {
                     echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
                   }
@@ -192,7 +196,6 @@
             ?>
 
           <!-- Form Submission Code -->
-
 
           </div><!-- /.container-fluid -->
         </section>

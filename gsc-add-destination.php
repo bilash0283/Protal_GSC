@@ -16,7 +16,7 @@ $add_id           = $_GET['add'];
   <?php include('dashboard_include/sidebar.php')?>
 
   <?php 
-    if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
+    if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) { ?>
       
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
