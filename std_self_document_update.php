@@ -34,9 +34,7 @@
         <!-- /.content-header -->
 
         <?php 
-        
         $ses_email = $_SESSION['email'];
-
         $visql = "SELECT * FROM newstudents WHERE email ='$ses_email' ";
         $vi_res = mysqli_query($db,$visql);
 
@@ -49,12 +47,35 @@
             $intre_country = $row['intre_country'];
             $last_qulification = $row['last_qulification'];
             $phone = $row['phone'];
-
-
-
-        }
-        
-        
+            
+            $dob = $row['dob'];
+            $gender = $row['gender'];
+            $nationality = $row['nationality'];
+            $address = $row['address'];
+            $passport = $row['passport'];
+            $ssc = $row['ssc'];
+            $hsc = $row['hsc'];
+            $diploma = $row['diploma'];
+            $undergrad = $row['undergrad'];
+            $level = $row['level'];
+            $sscyear = $row['sscyear'];
+            $hscyear = $row['hscyear'];
+            $diplomayear = $row['diplomayear'];
+            $undergradyear = $row['undergradyear'];
+            $qualificationyear = $row['qualificationyear'];
+            $ielts = $row['ielts'];
+            $semester = $row['semester'];
+            $destination = $row['destination'];
+            $gscdestination = $row['gscdestination'];
+            $program = $row['program'];
+            $status = $row['status'];
+            $comment = $row['comment'];
+            $subject = $row['subject'];
+            $university = $row['university'];
+            $gscuniversity = $row['gscuniversity'];
+            $qualification = $row['qualification'];
+            $profile = $row['profile'];
+          }
         ?>
 
 
@@ -93,7 +114,7 @@
 
                             <div class="form-group">
                               <label for="inputProjectLeader">Date Of Birth (DD-MM-YY)</label>
-                              <input type="text" name="dob" id="inputProjectLeader" class="form-control" required>
+                              <input type="text" name="dob" value="<?php echo $dob; ?>" id="inputProjectLeader" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
@@ -117,17 +138,17 @@
 
                             <div class="form-group">
                               <label for="inputProjectLeader">Student Nationality</label>
-                              <input type="text" name="nationality" id="inputProjectLeader" class="form-control" required>
+                              <input type="text" name="nationality" value="<?php echo $nationality;?>" id="inputProjectLeader" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                               <label for="inputName">Passport No.</label>
-                              <input type="text" name="passport" id="inputName" class="form-control" required>
+                              <input type="text" name="passport" value="<?php echo $passport;?>" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                               <label for="inputProjectLeader">Address (According To Passport)</label>
-                              <input type="text" name="address" id="inputProjectLeader" class="form-control" required>
+                              <input type="text" name="address" value="<?php echo $address;?>" id="inputProjectLeader" class="form-control" required>
                             </div>
 
                             <div class="form-group">

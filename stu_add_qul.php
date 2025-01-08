@@ -39,6 +39,59 @@ $add_id           = $_GET['add'];
         </div>
         <!-- /.content-header -->
 
+        <?php 
+        if(isset($_GET['add'])){
+
+           $get_id = $id;
+          
+
+        $visql = "SELECT * FROM newstudents WHERE id ='$get_id' ";
+        $vi_res = mysqli_query($db,$visql);
+
+        while ($row = mysqli_fetch_assoc($vi_res)) {
+            $id = $row['id'];
+            $name = $row['name'];
+            $email = $row['email'];
+            $last_pass_year = $row['last_pass_year'];
+            $last_gpa = $row['last_gpa'];
+            $intre_country = $row['intre_country'];
+            $last_qulification = $row['last_qulification'];
+            $phone = $row['phone'];
+            $dob = $row['dob'];
+            $gender = $row['gender'];
+            $nationality = $row['nationality'];
+            $address = $row['address'];
+            $passport = $row['passport'];
+
+            $ssc = $row['ssc'];
+            $hsc = $row['hsc'];
+            $diploma = $row['diploma'];
+            $undergrad = $row['undergrad'];
+            $level = $row['level'];
+            $sscyear = $row['sscyear'];
+            $hscyear = $row['hscyear'];
+            $diplomayear = $row['diplomayear'];
+            $undergradyear = $row['undergradyear'];
+            $qualificationyear = $row['qualificationyear'];
+            
+            $ielts = $row['ielts'];
+            $semester = $row['semester'];
+            $destination = $row['destination'];
+            $gscdestination = $row['gscdestination'];
+            $program = $row['program'];
+            $status = $row['status'];
+            $comment = $row['comment'];
+            $subject = $row['subject'];
+            $university = $row['university'];
+            $gscuniversity = $row['gscuniversity'];
+            $qualification = $row['qualification'];
+            $profile = $row['profile'];
+          }
+        }
+        ?>
+
+
+
         <!-- Main content -->
         <section class="content">
           <div class="container-fluid">
@@ -65,27 +118,27 @@ $add_id           = $_GET['add'];
 
                           <div class="form-group">
                               <label for="inputName">SSC / O Level's GPA & Group</label>
-                              <input type="text" name="ssc" id="inputName" class="form-control" required>
+                              <input type="text" name="ssc" value="<?php echo $ssc; ?>" id="inputName" class="form-control" required>
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">HSC / A Level's GPA & Group</label>
-                              <input type="text" name="hsc" id="inputName" class="form-control" required>
+                              <input type="text" name="hsc" value="<?php echo $hsc; ?>" id="inputName" class="form-control" required>
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">Diploma Course & GPA</label>
-                              <input type="text" name="diploma" id="inputName" class="form-control" required>
+                              <input type="text" name="diploma" id="inputName" value="<?php echo $diploma; ?>" class="form-control" required>
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">Bachelor's Major & CGPA</label>
-                              <input type="text" name="undergrad" id="inputName" class="form-control">
+                              <input type="text" name="undergrad" value="<?php echo $undergrad; ?>" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
                               <label for="inputClientCompany">Masters's Major & CGPA</label>
-                              <input type="text" name="level" id="inputClientCompany" class="form-control">
+                              <input type="text" name="level" value="<?php echo $level; ?>" id="inputClientCompany" class="form-control">
                             </div>
 
                           </div>
@@ -96,31 +149,31 @@ $add_id           = $_GET['add'];
 
                           <div class="form-group">
                               <label for="inputName">SSC / O Level's Year Of Passing</label>
-                              <input type="text" name="sscyear" id="inputName" class="form-control" required>
+                              <input type="text" value="<?php echo $sscyear; ?>" name="sscyear" id="inputName" class="form-control" required>
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">HSC / A Level's Year Of Passing</label>
-                              <input type="text" name="hscyear" id="inputName" class="form-control" required>
+                              <input type="text" value="<?php echo $hscyear; ?>" name="hscyear" id="inputName" class="form-control" required>
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">Diploma Year Of Passing</label>
-                              <input type="text" name="diplomayear" id="inputName" class="form-control" required>
+                              <input type="text" value="<?php echo $diplomayear; ?>" name="diplomayear" id="inputName" class="form-control" required>
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">Bachelor's Year Of Passing</label>
-                              <input type="text" name="undergradyear" id="inputName" class="form-control">
+                              <input type="text" value="<?php echo $undergradyear; ?>" name="undergradyear" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
                               <label for="inputClientCompany">Masters's Year Of Passing</label>
-                              <input type="text" name="qualificationyear" id="inputClientCompany" class="form-control">
+                              <input type="text" value="<?php echo $qualificationyear; ?>" name="qualificationyear" id="inputClientCompany" class="form-control">
                             </div>
 
                             <div class="form-group">
-                              <input type="submit" name="submit" value="Next" class="btn btn-lg btn-primary">
+                              <input type="submit"  name="submit" value="Next" class="btn btn-lg btn-primary">
                             </div>
 
                             

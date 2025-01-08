@@ -47,6 +47,7 @@ $agentname = $_SESSION['name'];
             $name = $row['name'];
             $email = $row['email'];
             $phone = $row['phone'];
+            
             $dob = $row['dob'];
             $gender = $row['gender'];
             $nationality = $row['nationality'];
@@ -97,7 +98,7 @@ $agentname = $_SESSION['name'];
 
                                     <?php
 
-                                    if ($profile == '') { ?>
+                                    if ($profile == null) { ?>
                                         <img src="dist/img/agent_image/demo.png"
                                             class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
                                     <?php } else { ?>

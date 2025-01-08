@@ -38,6 +38,57 @@ $add_id           = $_GET['add'];
         </div>
         <!-- /.content-header -->
 
+        <?php 
+        if(isset($_GET['add'])){
+
+           $get_id = $id;
+          
+
+        $visql = "SELECT * FROM newstudents WHERE id ='$get_id' ";
+        $vi_res = mysqli_query($db,$visql);
+
+        while ($row = mysqli_fetch_assoc($vi_res)) {
+            $id = $row['id'];
+            $name = $row['name'];
+            $email = $row['email'];
+            $last_pass_year = $row['last_pass_year'];
+            $last_gpa = $row['last_gpa'];
+            $intre_country = $row['intre_country'];
+            $last_qulification = $row['last_qulification'];
+            $phone = $row['phone'];
+            $dob = $row['dob'];
+            $gender = $row['gender'];
+            $nationality = $row['nationality'];
+            $address = $row['address'];
+            $passport = $row['passport'];
+            $ssc = $row['ssc'];
+            $hsc = $row['hsc'];
+            $diploma = $row['diploma'];
+            $undergrad = $row['undergrad'];
+            $level = $row['level'];
+            $sscyear = $row['sscyear'];
+            $hscyear = $row['hscyear'];
+            $diplomayear = $row['diplomayear'];
+            $undergradyear = $row['undergradyear'];
+            $qualificationyear = $row['qualificationyear'];
+            
+            $ielts = $row['ielts'];
+            $semester = $row['semester'];
+            $destination = $row['destination'];
+            $gscdestination = $row['gscdestination'];
+            $program = $row['program'];
+            $status = $row['status'];
+            $comment = $row['comment'];
+            $subject = $row['subject'];
+            $university = $row['university'];
+            $gscuniversity = $row['gscuniversity'];
+            $qualification = $row['qualification'];
+            $profile = $row['profile'];
+          }
+        }
+        ?>
+
+
         <!-- Main content -->
         <section class="content">
           <div class="container-fluid">
@@ -64,7 +115,7 @@ $add_id           = $_GET['add'];
 
                           <div class="form-group">
                               <label for="inputName">English Test Result (Language Proficiency Tests)</label>
-                              <input type="text" name="ielts" id="inputName" class="form-control">
+                              <input type="text" name="ielts" value="<?php echo $ielts; ?>" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
@@ -86,12 +137,12 @@ $add_id           = $_GET['add'];
 
                             <div class="form-group">
                               <label for="inputClientCompany">Study Destination</label>
-                              <input type="text" name="gscdestination" id="inputClientCompany" class="form-control">
+                              <input type="text" name="gscdestination" value="<?php echo $intre_country; ?>" id="inputClientCompany" class="form-control">
                             </div>
 
                             <div class="form-group">
                               <label for="inputClientCompany">Preferable Intake</label>
-                              <input type="text" name="semester" id="inputClientCompany" class="form-control">
+                              <input type="text" name="semester" value="<?php echo $semester; ?>" id="inputClientCompany" class="form-control">
                             </div>
 
                             <div class="form-group">
