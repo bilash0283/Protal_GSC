@@ -35,6 +35,28 @@
 
       ?>
 
+      <?php
+
+      $ses_email = $_SESSION['email'];
+
+      $visql = "SELECT * FROM newstudents WHERE email ='$ses_email' ";
+      $vi_res = mysqli_query($db, $visql);
+
+      while ($row = mysqli_fetch_assoc($vi_res)) {
+        $id = $row['id'];
+        $name = $row['name'];
+        $email = $row['email'];
+      }
+
+
+      ?>
+
+      <?php if($_SESSION['role'] == 4){ ?>
+      <div>
+        <a href="profile.php"><?php echo $name; ?></a>
+      </div>
+      <?php } ?>
+
     </div>
 
     <!-- SidebarSearch Form -->
@@ -56,29 +78,29 @@
                with font-awesome or any other icon font library -->
 
         <li class="nav-item menu-open">
-          <?php  if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 2) { ?>
+          <?php if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 2) { ?>
 
-          <a href="#" class="nav-link active">
-            <i class="nav-icon fas fas fa-user"></i>
-            <p>
-              Profile
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="profile.php" class="nav-link active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>My Profile</p>
-              </a>
-            </li>
-          </ul>
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fas fa-user"></i>
+              <p>
+                Profile
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="profile.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>My Profile</p>
+                </a>
+              </li>
+            </ul>
 
           <?php } ?>
 
           <?php
 
-          if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 ) {
+          if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
             ?>
 
           <li class="nav-item menu-open">
@@ -159,16 +181,16 @@
           ?>
 
             <!-- register student profile complite  -->
-            <?php if($_SESSION['role'] == 4){ ?>
+            <?php if ($_SESSION['role'] == 4) { ?>
 
               <li class="nav-item">
-              <a href="std_self_document_update.php" class="nav-link bg-info">
-                <i class="nav-icon fas fas fa-user"></i>
-                <p>complete your profile</p>
-              </a>
-            </li>
+                <a href="std_self_document_update.php" class="nav-link bg-info">
+                  <i class="nav-icon fas fas fa-user"></i>
+                  <p>complete your profile</p>
+                </a>
+              </li>
 
-              <?php } ?>
+            <?php } ?>
 
             <?php
             if ($_SESSION['role'] == 2) { ?>

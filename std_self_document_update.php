@@ -1,12 +1,7 @@
 
 <?php include('dashboard_include/header.php')?>
 <?php ob_start(); ?>
-<?php
 
-$agentname        = $_SESSION['name'];
-$agentemail       = $_SESSION['email'];
-
-?>
   <!-- Navbar -->
 <?php include('dashboard_include/top_header.php')?>
   <!-- /.navbar -->
@@ -40,15 +35,23 @@ $agentemail       = $_SESSION['email'];
 
         <?php 
         
-        $ses_id = $_SESSION['id'];
+        $ses_email = $_SESSION['email'];
 
-        $visql = "SELECT * FROM newstudents WHERE id ='$ses_id' ";
+        $visql = "SELECT * FROM newstudents WHERE email ='$ses_email' ";
         $vi_res = mysqli_query($db,$visql);
 
         while ($row = mysqli_fetch_assoc($vi_res)) {
             $id = $row['id'];
             $name = $row['name'];
             $email = $row['email'];
+            $last_pass_year = $row['last_pass_year'];
+            $last_gpa = $row['last_gpa'];
+            $intre_country = $row['intre_country'];
+            $last_qulification = $row['last_qulification'];
+            $phone = $row['phone'];
+
+
+
         }
         
         
@@ -66,7 +69,7 @@ $agentemail       = $_SESSION['email'];
                     <div class="card card-primary">
 
                       <div class="card-header">
-                        <h3 class="card-title">ADD Information <?php echo $email; ?></h3>
+                        <h3 class="card-title">ADD Information</h3>
 
                         <div class="card-tools">
                           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -80,12 +83,12 @@ $agentemail       = $_SESSION['email'];
                           <div class="card-body">
                             <div class="form-group">
                               <label for="inputName">Student Full Name</label>
-                              <input type="text" name="name"  id="inputName" class="form-control" required>
+                              <input type="text" value="<?php echo $name; ?>" name="name" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                               <label for="inputName">Student Phone No.</label>
-                              <input type="text" name="phone" id="inputName" class="form-control" required>
+                              <input type="text" name="phone" id="inputName" value="<?php echo $phone; ?>" class="form-control" required>
                             </div>
 
                             <div class="form-group">
@@ -95,7 +98,10 @@ $agentemail       = $_SESSION['email'];
                             
                             <div class="form-group">
                               <label for="inputClientCompany">Gender</label>
-                              <input type="text" name="gender" id="inputClientCompany" class="form-control" required>
+                              <select name="gender" class="form-control" id="">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                              </select>
                             </div>
                             
 
@@ -106,7 +112,7 @@ $agentemail       = $_SESSION['email'];
                           <div class="card-body">
                           <div class="form-group">
                               <label for="inputName">Email</label>
-                              <input type="email" name="email" id="inputName" class="form-control" required>
+                              <input type="email" value="<?php echo $email;?>" readonly id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
@@ -148,9 +154,7 @@ $agentemail       = $_SESSION['email'];
             <?php
             
             if(isset($_POST['submit'])){
-
               $name             = $_POST['name'];
-              $email            = $_POST['email'];
               $phone            = $_POST['phone'];
               $dob              = $_POST['dob'];
               $gender           = $_POST['gender'];
@@ -159,21 +163,26 @@ $agentemail       = $_SESSION['email'];
               $nationality      = $_POST['nationality'];
 
 
-                $agent_insert = "INSERT INTO newstudents (agent, agentemail, name, email, phone, dob, 
-                  gender, nationality, address, passport) VALUES('$agentname', '$agentemail', '$name', '$email', '$phone', 
-                  '$dob', '$gender', '$nationality', '$address', '$passport')";
+              $agent_insert = "UPDATE newstudents 
+              SET name='$name', phone='$phone', 
+                  dob='$dob', 
+                  gender='$gender', 
+                  nationality='$nationality', 
+                  address='$address', 
+                  passport='$passport' 
+              WHERE email='$email'";
         
                   $agent_sql = mysqli_query($db, $agent_insert);
 
                   $student_get = "SELECT * FROM newstudents WHERE name = '$name' AND email = '$email'";
                   $student_query = mysqli_query($db, $student_get);
             
-                                while ($row = mysqli_fetch_assoc($student_query)) {
-                                    $id   = $row['id'];
-                                }
+                      while ($row = mysqli_fetch_assoc($student_query)) {
+                        $id   = $row['id'];
+                      }
         
                   if ($agent_sql){
-                    header('location:gsc-add-qualification.php?add=' . $id);
+                    // header('location:gsc-add-qualification.php?add=' . $id);
                   } else {
                     echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
                   }
