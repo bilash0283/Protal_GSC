@@ -25,7 +25,7 @@ $successfull = null;
                         <?php
                         // Success message
                         if (isset($_GET['success']) && $_GET['success'] == 'success') {
-                            echo "<div class='alert alert-success mt-2 text-center'>Congratulations! Your account has been created successfully. Please log in to the portal and complete your profile!</div>";
+                            echo "<div class='alert alert-success mt-2 text-center'>Congratulations! Your account has been created successfully. Please log in to the portal and complete your profile! <a class='btn btn-danger btn-sm' href='http://localhost/OFFICE/Protal_GSC-master/index.php'>Log-in</a> </div>";
                         } else if (isset($_GET['success']) && $_GET['success'] == 'wrongPassword') {
                             echo "<div class='alert alert-danger mt-2 text-center'>Password and Confirm Password do not match. Please input same password!</div>";
                         }
