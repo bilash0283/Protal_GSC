@@ -238,7 +238,6 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
             echo "<div class='alert alert-danger mt-2'>Please Select A University!</div>";
           }
 
-
         }
 
         ?>
