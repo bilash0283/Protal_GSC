@@ -156,7 +156,7 @@
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <a href="agent.php?delete=<?php echo $id?>" class="btn btn-primary">Delete Agent</a>
+                                    <a href="inactive_agent.php?delete=<?php echo $id?>" class="btn btn-primary">Delete Agent</a>
                                   </div>
                                 </div>
                               </div>
@@ -178,7 +178,7 @@
                 $delete_sql = "DELETE FROM agents WHERE id = '$delete_id'";
                 $delete = mysqli_query($db,$delete_sql);
                 if($delete){
-                  header('location:agent.php');
+                  header('location:inactive_agent.php');
                 } else {
                   echo "<div class='alert alert-danger mt-2'>An Error Occured While Deleting!</div>";
                 }
