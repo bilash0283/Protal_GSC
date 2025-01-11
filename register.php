@@ -65,10 +65,12 @@ ob_start();
           $password = htmlspecialchars($_POST['password']);
           $confirm_password = htmlspecialchars($_POST['confirm_password']);
 
+          // gscagents@gmail.com
+
           if ($password == $confirm_password) {
-            $to = 'gscagents@gmail.com';
+            $to = 'sadia.cigsc@gmail.com';
             $subject = "New Registration Request";
-            $message = "Name: $name\nEmail: $email\nPassword: $password";
+            $message = "Name: $name\Email: $email\Password: $password";
             $headers = "From: $email";
 
             if (mail($to, $subject, $message, $headers)) {
