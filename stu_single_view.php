@@ -75,6 +75,7 @@ $agentname = $_SESSION['name'];
             $gscuniversity = $row['gscuniversity'];
             $qualification = $row['qualification'];
             $profile = $row['profile'];
+            $intre_country = $row['intre_country'];
         }
 
         $students = "SELECT * FROM missingfiles WHERE passport = '$passport' AND student = '$name' AND agent = '$agent'";
@@ -286,85 +287,10 @@ $agentname = $_SESSION['name'];
                                                 <th>Preferable Intake</th>
                                                 <td><?php echo htmlspecialchars($semester); ?></td>
                                             </tr>
-
+                                            
                                             <tr>
                                                 <th>Study Destination</th>
-                                                <td><?php
-
-                                                if ($gscdestination != '') {
-                                                    echo htmlspecialchars($gscdestination);
-                                                } else {
-                                                    switch ($destination) {
-                                                        case 1:
-                                                            echo "USA";
-                                                            break;
-                                                        case 2:
-                                                            echo "UK";
-                                                            break;
-                                                        case 3:
-                                                            echo "Canada";
-                                                            break;
-                                                        case 4:
-                                                            echo "Australia";
-                                                            break;
-                                                        case 5:
-                                                            echo "Denmark";
-                                                            break;
-                                                        case 6:
-                                                            echo "Cyprus";
-                                                            break;
-                                                        case 7:
-                                                            echo "Ireland";
-                                                            break;
-                                                        case 8:
-                                                            echo "Malaysia";
-                                                            break;
-                                                        case 9:
-                                                            echo "Dubai";
-                                                            break;
-                                                        case 10:
-                                                            echo "Hungary";
-                                                            break;
-                                                        case 11:
-                                                            echo "Bulgaria";
-                                                            break;
-                                                        case 12:
-                                                            echo "Malta";
-                                                            break;
-                                                        case 13:
-                                                            echo "Romania";
-                                                            break;
-                                                        case 14:
-                                                            echo "Russia";
-                                                            break;
-                                                        case 15:
-                                                            echo "Turkey";
-                                                            break;
-                                                        case 16:
-                                                            echo "Georgia";
-                                                            break;
-                                                        case 17:
-                                                            echo "China";
-                                                            break;
-                                                        case 18:
-                                                            echo "Latvia";
-                                                            break;
-                                                        case 19:
-                                                            echo "Netherland";
-                                                            break;
-                                                        case 20:
-                                                            echo "Poland";
-                                                            break;
-                                                        case 21:
-                                                            echo "France";
-                                                            break;
-                                                        case 22:
-                                                            echo "Spain";
-                                                            break;
-                                                    }
-                                                }
-
-                                                ?></td>
+                                             <td><?php echo $intre_country; ?></td>
                                             </tr>
 
 

@@ -186,14 +186,14 @@
               <li class="nav-item">
                 <a href="std_self_document_update.php" class="nav-link bg-info">
                   <i class="nav-icon fas fas fa-user"></i>
-                  <p>complete your profile</p>
+                  <p>Complete Your Profile</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="stu_single_view.php?edit=<?php echo $id; ?>" class="nav-link bg-success">
                   <i class="nav-icon fas fas fa-file"></i>
-                  <p>view Your Documents</p>
+                  <p>View Your Documents</p>
                 </a>
               </li>
 

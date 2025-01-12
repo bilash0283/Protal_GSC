@@ -57,7 +57,7 @@ $successfull = null;
                                 <div class="form-group">
                                     <label for="inputName"> Phone Number/WhatsApp <span
                                             class="text-danger">*</span></label>
-                                    <input type="number" name="phone" id="inputName" class="form-control" required>
+                                    <input type="text" name="phone" id="inputName" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputProjectLeader">Interested Country <span

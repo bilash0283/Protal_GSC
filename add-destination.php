@@ -152,7 +152,7 @@ $add_id           = $_GET['add'];
               if ($destination != 0) {
                
                $agent_insert = "UPDATE newstudents SET ielts = '$ielts', program = '$program', 
-                destination = '$destination', semester = '$semester' WHERE id = '$add_id'";
+                intre_country = '$destination', semester = '$semester' WHERE id = '$add_id'";
         
                   $agent_sql = mysqli_query($db, $agent_insert);
         
