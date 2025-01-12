@@ -103,7 +103,6 @@ if ($_SESSION['role'] == 1) { ?>
                                 }
 
                                 ?>
-
                                 <div class="row">
                                     <div class="col-md-6 mx-auto">
                                         <div class="card-body">
@@ -116,7 +115,6 @@ if ($_SESSION['role'] == 1) { ?>
                                                 
                                                 ?>">
                                             </div>
-
                                             <div class="form-group">
                                                 <label for="inputStatus">Status</label>
                                                 <select id="inputStatus" name="status" class="form-control custom-select">
@@ -130,123 +128,26 @@ if ($_SESSION['role'] == 1) { ?>
                                                     </option>
                                                 </select>
                                             </div>
-
                                             <div class="form-group">
                                                 <input type="submit" name="submit" value="Update Student Status"
                                                     class="btn btn-lg btn-primary px-2">
                                             </div>
-
-
                                         </div>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </form>
                 <!-- Form Updating Code -->
                 <?php
 
                 if (isset($_POST['submit'])) {
-
-                    $name = $_POST['name'];
-                    $designation = $_POST['designation'];
-                    $company = $_POST['company'];
-                    $address = $_POST['address'];
-                    $company_year = $_POST['year'];
-                    $country = $_POST['country'];
-                    $phone = $_POST['phone'];
-                    $fb_url = $_POST['fb_url'];
-                    $web_url = $_POST['web_url'];
-                    $bank_name = $_POST['bank_name'];
-                    $bank_acc_name = $_POST['bank_acc_name'];
-                    $bank_acc_number = $_POST['bank_acc_number'];
-                    $bank_address = $_POST['bank_address'];
-                    $branch_name = $_POST['branch_name'];
-                    $swift_code = $_POST['swift_code'];
+                    
                     $status = $_POST['status'];
-                    $role = $_POST['role'];
 
-
-
-
-                    // Handle Image upload
-                    $image = $_FILES['image']['name'];
-                    $image_tmp_location = $_FILES['image']['tmp_name'];
-                    $final_image_name = '';
-
-                    // Handle Company Logo upload
-                    $company_logo = $_FILES['company_logo']['name'];
-                    $company_logo_tmp_location = $_FILES['company_logo']['tmp_name'];
-                    $final_company_logo_name = '';
-
-                    // Handle Company Registration Certificate upload
-                    $company_reg_cart = $_FILES['company_reg_cart']['name'];
-                    $company_reg_cart_tmp_location = $_FILES['company_reg_cart']['tmp_name'];
-                    $final_company_reg_cart_name = '';
-
-                    // Generate random file names if files are uploaded
-                    if (!empty($image)) {
-                        $rand = rand(0, 999999);
-                        $final_image_name = 'agent_photo_' . $rand . time() . $image;
-                        move_uploaded_file($image_tmp_location, 'dist/img/agent_image/' . $final_image_name);
-                    }
-
-                    if (!empty($company_logo)) {
-                        $rand = rand(0, 999999);
-                        $final_company_logo_name = 'agent_company_logo_' . $rand . time() . $company_logo;
-                        move_uploaded_file($company_logo_tmp_location, 'dist/img/agent_company_logo/' . $final_company_logo_name);
-                    }
-
-                    if (!empty($company_reg_cart)) {
-                        $rand = rand(0, 999999);
-                        $final_company_reg_cart_name = 'agent_company_reg_cart_' . $rand . time() . $company_reg_cart;
-                        move_uploaded_file($company_reg_cart_tmp_location, 'dist/img/agent_registation_cartificate/' . $final_company_reg_cart_name);
-                    }
-
-                    // Construct the SQL query to update the agent's information
-                    $update_agent = "UPDATE agents SET 
-                        name = '$name', 
-                        designation = '$designation', 
-                        company = '$company', 
-                        address = '$address', 
-                        year = '$company_year',
-                        country = '$country', 
-                        phone = '$phone', 
-                        fb_url = '$fb_url',
-                        web_url = '$web_url',
-                        bank_name = '$bank_name',
-                        bank_acc_name = '$bank_acc_name',
-                        bank_acc_number = '$bank_acc_number',
-                        bank_address = '$bank_address',
-                        branch_name = '$branch_name',
-                        swift_code = '$swift_code',
-                        status = '$status', 
-                        role = '4'";
-
-
-                    // Include file upload fields in the query if files are uploaded
-                    if (!empty($final_image_name)) {
-                        $update_agent .= ", image = '$final_image_name'";
-                    }
-
-                    if (!empty($final_company_logo_name)) {
-                        $update_agent .= ", company_logo = '$final_company_logo_name'";
-                    }
-
-                    if (!empty($final_company_reg_cart_name)) {
-                        $update_agent .= ", company_reg_cert = '$final_company_reg_cart_name'";
-                    }
-
-                    // Add WHERE condition to update specific agent
-                    $update_agent .= " WHERE id = '$edit_id'";
-
-                    // Execute the query
+                    $update_agent = "UPDATE agents SET status = '$status' WHERE id='$edit_id' ";
                     $agent_sql = mysqli_query($db, $update_agent);
 
                     // Check if the query was successful and redirect
