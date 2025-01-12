@@ -88,9 +88,9 @@
                               <?php
                               
                               if ($status == 1) {
-                                echo "<div class='badge bg-success' >Active</div>";
+                                echo "<div class='badge bg-success' >Check</div>";
                               } else {
-                                echo "<div class='badge bg-secondary' >Inactive</div>";
+                                echo "<div class='badge bg-secondary' >Uncheck</div>";
                               }
 
                               ?>

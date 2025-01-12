@@ -122,11 +122,11 @@ if ($_SESSION['role'] == 1) { ?>
                                                 <select id="inputStatus" name="status" class="form-control custom-select">
                                                     <option <?php if ($status == 1) {
                                                         echo "selected";
-                                                    } ?> value="1">Active
+                                                    } ?> value="1">Check
                                                     </option>
                                                     <option <?php if ($status == 2) {
                                                         echo "selected";
-                                                    } ?> value="2">Inactive
+                                                    } ?> value="2">Uncheck
                                                     </option>
                                                 </select>
                                             </div>
