@@ -221,7 +221,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
                   $agent_sql = mysqli_query($db, $agent_insertt);
 
                    //header('location:stu_single_view.php');
-                  echo "successfully submit your document ! please view your document";
+                  echo "<div class='alert alert-success rounded-2 p-2'>successfully submit your document ! please view your document</div>";
                 } else {
                   echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
                 }
