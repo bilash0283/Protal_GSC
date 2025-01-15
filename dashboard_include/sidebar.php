@@ -51,10 +51,10 @@
 
       ?>
 
-      <?php if($_SESSION['role'] == 4){ ?>
-      <div>
-        <a href="profile.php"><?php echo $name; ?></a>
-      </div>
+      <?php if ($_SESSION['role'] == 4) { ?>
+        <div>
+          <a href="profile.php"><?php echo $name; ?></a>
+        </div>
       <?php } ?>
 
     </div>
@@ -222,10 +222,7 @@
           </ul>
         </li>
 
-        <?php
-
-        if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
-          ?>
+        <?php if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
 
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
@@ -252,13 +249,9 @@
             </ul>
           </li>
 
-        <?php }
+        <?php } ?>
 
-        ?>
-
-        <?php
-        if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
-          ?>
+        <?php if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
 
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
@@ -278,55 +271,57 @@
             </ul>
 
             <?php if ($_SESSION['role'] == 1) { ?>
-            <li class="nav-item">
-              <a href="gsc-notifications.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>GSC notifications</p>
-              </a>
-            </li>
+
+              <li class="nav-item">
+                <a href="gsc-notifications.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>GSC notifications</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="create_country.php" class="nav-link bg-danger">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Country & Info</p>
+                </a>
+              </li>
+
+            <?php } ?>
 
             <li class="nav-item">
-              <a href="create_country.php" class="nav-link bg-danger">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Add Country & Info</p>
+              <a href="leed_student_show.php" class="nav-link bg-warning">
+                <i class="nav-icon fas fa-user-graduate text-white"></i>
+                <p class="text-white">Leed Student</p>
               </a>
             </li>
-
-          <?php } ?>
-
-          <li class="nav-item">
-            <a href="leed_student_show.php" class="nav-link bg-warning">
-              <i class="nav-icon fas fa-user-graduate text-white"></i>
-              <p class="text-white">Leed Student</p>
-            </a>
           </li>
-
         <?php } ?>
-        </li>
 
-        <!-- Contacts info navite add  -->
-        <!-- <li class="nav-item text-white">
-          <div class="nav-link bg-info mb-3">
-            <div>
-              <p><strong><i class="ion ion-location pr-1"></i>Address :</strong></p><br>
-              <p>House no.-54/A(1st Floor), Road-132,
-                Gulshan-1, Dhaka-1212
-              </p>
+
+        <!-- just agent support messge  -->
+        <?php if($_SESSION['role'] == 2) {?>
+          <li class="nav-item text-white">
+            <div class="nav-link bg-info mb-3">
+              <div>
+                <strong><i class="nav-icon fas fas fa-user pr-1"></i>Coordinator  :</strong>
+                <p> Shibab Chowdhury
+                </p>
+              </div>
+              <div>
+                <strong><i class="ion ion-ios-telephone pr-1"></i> Phone :</strong>
+                <p>
+                  +880 1754-991071
+                </p>
+              </div>
+              <div>
+                <strong><i class="ion ion-email pr-1"></i> General Support :</strong>
+                <p>
+                shibab.chowdhury@ci-gsc.com
+                </p>
+              </div>
             </div>
-            <div class="py-3">
-              <p><strong><i class="ion ion-ios-telephone pr-1"></i> Phone :</strong></p>
-              <p><br>
-                +880 1990225993
-              </p>
-            </div>
-            <div>
-              <p><strong><i class="ion ion-email pr-1"></i> General Support :</strong></p><br>
-              <p>
-                info@ci-gsc.com
-              </p>
-            </div>
-          </div>
-        </li> -->
+          </li>
+        <?php } ?>
 
       </ul>
     </nav>
