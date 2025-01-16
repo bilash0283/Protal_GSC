@@ -41,10 +41,11 @@
                       <th scope="col">Student Status</th>
                       <th scope="col">Image</th>
                       <th scope="col">Company</th>
-                      <th scope="col">View Details / Name</th>
+                      <th scope="col">Details/Name</th>
                       <th scope="col">Phone</th>
                       <th scope="col">Email</th>
-                      <th scope="col">Status</th>
+                      <th scope="col">Apply Date</th>
+                      <!-- <th scope="col">Status</th> -->
                       <th scope="col">Role</th>
                       <?php 
                         if ($_SESSION['role'] == 1) { ?>
@@ -87,30 +88,29 @@
                             <?php 
                             ?></td>
                             <td>
-                              <?php
-                                if (empty($image)) {
+                              <?php if (empty($image)) {
                                   echo "<img src='dist/img/avatar5.png' width='40px'>";
                                 } else{ ?>
                                   <img src="dist/img/agent_image/<?php echo $image;?>" width="50px" alt="">
-                                <?php }
-                              ?>
+                              <?php } ?>
                             </td>
                             <td><?php echo $company; ?></td>
                             <td><a href="view_agent.php?id=<?php echo $id; ?>"><i class="fas fa-eye pr-2"></i><?php echo $name; ?></a></td>
                             <td><?php echo $phone; ?></td>
                             <td><?php echo $email; ?></td>
-                            <td>
+                            <td><?php echo $joining; ?></td>
+                            <!-- <td> -->
                               <?php
                               
                               
-                              if ($status == 1) {
-                                echo "<div class='badge bg-success' >Active</div>";
-                              } else {
-                                echo "<div class='badge bg-secondary' >Inactive</div>";
-                              }
+                              // if ($status == 1) {
+                              //   echo "<div class='badge bg-success' >Active</div>";
+                              // } else {
+                              //   echo "<div class='badge bg-secondary' >Inactive</div>";
+                              // }
 
                               ?>
-                            </td>
+                            <!-- </td> -->
                             <td>
                             <?php
 

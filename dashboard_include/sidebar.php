@@ -138,7 +138,7 @@
                 <li class="nav-item">
                   <a href="inactive_agent.php" class="nav-link bg-danger">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Inactive Agent</p>
+                    <p>Pending Agent</p>
                   </a>
                 </li>
               <?php }
