@@ -59,6 +59,7 @@
                 $agemt_email = $_GET['email'];
               
               }
+              
 
               $agents = "SELECT * FROM newstudents WHERE agentemail = '$agemt_email' ORDER BY id DESC";
               $agents_query = mysqli_query($db, $agents);

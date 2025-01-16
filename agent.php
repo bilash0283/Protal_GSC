@@ -59,7 +59,7 @@
                   echo "There are no Active Agents!!";
                 } else {
                   while ($row = mysqli_fetch_assoc($agents_query)) {
-                    $age_id = $row['id'];
+                    $id = $row['id'];
                     $image = $row['image'];
                     $name = $row['name'];
                     $email = $row['email'];
