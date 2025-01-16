@@ -87,7 +87,7 @@
                           <tr>
                           <td><?php ?>
                           <!-- agent-student.php?edit= -->
-                            <a href="agent-student.php?edit=<?php echo $id; ?>"><i class="fas fa-eye"></i></a>
+                            <a href="agent-student.php?email=<?php echo $email; ?>"><i class="fas fa-eye"></i></a>
                             <?php 
                             ?></td>
                             <td>

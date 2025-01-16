@@ -118,16 +118,17 @@
                   <p>All Agents</p>
                 </a>
               </li>
-              <?php
 
-              if ($_SESSION['role'] == 1) { ?>
+              <?php if ($_SESSION['role'] == 1) { ?>
                 <li class="nav-item">
                   <a href="create_agent.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Add Agent</p>
                   </a>
                 </li>
+              <?php } ?>  
 
+              <?php if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                 <li class="nav-item">
                   <a href="active_agent.php" class="nav-link bg-success">
                     <i class="far fa-circle nav-icon"></i>
@@ -141,8 +142,7 @@
                     <p>Pending Agent</p>
                   </a>
                 </li>
-              <?php }
-              ?>
+              <?php } ?>
 
             </ul>
           </li>
