@@ -38,7 +38,7 @@
                     <tr>
                       <th scope="col">View Details</th>
                       <th scope="col">Name</th>
-                      <th scope="col">Email</th>
+                      <th scope="col">Phone</th>
                       <th scope="col">Status</th>
                       <th scope="col">Role</th>
                       <?php 
@@ -61,6 +61,7 @@
                           $id           = $row['id'];
                           $name         = $row['name'];
                           $email        = $row['email'];
+                          $phone        = $row['phone'];
                           $designation  = $row['designation'];
                           $status       = $row['status'];
                           $role         = $row['role'];
@@ -83,7 +84,7 @@
                             <?php 
                             ?></td>
                             <td><?php echo $name; ?></td>
-                            <td><?php echo $email; ?></td>
+                            <td><?php echo $phone; ?></td>
                             <td>
                               <?php
                               
@@ -118,7 +119,8 @@
 
                                 <div class="btn-group">
                                   <a href="std_status_update.php?edit=<?php echo $id?>" class="btn btn-primary btn-sm">Edit</a>
-                                  <!-- <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#id<?php echo $email?>">Delete</a> -->
+                                  <a href="leed_student_show.php?delemail=<?php echo $email; ?>" class="btn btn-danger btn-sm" onclick="console.log('Deleting data...'); return confirm('Are you sure you want to delete this data?');">Delete</a>
+
                                 </div>
   
                               </td>
@@ -126,7 +128,6 @@
                               
                               ?>
 
-                           
                             <div class="modal fade" id="id<?php echo $email?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                 <div class="modal-content">
@@ -141,7 +142,7 @@
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <a href="student_leed.php?delete=<?php echo $email; ?>" class="btn btn-primary">Delete Student</a>
+                                    <a href="" class="btn btn-primary">Delete Student</a>
                                   </div>
                                 </div>
                               </div>
@@ -157,8 +158,8 @@
           </div>
 
             <?php
-              if(isset($_GET['delete'])){
-                $delete_email = $_GET['email'];
+              if(isset($_GET['delemail'])){
+                $delete_email = $_GET['delemail'];
 
                 $stu_del = "DELETE FROM newstudents WHERE email = '$delete_email'";
                 $stu_que = mysqli_query($db,$stu_del);
@@ -167,7 +168,7 @@
                 $delete = mysqli_query($db,$delete_sql);
                 if($delete && $stu_que){
                   header('location:leed_student_show.php');
-                  unset($_GET);
+                  unset($_GET['delemail']);
                 } else {
                   echo "<div class='alert alert-danger mt-2'>An Error Occured While Deleting!</div>";
                 }
