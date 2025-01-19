@@ -217,10 +217,10 @@ if (isset($_POST['submit'])) {
     if (empty($errors)) {
 
         // Generate unique filenames for uploaded files
-        $rand = rand(0, 999999);
-        $final_profile_image = time() . "_" . $rand . "_" . $profile_image;
-        $final_logo_image = time() . "_" . $rand . "_" . $company_logo_img;
-        $final_cert_image = time() . "_" . $rand . "_" . $company_reg_certificate;
+        // $rand = rand(0, 999999);
+        // $final_profile_image = time() . "_" . $rand . "_" . $profile_image;
+        // $final_logo_image = time() . "_" . $rand . "_" . $company_logo_img;
+        // $final_cert_image = time() . "_" . $rand . "_" . $company_reg_certificate;
 
         // Define directories
         $upload_dir_profile = 'dist/img/agent_image/';
@@ -229,17 +229,17 @@ if (isset($_POST['submit'])) {
 
         // Move uploaded files to their respective directories
         if (!empty($profile_image)) {
-            if (!move_uploaded_file($profile_temp, $upload_dir_profile . $final_profile_image)) {
+            if (!move_uploaded_file($profile_temp, $upload_dir_profile . $profile_image)) {
                 $errors[] = "Error uploading profile image.";
             }
         }
         if (!empty($company_logo_img)) {
-            if (!move_uploaded_file($logo_temp, $upload_dir_logo . $final_logo_image)) {
+            if (!move_uploaded_file($logo_temp, $upload_dir_logo . $company_logo_img)) {
                 $errors[] = "Error uploading company logo image.";
             }
         }
         if (!empty($company_reg_certificate)) {
-            if (!move_uploaded_file($cert_temp, $upload_dir_cert . $final_cert_image)) {
+            if (!move_uploaded_file($cert_temp, $upload_dir_cert . $company_reg_certificate)) {
                 $errors[] = "Error uploading company registration certificate.";
             }
         }
@@ -250,7 +250,7 @@ if (isset($_POST['submit'])) {
             $agent_insert = "INSERT INTO agents 
             (name, email, password, phone, company, designation, year, country, role, status, address, image, joining, bank_name, bank_acc_name, bank_acc_number, bank_address, branch_name, swift_code, company_logo, company_reg_cert, fb_url, web_url) 
             VALUES 
-            ('$agent_name', '$email', '$password', '$phone', '$company_name', '$designation', '$company_year', '$country', '$role', '$status', '$company_address', '$final_profile_image', NOW(), '$bank_name', '$bank_acc_name', '$bank_acc_number', '$bank_address', '$branch_name', '$swift_code', '$final_logo_image', '$final_cert_image', '$fb_url', '$website_url')";
+            ('$agent_name', '$email', '$password', '$phone', '$company_name', '$designation', '$company_year', '$country', '$role', '$status', '$company_address', '$profile_image', NOW(), '$bank_name', '$bank_acc_name', '$bank_acc_number', '$bank_address', '$branch_name', '$swift_code', '$company_logo_img', '$company_reg_certificate', '$fb_url', '$website_url')";
 
             $agent_sql = mysqli_query($db, $agent_insert);
 

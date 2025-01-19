@@ -75,8 +75,10 @@
                             echo "<div class='badge bg-success'>Admin</div>";
                           } elseif ($role == 2) {
                             echo "<div class='badge bg-warning'>Agent</div>";
-                          } else {
+                          } else if($role == 3) {
                             echo "<div class='badge bg-info'>Employee</div>";
+                          }else if($role == 4){
+                            echo "<div class='badge bg-info'>Student</div>";
                           }
                         ?>
                       </td>
