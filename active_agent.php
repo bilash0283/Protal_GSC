@@ -58,10 +58,8 @@
                   </thead>
                   <tbody>
 
-                    <?php
-
-                    
-                      $agents = "SELECT * FROM agents WHERE status = 1 && role = 2";
+                    <?php                    
+                      $agents = "SELECT * FROM agents WHERE status = 1 && role = 2 ORDER BY id DESC";
                       $agents_query = mysqli_query($db, $agents);
 
                       $count = mysqli_num_rows($agents_query);

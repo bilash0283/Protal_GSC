@@ -115,7 +115,7 @@
               <li class="nav-item">
                 <a href="agent.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All Agents</p>
+                  <p>Employees</p>
                 </a>
               </li>
 

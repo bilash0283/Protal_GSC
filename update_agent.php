@@ -399,7 +399,7 @@ if ($_SESSION['role'] == 1) { ?>
 
                     // Check if the query was successful and redirect
                     if ($agent_sql) {
-                        header('Location: agent.php');
+                        header('Location: active_agent.php');
                         exit();
                     } else {
                         echo "<div class='alert alert-danger mt-2'>An Error Occurred!</div>";

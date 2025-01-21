@@ -43,7 +43,7 @@
               </thead>
               <tbody>
                 <?php
-                $agents_query = mysqli_query($db, "SELECT * FROM agents WHERE role IN (1, 2, 3) ORDER BY id DESC");
+                $agents_query = mysqli_query($db, "SELECT * FROM agents WHERE role IN (1, 3) ORDER BY id DESC");
                 $count = mysqli_num_rows($agents_query);
 
                 if ($count < 1) {
