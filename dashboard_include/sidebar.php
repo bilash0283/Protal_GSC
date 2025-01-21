@@ -112,12 +112,15 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+
+            <?php if ($_SESSION['role'] == 1) {?>
               <li class="nav-item">
                 <a href="agent.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Employees</p>
                 </a>
               </li>
+              <?php } ?>
 
               <?php if ($_SESSION['role'] == 1) { ?>
                 <li class="nav-item">
