@@ -144,7 +144,6 @@
                               
                               ?>
 
-                           
 
                             <div class="modal fade" id="id<?php echo $id?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
@@ -212,3 +211,8 @@
    <?php include('dashboard_include/footer.php') ?>
 
   
+
+
+
+
+   
