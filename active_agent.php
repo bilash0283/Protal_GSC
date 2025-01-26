@@ -1,4 +1,5 @@
-<?php include('dashboard_include/header.php') ?>
+<?php global $db;
+include('dashboard_include/header.php') ?>
 <?php ob_start(); ?>
 <!-- Navbar -->
 <?php include('dashboard_include/top_header.php') ?>
@@ -48,13 +49,9 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                 <th scope="col">Apply Date</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Role</th>
-
-                                <?php
-                                if ($_SESSION['role'] == 1) { ?>
+                                <?php if ($_SESSION['role'] == 1) { ?>
                                     <th scope="col">Action</th>
-                                <?php  }
-                                ?>
-
+                                <?php  } ?>
                             </tr>
                             </thead>
                             <tbody>
@@ -80,6 +77,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                     $designation  = $row['designation'];
                                     $status       = $row['status'];
                                     $role         = $row['role'];
+                                    $add_std      = $row['add_std'];
                                     $joining      = $row['joining'];?>
 
 
@@ -116,17 +114,20 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                             ?>
                                         </td>
                                         <td>
-                                            <?php
-
-                                            if ($role == 1) {
+                                            <?php if ($role == 1) {
                                                 echo "<div class='badge bg-success' >Admin</div>";
                                             } else if ($role == 2){
                                                 echo "<div class='badge bg-warning' >Agent</div>";
                                             } else {
                                                 echo "<div class='badge bg-info' >Employee</div>";
-                                            }
-
-                                            ?>
+                                            }  ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($add_std == 0) {
+                                                echo "<div class='badge bg-success' >Yes</div>";
+                                            } else {
+                                                echo "<div class='badge bg-danger' >No</div>";
+                                            } ?>
                                         </td>
 
                                         <?php
