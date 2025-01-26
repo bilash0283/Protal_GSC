@@ -151,7 +151,7 @@
                     <li class="nav-item bg-danger">
                         <a href="revoked_agent.php" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Revoked Agent</p>
+                            <p>Inactive Agent</p>
                         </a>
                     </li>
                 <?php } ?>

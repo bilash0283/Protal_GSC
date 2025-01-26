@@ -1,4 +1,5 @@
-<?php include('dashboard_include/header.php') ?>
+<?php global $db;
+include('dashboard_include/header.php') ?>
 
 <?php ob_start(); ?>
 <?php
@@ -6,29 +7,29 @@
 $agentname        = $_SESSION['name'];
 $agentemail       = $_SESSION['email'];
                     
-                      $agents = "SELECT * FROM agents WHERE email = '$agentemail'";
-                      $agents_query = mysqli_query($db, $agents);
+  $agents = "SELECT * FROM agents WHERE email = '$agentemail'";
+  $agents_query = mysqli_query($db, $agents);
 
-                      $count = mysqli_num_rows($agents_query);
+  $count = mysqli_num_rows($agents_query);
 
-                      if ($count < 1) {
-                        echo "There are no Active Agents!!";
-                      } else {
+  if ($count < 1) {
+    echo "There are no Active Agents!!";
+  } else {
 
-                        while ($row = mysqli_fetch_assoc($agents_query)) {
-                          $id           = $row['id'];
-                          $image        = $row['image'];
-                          $name         = $row['name'];
-                          $email        = $row['email'];
-                          $phone        = $row['phone'];
-                          $company      = $row['company'];
-                          $country      = $row['country'];
-                          $address      = $row['address'];
-                          $designation  = $row['designation'];
-                          $joining      = $row['joining'];
-                        
-                        }
-                      }
+    while ($row = mysqli_fetch_assoc($agents_query)) {
+      $id           = $row['id'];
+      $image        = $row['image'];
+      $name         = $row['name'];
+      $email        = $row['email'];
+      $phone        = $row['phone'];
+      $company      = $row['company'];
+      $country      = $row['country'];
+      $address      = $row['address'];
+      $designation  = $row['designation'];
+      $joining      = $row['joining'];
+
+    }
+  }
 
 ?>
   <!-- Navbar -->
@@ -107,13 +108,11 @@ $agentemail       = $_SESSION['email'];
 
                 <?php 
                 
-                if ($_SESSION['role'] == 2){ ?>
+                if ($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 0){ ?>
                   <a href="add-student.php" class="btn btn-primary btn-block"><b>Add Student</b></a>
                <?php } else { ?>
                 <a href="gsc-add-student.php" class="btn btn-primary btn-block"><b>Add Student</b></a>
-              <?php }
-
-                ?>
+              <?php } ?>
 
                 
               </div>

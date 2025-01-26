@@ -1,4 +1,8 @@
-  <?php include('dashboard_include/header.php') ?>
+<?php
+global $db;
+include('dashboard_include/header.php')
+
+?>
   <!-- Navbar -->
   <?php include('dashboard_include/top_header.php') ?>
   <!-- /.navbar -->
@@ -70,7 +74,7 @@ $agentemail       = $_SESSION['email'];
               
               if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                <a href="gsc-add-student.php" class="small-box-footer">Apply <i class="fas fa-arrow-circle-right"></i></a> 
-             <?php } else { ?>
+             <?php } else if($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 0) { ?>
               <a href="add-student.php" class="small-box-footer">Apply <i class="fas fa-arrow-circle-right"></i></a>
             <?php }
 
@@ -90,17 +94,11 @@ $agentemail       = $_SESSION['email'];
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              
-
-              <?php 
-              
-              if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
+              <?php  if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                <a href="gsc-student.php" class="small-box-footer">Apply <i class="fas fa-arrow-circle-right"></i></a> 
-             <?php } else { ?>
+             <?php } else if($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 0) { ?>
               <a href="student.php" class="small-box-footer">Apply <i class="fas fa-arrow-circle-right"></i></a>
-            <?php }
-
-              ?>
+            <?php } ?>
           </div>
           </div>
           <!-- ./col -->
@@ -118,7 +116,12 @@ $agentemail       = $_SESSION['email'];
               </div>
               <!-- <a href="https://gsc.co.com" class="small-box-footer">View Site <i class="fas fa-arrow-circle-right"></i></a> -->
 
-              <a href="college-details.php?id=9999" class="small-box-footer">View Institutes <i class="fas fa-arrow-circle-right"></i></a>
+                <?php  if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
+                    <a href="college-details.php?id=9999" class="small-box-footer">View Institutes <i class="fas fa-arrow-circle-right"></i></a>
+                <?php } else if($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 0) { ?>
+                    <a href="college-details.php?id=9999" class="small-box-footer">View Institutes <i class="fas fa-arrow-circle-right"></i></a>
+                <?php } ?>
+
             </div>
           </div>
           <!-- ./col -->
