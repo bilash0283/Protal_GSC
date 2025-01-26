@@ -49,6 +49,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                 <th scope="col">Apply Date</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Role</th>
+                                <th scope="col">Student Add</th>
                                 <?php if ($_SESSION['role'] == 1) { ?>
                                     <th scope="col">Action</th>
                                 <?php  } ?>
@@ -103,15 +104,11 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                         <td><?php echo $email; ?></td>
                                         <td><?php echo $joining; ?></td>
                                         <td>
-                                            <?php
-
-                                            if ($status == 1) {
+                                            <?php if ($status == 1) {
                                                 echo "<div class='badge bg-success' >Active</div>";
                                             } else {
                                                 echo "<div class='badge bg-secondary' >Inactive</div>";
-                                            }
-
-                                            ?>
+                                            } ?>
                                         </td>
                                         <td>
                                             <?php if ($role == 1) {
