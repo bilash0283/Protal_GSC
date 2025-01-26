@@ -1,15 +1,15 @@
 <?php include('dashboard_include/header.php') ?>
 <?php ob_start(); ?>
-<!-- Navbar -->
+    <!-- Navbar -->
 <?php include('dashboard_include/top_header.php') ?>
-<!-- /.navbar -->
+    <!-- /.navbar -->
 
-<!-- Main Sidebar Container -->
+    <!-- Main Sidebar Container -->
 <?php include('dashboard_include/sidebar.php') ?>
 
 <?php
 
-if ($_SESSION['role'] == 1) { ?>
+if ($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 1) { ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -46,7 +46,7 @@ if ($_SESSION['role'] == 1) { ?>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                            title="Collapse">
+                                                title="Collapse">
                                             <i class="fas fa-minus"></i>
                                         </button>
                                     </div>
@@ -111,48 +111,48 @@ if ($_SESSION['role'] == 1) { ?>
                                             <div class="form-group">
                                                 <label for="inputName">Agent Name</label>
                                                 <input type="text" name="name" value="<?php echo $name; ?>" id="inputName"
-                                                    class="form-control">
+                                                       class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputProjectLeader">Designation</label>
                                                 <input type="text" name="designation" value="<?php echo $designation; ?>"
-                                                    id="inputProjectLeader" class="form-control">
+                                                       id="inputProjectLeader" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="inputClientCompany"> Company Name</label>
                                                 <input type="text" name="company" value="<?php echo $company; ?>"
-                                                    id="inputClientCompany" class="form-control">
+                                                       id="inputClientCompany" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputProjectLeader">Company Address</label>
                                                 <input type="text" name="address" value="<?php echo $address; ?>"
-                                                    id="inputProjectLeader" class="form-control">
+                                                       id="inputProjectLeader" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="inputProjectLeader">Company Year of Establishment </label>
                                                 <input type="text" name="year" value="<?php echo $company_year; ?>"
-                                                    id="inputProjectLeader" class="form-control">
+                                                       id="inputProjectLeader" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="inputProjectLeader">Country Name</label>
                                                 <input type="text" name="country" value="<?php echo $country; ?>"
-                                                    id="inputProjectLeader" class="form-control">
+                                                       id="inputProjectLeader" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="inputName"> Phone</label>
                                                 <input type="text" name="phone" value="<?php echo $phone; ?>" id="inputName"
-                                                    class="form-control">
+                                                       class="form-control">
                                             </div>
 
 
                                             <div class="form-group">
                                                 <label for="inputProjectLeader">Email</label>
                                                 <input type="email" disabled name="email" value="<?php echo $email; ?>"
-                                                    id="inputProjectLeader" class="form-control">
+                                                       id="inputProjectLeader" class="form-control">
                                             </div>
                                             <div>
                                                 <?php
@@ -171,13 +171,7 @@ if ($_SESSION['role'] == 1) { ?>
                                             <div class="form-group">
                                                 <label for="inputName">Bank Name</label>
                                                 <input type="text" name="bank_name" value="<?php echo $bank_name; ?>" id="inputName"
-                                                    class="form-control">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputName">Bank Account Name</label>
-                                                <input type="text" name="bank_acc_name" value="<?php echo $bank_acc_name; ?>" id="inputName"
-                                                    class="form-control">
+                                                       class="form-control">
                                             </div>
 
                                         </div>
@@ -187,39 +181,45 @@ if ($_SESSION['role'] == 1) { ?>
                                         <div class="card-body">
 
                                             <div class="form-group">
+                                                <label for="inputName">Bank Account Name</label>
+                                                <input type="text" name="bank_acc_name" value="<?php echo $bank_acc_name; ?>" id="inputName"
+                                                       class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label for="inputName">Bank Account Number</label>
                                                 <input type="text" name="bank_acc_number" value="<?php echo $bank_acc_number; ?>" id="inputName"
-                                                    class="form-control">
+                                                       class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="inputName">Bank Address</label>
                                                 <input type="text" name="bank_address" value="<?php echo $bank_address; ?>" id="inputName"
-                                                    class="form-control">
+                                                       class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="inputName">Branch Name</label>
                                                 <input type="text" name="branch_name" value="<?php echo $branch_name; ?>" id="inputName"
-                                                    class="form-control">
+                                                       class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="inputName">Bank Swift Code</label>
                                                 <input type="text" name="swift_code" value="<?php echo $branch_name; ?>" id="inputName"
-                                                    class="form-control">
+                                                       class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="inputName">Facebook URL</label>
                                                 <input type="url" name="fb_url" value="<?php echo $fb_url; ?>"
-                                                    id="inputName" class="form-control">
+                                                       id="inputName" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="inputName">Website URL</label>
                                                 <input type="url" name="web_url"
-                                                    value="<?php echo $website_url; ?>" id="inputName" class="form-control">
+                                                       value="<?php echo $website_url; ?>" id="inputName" class="form-control">
                                             </div>
 
                                             <div>
@@ -251,54 +251,9 @@ if ($_SESSION['role'] == 1) { ?>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="inputStatus">Role</label>
-                                                <select id="inputStatus" name="role" class="form-control custom-select">
-                                                    <option <?php if ($role == 1) {
-                                                        echo "selected";
-                                                    } ?> value="1">Admin</option>
-                                                    <option <?php if ($role == 2) {
-                                                        echo "selected";
-                                                    } ?> value="2">Agent</option>
-                                                    <option <?php if ($role == 3) {
-                                                        echo "selected";
-                                                    } ?> value="3">Employee
-                                                    </option>
-                                                </select>
+                                                <input type="submit" name="submit" value="Update Profile"
+                                                       class="btn btn-lg btn-primary px-2">
                                             </div>
-
-                                            <div class="form-group">
-                                                <label for="inputStatus">Status</label>
-                                                <select id="inputStatus" name="status" class="form-control custom-select">
-                                                    <option <?php if ($status == 1) {
-                                                        echo "selected";
-                                                    } ?> value="1">Active
-                                                    </option>
-                                                    <option <?php if ($status == 2) {
-                                                        echo "selected";
-                                                    } ?> value="2">Inactive
-                                                    </option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputStatus">Adding Student Permissions </label>
-                                                <select id="inputStatus" name="add_std" class="form-control custom-select">
-                                                    <option <?php if ($add_std == 0) {
-                                                        echo "selected";
-                                                    } ?> value="0">yes
-                                                    </option>
-                                                    <option <?php if ($add_std == 1) {
-                                                        echo "selected";
-                                                    } ?> value="1">No
-                                                    </option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <input type="submit" name="submit" value="Update Agent"
-                                                    class="btn btn-lg btn-primary px-2">
-                                            </div>
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -331,12 +286,6 @@ if ($_SESSION['role'] == 1) { ?>
                     $bank_address = $_POST['bank_address'];
                     $branch_name = $_POST['branch_name'];
                     $swift_code = $_POST['swift_code'];
-                    $status = $_POST['status'];
-                    $add_std = $_POST['add_std'];
-                    $role = $_POST['role'];
-
-
-
 
                     // Handle Image upload
                     $image = $_FILES['image']['name'];
@@ -388,10 +337,7 @@ if ($_SESSION['role'] == 1) { ?>
                         bank_acc_number = '$bank_acc_number',
                         bank_address = '$bank_address',
                         branch_name = '$branch_name',
-                        swift_code = '$swift_code',
-                        status = '$status', 
-                        add_std = '$add_std',
-                        role = '$role'";
+                        swift_code = '$swift_code'";
 
 
                     // Include file upload fields in the query if files are uploaded
@@ -415,7 +361,7 @@ if ($_SESSION['role'] == 1) { ?>
 
                     // Check if the query was successful and redirect
                     if ($agent_sql) {
-                        header('Location: active_agent.php');
+                        header('Location: dashboard.php');
                         exit();
                     } else {
                         echo "<div class='alert alert-danger mt-2'>An Error Occurred!</div>";
@@ -441,5 +387,5 @@ if ($_SESSION['role'] == 1) { ?>
 ob_end_flush();
 ?>
 
-<!-- /.main-footer -->
+    <!-- /.main-footer -->
 <?php include('dashboard_include/footer.php') ?>

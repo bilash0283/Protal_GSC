@@ -12,7 +12,7 @@ $successfull = null;
 <?php
     // Success message
     if (isset($_GET['success'])) {
-        echo "<div class='alert alert-success mt-2 text-center'>Registration Successful! Please wait for verification.</div>";
+        echo "<div class='alert alert-success mt-2 text-center'>Registration Successful! Login Portal and Complete your profile <a href='index.php' class='btn btn-danger btn-sm'>login</a></div>";
     }
 ?>
 
@@ -159,8 +159,9 @@ if (isset($_POST['submit'])) {
     $bank_address           = $_POST['bank_address'];
     $branch_name            = $_POST['branch_name'];
     $swift_code             = $_POST['swift_code'];
-    $status                 = '2'; // default value
+    $status                 = '1'; // default value
     $role                   = '2'; // default value
+    $add_std                = '1'; //default value 1 = inactive
     $fb_url                 = $_POST['fb_url'];
     $website_url            = $_POST['website_url'];
 
@@ -248,9 +249,9 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
             // Insert data into the database
             $agent_insert = "INSERT INTO agents 
-            (name, email, password, phone, company, designation, year, country, role, status, address, image, joining, bank_name, bank_acc_name, bank_acc_number, bank_address, branch_name, swift_code, company_logo, company_reg_cert, fb_url, web_url) 
+            (name, email, password, phone, company, designation, year, country, role, status,add_std, address, image, joining, bank_name, bank_acc_name, bank_acc_number, bank_address, branch_name, swift_code, company_logo, company_reg_cert, fb_url, web_url) 
             VALUES 
-            ('$agent_name', '$email', '$password', '$phone', '$company_name', '$designation', '$company_year', '$country', '$role', '$status', '$company_address', '$profile_image', NOW(), '$bank_name', '$bank_acc_name', '$bank_acc_number', '$bank_address', '$branch_name', '$swift_code', '$company_logo_img', '$company_reg_certificate', '$fb_url', '$website_url')";
+            ('$agent_name', '$email', '$password', '$phone', '$company_name', '$designation', '$company_year', '$country', '$role', '$status','$add_std', '$company_address', '$profile_image', NOW(), '$bank_name', '$bank_acc_name', '$bank_acc_number', '$bank_address', '$branch_name', '$swift_code', '$company_logo_img', '$company_reg_certificate', '$fb_url', '$website_url')";
 
             $agent_sql = mysqli_query($db, $agent_insert);
 

@@ -140,12 +140,21 @@
                 </li>
 
                 <li class="nav-item">
-                  <a href="inactive_agent.php" class="nav-link bg-danger">
+                  <a href="inactive_agent.php" class="nav-link bg-warning">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pending Agent</p>
                   </a>
                 </li>
               <?php } ?>
+
+                <?php if ($_SESSION['role'] == 1) { ?>
+                    <li class="nav-item bg-danger">
+                        <a href="revoked_agent.php" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Revoked Agent</p>
+                        </a>
+                    </li>
+                <?php } ?>
 
             </ul>
           </li>
@@ -202,9 +211,7 @@
 
             <?php } ?>
 
-            <?php
-            if ($_SESSION['role'] == 2) { ?>
-
+            <?php if ($_SESSION['role'] == 2 && $_SESSION['add_std'] == 0) { ?>
               <li class="nav-item">
                 <a href="add-student.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -217,10 +224,16 @@
                   <p>Students Status</p>
                 </a>
               </li>
+            <?php } ?>
 
-            <?php }
-
-            ?>
+            <?php if ($_SESSION['role'] == 2 && $_SESSION['add_std'] == 1) { ?>
+                <li class="nav-item bg-danger">
+                    <a href="agent_self_update.php?edit=<?php echo $_SESSION['id']; ?>" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Complete Your Profile </p>
+                    </a>
+                </li>
+            <?php } ?>
 
           </ul>
         </li>

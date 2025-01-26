@@ -4,10 +4,8 @@
 <?php include('dashboard_include/top_header.php') ?>
 <!-- /.navbar -->
 <!-- Main Sidebar Container -->
-<?php include('dashboard_include/sidebar.php')?>
-
+<?php include('dashboard_include/sidebar.php') ?>
 <?php
-
 if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -16,7 +14,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">All Active Agents</h1>
+                        <h1 class="m-0">All Revoked Agents</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -42,25 +40,22 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                 <th scope="col">Student Status</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Company</th>
-                                <th scope="col">View Details/Name</th>
+                                <th scope="col">Details/Name</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Apply Date</th>
-                                <th scope="col">Status</th>
+                                <!-- <th scope="col">Status</th> -->
                                 <th scope="col">Role</th>
-
                                 <?php
                                 if ($_SESSION['role'] == 1) { ?>
                                     <th scope="col">Action</th>
-                                <?php  }
+                                <?php }
                                 ?>
-
                             </tr>
                             </thead>
                             <tbody>
-
                             <?php
-                            $agents = "SELECT * FROM agents WHERE status = 1 AND role = 2 AND add_std = 0 ORDER BY id DESC";
+                            $agents = "SELECT * FROM agents WHERE status = 2 AND role = 2 ORDER BY id DESC";
                             $agents_query = mysqli_query($db, $agents);
 
                             $count = mysqli_num_rows($agents_query);
@@ -70,57 +65,47 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                             } else {
 
                                 while ($row = mysqli_fetch_assoc($agents_query)) {
-                                    $id           = $row['id'];
-                                    $image        = $row['image'];
-                                    $name         = $row['name'];
-                                    $email        = $row['email'];
-                                    $phone        = $row['phone'];
-                                    $company      = $row['company'];
-                                    $year         = $row['year'];
-                                    $designation  = $row['designation'];
-                                    $status       = $row['status'];
-                                    $role         = $row['role'];
-                                    $joining      = $row['joining'];?>
-
+                                    $id = $row['id'];
+                                    $image = $row['image'];
+                                    $name = $row['name'];
+                                    $email = $row['email'];
+                                    $phone = $row['phone'];
+                                    $company = $row['company'];
+                                    $year = $row['year'];
+                                    $designation = $row['designation'];
+                                    $status = $row['status'];
+                                    $role = $row['role'];
+                                    $joining = $row['joining']; ?>
 
 
                                     <tr>
-                                        <td><?php ?>
+                                        <td>
+                                            <?php ?>
                                             <!-- agent-student.php?edit= -->
                                             <a href="agent-student.php?email=<?php echo $email; ?>"><i class="fas fa-eye"></i></a>
                                             <?php
-                                            ?></td>
-                                        <td>
-                                            <?php
-                                            if (empty($image)) {
-                                                echo "<img src='dist/img/avatar5.png' width='40px'>";
-                                            } else{ ?>
-                                                <img src="dist/img/agent_image/<?php echo $image;?>" width="50px" alt="">
-                                            <?php }
                                             ?>
                                         </td>
+                                        <td>
+                                            <?php if (empty($image)) {
+                                                echo "<img src='dist/img/avatar5.png' width='40px'>";
+                                            } else { ?>
+                                                <img src="dist/img/agent_image/<?php echo $image; ?>" width="50px" alt="">
+                                            <?php } ?>
+                                        </td>
                                         <td><?php echo $company; ?></td>
-                                        <td><a href="view_agent.php?id=<?php echo $id; ?>"><i class="fas fa-eye pr-2"></i><?php echo $name; ?></a></td>
+                                        <td><a href="view_agent.php?id=<?php echo $id; ?>"><i
+                                                    class="fas fa-eye pr-2"></i><?php echo $name; ?></a>
+                                        </td>
                                         <td><?php echo $phone; ?></td>
                                         <td><?php echo $email; ?></td>
                                         <td><?php echo $joining; ?></td>
                                         <td>
                                             <?php
 
-                                            if ($status == 1) {
-                                                echo "<div class='badge bg-success' >Active</div>";
-                                            } else {
-                                                echo "<div class='badge bg-secondary' >Inactive</div>";
-                                            }
-
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-
                                             if ($role == 1) {
                                                 echo "<div class='badge bg-success' >Admin</div>";
-                                            } else if ($role == 2){
+                                            } else if ($role == 2) {
                                                 echo "<div class='badge bg-warning' >Agent</div>";
                                             } else {
                                                 echo "<div class='badge bg-info' >Employee</div>";
@@ -135,17 +120,16 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                             <td>
 
                                                 <div class="btn-group">
-                                                    <a href="update_agent.php?edit=<?php echo $id?>" class="btn btn-primary btn-sm">Edit</a>
-                                                    <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#id<?php echo $id?>">Delete</a>
+                                                    <a href="update_agent.php?edit=<?php echo $id ?>" class="btn btn-primary btn-sm">Edit</a>
+                                                    <a href="" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                       data-target="#id<?php echo $id ?>">Delete</a>
                                                 </div>
 
                                             </td>
-                                        <?php }
+                                        <?php } ?>
 
-                                        ?>
-
-
-                                        <div class="modal fade" id="id<?php echo $id?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="id<?php echo $id ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                             aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -155,15 +139,16 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>Are you sure to delete <strong><?php echo $name?></strong></p>
+                                                        <p>Are you sure to delete <strong><?php echo $name ?></strong></p>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <a href="agent.php?delete=<?php echo $id?>" class="btn btn-primary">Delete Agent</a>
+                                                        <a href="inactive_agent.php?delete=<?php echo $id ?>" class="btn btn-primary">Delete Agent</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </tr>
                                     <?php
                                 }
@@ -176,18 +161,17 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                 </div>
 
                 <?php
-                if(isset($_GET['delete'])){
+                if (isset($_GET['delete'])) {
                     $delete_id = $_GET['delete'];
                     $delete_sql = "DELETE FROM agents WHERE id = '$delete_id'";
-                    $delete = mysqli_query($db,$delete_sql);
-                    if($delete){
-                        header('location:agent.php');
+                    $delete = mysqli_query($db, $delete_sql);
+                    if ($delete) {
+                        header('location:inactive_agent.php');
                     } else {
                         echo "<div class='alert alert-danger mt-2'>An Error Occured While Deleting!</div>";
                     }
                 }
                 ?>
-
 
             </div><!-- /.container-fluid -->
         </section>
@@ -207,12 +191,6 @@ ob_end_flush();
 
 <!-- /.main-footer -->
 <?php include('dashboard_include/footer.php') ?>
-
-
-
-
-
-
 
 
 
