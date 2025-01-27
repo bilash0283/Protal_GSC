@@ -316,7 +316,7 @@
 
         <!-- just agent support messge  -->
         <?php if($_SESSION['role'] == 2) {?>
-          <li class="nav-item text-white">
+          <!-- <li class="nav-item text-white">
             <div class="nav-link bg-info mb-3">
               <div>
                 <strong><i class="nav-icon fas fas fa-user pr-1"></i>Coordinator  :</strong>
@@ -336,7 +336,7 @@
                 </p>
               </div>
             </div>
-          </li>
+          </li> -->
         <?php } ?>
 
       </ul>

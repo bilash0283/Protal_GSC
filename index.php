@@ -125,6 +125,13 @@ ob_start();
                         <div class="text-center mt-4">
                             <p class="mb-1">
                                 <a href="forgot-password.php">I forgot my password</a>
+                                <?php 
+                                
+                                $md = 'fc2c030c1de2298a864c6fa9fad3740d';
+                                $ddd = md5($md);
+                                echo $ddd;
+                                
+                                ?>
                             </p>
                             <p class="mb-0">
                                 <a href="register.php" class="text-center">Register a new membership</a>

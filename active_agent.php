@@ -67,6 +67,18 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                             <?php
                             if (mysqli_num_rows($agents_result) > 0) {
                                 while ($row = mysqli_fetch_assoc($agents_result)) {
+                                    $id           = $row['id'];
+                                    $image        = $row['image'];
+                                    $name         = $row['name'];
+                                    $email        = $row['email'];
+                                    $phone        = $row['phone'];
+                                    $company      = $row['company'];
+                                    $year         = $row['year'];
+                                    $designation  = $row['designation'];
+                                    $status       = $row['status'];
+                                    $role         = $row['role'];
+                                    $joining      = $row['joining'];
+
                                     ?>
                                     <tr>
                                         <td><a href="agent-student.php?email=<?php echo $row['email']; ?>"><i class="fas fa-eye"></i></a></td>
@@ -99,14 +111,47 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                         <td>
                                             <?php echo ($row['add_std'] == 0) ? "<div class='badge bg-success'>Yes</div>" : "<div class='badge bg-danger'>No</div>"; ?>
                                         </td>
-                                        <?php if ($_SESSION['role'] == 1) { ?>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <a href="update_agent.php?edit=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
-                                                    <a href="agent.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+
+
+                                            <?php if ($_SESSION['role'] == 1) { ?>
+                                                <td>
+
+                                                    <div class="btn-group">
+                                                        <a href="update_agent.php?edit=<?php echo $id ?>"
+                                                            class="btn btn-primary btn-sm">Edit</a>
+                                                        <a href="" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                            data-target="#id<?php echo $id ?>">Delete</a>
+                                                    </div>
+
+                                                </td>
+                                            <?php } ?>
+
+
+                                            <div class="modal fade" id="id<?php echo $id ?>" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Delete Agent</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Are you sure to delete <strong><?php echo $name ?></strong></p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                            <a href="agent.php?delete=<?php echo $id ?>"
+                                                                class="btn btn-primary">Delete Agent</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </td>
-                                        <?php } ?>
+                                            </div>
+
+
                                     </tr>
                                     <?php
                                 }
@@ -116,6 +161,20 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                             ?>
                             </tbody>
                         </table>
+
+                        <?php if (isset($_GET['delete'])) {
+                            $delete_id = $_GET['delete'];
+                            $delete_sql = "DELETE FROM agents WHERE id = '$delete_id'";
+                            $delete = mysqli_query($db, $delete_sql);
+                            if ($delete) {
+                                header('location:active_agent.php');
+                            } else {
+                                echo "<div class='alert alert-danger mt-2'>An Error Occured While Deleting!</div>";
+                            }
+                        } ?>
+
+
+
                         <div>
                             <!-- Pagination Links -->
                             <nav>

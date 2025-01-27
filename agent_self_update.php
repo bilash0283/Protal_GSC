@@ -157,7 +157,7 @@ if ($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 1) { ?>
                                             <div>
                                                 <?php
                                                 if (empty($image)) {
-                                                    echo "<img src='dist/img/avatar5.png' width='70px'>";
+                                                    echo "<h6 class='text-danger my-2'>Please Upload your Profile Pictuser</h6>";
                                                 } else { ?>
                                                     <img src="dist/img/agent_image/<?php echo $image; ?>" width="70px" alt="">
                                                 <?php }
@@ -225,7 +225,7 @@ if ($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 1) { ?>
                                             <div>
                                                 <?php
                                                 if (empty($company_logo_img)) {
-                                                    echo "<img src='dist/img/avatar5.png' width='70px'>";
+                                                    echo "<h6 class='text-danger my-2'>Please Upload your Company Logo !</h6>";
                                                 } else { ?>
                                                     <img src="dist/img/agent_company_logo/<?php echo $company_logo_img; ?>" width="70px" alt="">
                                                 <?php }
@@ -239,7 +239,7 @@ if ($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 1) { ?>
                                             <div>
                                                 <?php
                                                 if (empty($company_reg_certificate)) {
-                                                    echo "<img src='dist/img/avatar5.png' width='70px'>";
+                                                    echo "<h6 class='text-danger my-2'>Please Upload your Company Registration Certificate</h6>";
                                                 } else { ?>
                                                     <img src="dist/img/agent_registation_cartificate/<?php echo $company_reg_certificate; ?>" width="70px" alt="">
                                                 <?php }
