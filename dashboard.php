@@ -152,6 +152,18 @@ $agentemail       = $_SESSION['email'];
           $studentdecline = "SELECT * FROM newstudents WHERE status = '4'";
           $studentdecline_query = mysqli_query($db, $studentdecline);
           $count_decline = mysqli_num_rows($studentdecline_query);
+
+          $active_query = "SELECT * FROM agents WHERE status = '1' AND role = '2' AND add_std = '0'";
+          $active_result = mysqli_query($db, $active_query);
+          $active_agent = mysqli_num_rows($active_result);
+
+          $pen_agents = "SELECT * FROM agents WHERE status = '1' AND role = '2' AND add_std = '1'";
+          $pen_agents_query = mysqli_query($db, $pen_agents);
+          $pen_count = mysqli_num_rows($pen_agents_query);
+
+          $inactive_agent = "SELECT * FROM agents WHERE status = '2' && role = '2' ";
+          $inactive_agentrow = mysqli_query($db, $inactive_agent);
+          $inactive_agent = mysqli_num_rows($inactive_agentrow);
           
         ?>
 
@@ -181,6 +193,18 @@ $agentemail       = $_SESSION['email'];
                   <tr>
                     <th scope="row">Declined (Rejected Applicants)</th>
                     <td><?php echo $count_decline; ?></td>
+                  </tr>
+                  <tr class="text-success">
+                    <th scope="row">Active Agents </th>
+                    <td><?php echo $active_agent; ?></td>
+                  </tr>
+                  <tr class="text-warning">
+                    <th scope="row">Pending Agents </th>
+                    <td><?php echo $pen_count; ?></td>
+                  </tr>
+                  <tr class="text-danger">
+                    <th scope="row">Inactive Agents </th>
+                    <td><?php echo $inactive_agent; ?></td>
                   </tr>
                 </tbody>
               </table>
