@@ -43,7 +43,18 @@
               </thead>
               <tbody>
                 <?php
-                $agents_query = mysqli_query($db, "SELECT * FROM agents WHERE role IN (1, 3) ORDER BY id DESC");
+                // Pagination variables
+                $limit = 5; // Rows per page
+                $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                $offset = ($page - 1) * $limit;
+
+                // Get total count for pagination
+                $count_query = mysqli_query($db, "SELECT COUNT(*) AS total FROM agents WHERE role IN (1, 3)");
+                $total_rows = mysqli_fetch_assoc($count_query)['total'];
+                $total_pages = ceil($total_rows / $limit);
+
+                // Fetch data with LIMIT and OFFSET
+                $agents_query = mysqli_query($db, "SELECT * FROM agents WHERE role IN (1, 3) ORDER BY id DESC LIMIT $limit OFFSET $offset");
                 $count = mysqli_num_rows($agents_query);
 
                 if ($count < 1) {
@@ -113,6 +124,22 @@
                 <?php } } ?>
               </tbody>
             </table>
+
+            <!-- Pagination -->
+            <nav>
+              <ul class="pagination">
+                <?php if ($page > 1) { ?>
+                  <li class="page-item"><a class="page-link" href="?page=<?php echo $page - 1; ?>">Previous</a></li>
+                <?php } ?>
+                <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
+                  <li class="page-item <?php echo $i == $page ? 'active' : ''; ?>"><a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                <?php } ?>
+                <?php if ($page < $total_pages) { ?>
+                  <li class="page-item"><a class="page-link" href="?page=<?php echo $page + 1; ?>">Next</a></li>
+                <?php } ?>
+              </ul>
+            </nav>
+
           </div>
         </div>
 
