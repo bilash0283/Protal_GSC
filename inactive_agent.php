@@ -122,7 +122,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                             <td><a href="view_agent.php?id=<?php echo $id; ?>"><i
                                                         class="fas fa-eye pr-2"></i><?php echo $name; ?></a></td>
                                             <td><?php echo $phone; ?></td>
-                                            <td><?php echo $email; ?></td>
+                                            <td><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></td>
                                             <td><?php echo $joining; ?></td>
                                             <td>
                                                 <?php echo $status == 1 ? "<div class='badge bg-success'>Active</div>" : "<div class='badge bg-secondary'>Inactive</div>"; ?>

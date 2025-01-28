@@ -10,6 +10,19 @@ $limit = 5; // Number of rows per page
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Current page number
 $offset = ($page - 1) * $limit; // Calculate the offset for SQL query
 
+// Search setup
+$search_query = ""; // Initialize search query
+$search = ""; // Initialize search term
+
+if (isset($_GET['search_btn'])) {
+    // Remove spaces from the search input
+    $search = str_replace(' ', '', $_GET['search']);
+    // Sanitize the input for SQL safety
+    $search = mysqli_real_escape_string($db, $search);
+    // Create the search query
+    $search_query = "AND (REPLACE(name, ' ', '') LIKE '%$search%' OR REPLACE(company, ' ', '') LIKE '%$search%' OR REPLACE(email, ' ', '') LIKE '%$search%' OR REPLACE(phone, ' ', '') LIKE '%$search%')";
+}
+
 // Fetch total row count
 $total_query = "SELECT COUNT(*) as total FROM agents WHERE status = 2 && role = 2";
 $total_result = mysqli_query($db, $total_query);
@@ -19,8 +32,8 @@ $total_agents = $total_row['total'];
 // Calculate total pages
 $total_pages = ceil($total_agents / $limit);
 
-// Fetch agents for the current page
-$agents_query = "SELECT * FROM agents WHERE status = 2 && role = 2 ORDER BY id DESC LIMIT $limit OFFSET $offset";
+// Fetch agents for the current page, with search query if needed
+$agents_query = "SELECT * FROM agents WHERE status = 2 && role = 2 $search_query ORDER BY id DESC LIMIT $limit OFFSET $offset";
 $agents_result = mysqli_query($db, $agents_query);
 ?>
 
@@ -34,8 +47,13 @@ $agents_result = mysqli_query($db, $agents_query);
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <form action="" method="GET">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control" placeholder="Search Here"
+                                        value="<?php echo htmlspecialchars($search); ?>">
+                                    <button type="submit" name="search_btn" class="input-group-text">Search</button>
+                                </div>
+                            </form>
                         </ol>
                     </div>
                 </div>
@@ -119,7 +137,7 @@ $agents_result = mysqli_query($db, $agents_query);
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <a href="inactive_agent.php?delete=<?php echo $id ?>" class="btn btn-primary">Delete Agent</a>
+                                                            <a href="revoked_agent.php?delete=<?php echo $id ?>" class="btn btn-primary">Delete Agent</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -131,6 +149,17 @@ $agents_result = mysqli_query($db, $agents_query);
                                 <?php } ?>
                             </tbody>
                         </table>
+
+                        <?php if (isset($_GET['delete'])) {
+                            $delete_id = $_GET['delete'];
+                            $delete_sql = "DELETE FROM agents WHERE id = '$delete_id'";
+                            $delete = mysqli_query($db, $delete_sql);
+                            if ($delete) {
+                                header('location:revoked_agent.php');
+                            } else {
+                                echo "<div class='alert alert-danger mt-2'>An Error Occurred While Deleting!</div>";
+                            }
+                        } ?>
 
                         <!-- Pagination Links -->
                         <nav>
