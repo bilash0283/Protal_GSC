@@ -292,8 +292,7 @@ $agentname = $_SESSION['name'];
                                                 <th>Study Destination</th>
                                              <td><?php echo $intre_country; ?></td>
                                             </tr>
-
-
+                                            
                                             <tr>
                                                 <th>Preferable University</th>
                                                 <td>

@@ -70,12 +70,12 @@ $add_id           = $_GET['add'];
 
                             <div class="form-group">
                               <label for="inputName">HSC / A Level's GPA & Group</label>
-                              <input type="text" name="hsc" id="inputName" class="form-control" required>
+                              <input type="text" name="hsc" id="inputName" class="form-control" >
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">Diploma Course & GPA</label>
-                              <input type="text" name="diploma" id="inputName" class="form-control" required>
+                              <input type="text" name="diploma" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
@@ -101,12 +101,12 @@ $add_id           = $_GET['add'];
 
                             <div class="form-group">
                               <label for="inputName">HSC / A Level's Year Of Passing</label>
-                              <input type="text" name="hscyear" id="inputName" class="form-control" required>
+                              <input type="text" name="hscyear" id="inputName" class="form-control" >
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">Diploma Year Of Passing</label>
-                              <input type="text" name="diplomayear" id="inputName" class="form-control" required>
+                              <input type="text" name="diplomayear" id="inputName" class="form-control" >
                             </div> 
 
                             <div class="form-group">
