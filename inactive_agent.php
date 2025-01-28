@@ -1,4 +1,5 @@
 <?php
+// Include necessary files and initialize the database connection
 global $db;
 include('dashboard_include/header.php');
 ?>
@@ -16,8 +17,20 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
     $page = isset($_GET['page']) ? (int) $_GET['page'] : 1; // Get current page or default to 1
     $offset = ($page - 1) * $limit; // Calculate offset
 
+    // Search functionality
+    $search_query = "";
+    $search = "";
+    if (isset($_GET['search_btn'])) {
+        // Remove spaces from the search input
+        $search = str_replace(' ', '', $_GET['search']);
+        // Sanitize the input for SQL safety
+        $search = mysqli_real_escape_string($db, $search);
+        // Create the search query
+        $search_query = "AND (REPLACE(name, ' ', '') LIKE '%$search%' OR REPLACE(company, ' ', '') LIKE '%$search%' OR REPLACE(email, ' ', '') LIKE '%$search%' OR REPLACE(phone, ' ', '') LIKE '%$search%')";
+    }
+
     // Total rows count
-    $total_query = "SELECT COUNT(*) as total FROM agents WHERE status = 1 AND role = 2 AND add_std = 1";
+    $total_query = "SELECT COUNT(*) as total FROM agents WHERE status = 1 AND role = 2 AND add_std = 1 $search_query";
     $total_result = mysqli_query($db, $total_query);
     $total_rows = mysqli_fetch_assoc($total_result)['total'];
     $total_pages = ceil($total_rows / $limit); // Calculate total pages
@@ -33,11 +46,14 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                         <h1 class="m-0">All Inactive Agents</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
-                        <input type="text" name="search" placeholder="Search hear" class="form-control">
-                        <input type="submit" btn btn-success >
-
                         <ol class="breadcrumb float-sm-right">
-                           
+                            <form action="" method="GET">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control" placeholder="Search Here"
+                                        value="<?php echo htmlspecialchars($search); ?>">
+                                    <button type="submit" name="search_btn" class="input-group-text">Search</button>
+                                </div>
+                            </form>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -70,13 +86,13 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                             </thead>
                             <tbody>
                                 <?php
-                                // Fetch rows for the current page
-                                $agents = "SELECT * FROM agents WHERE status = 1 AND role = 2 AND add_std = 1 ORDER BY id DESC LIMIT $offset, $limit";
+                                // Fetch rows for the current page with search and pagination
+                                $agents = "SELECT * FROM agents WHERE status = 1 AND role = 2 AND add_std = 1 $search_query ORDER BY id DESC LIMIT $offset, $limit";
                                 $agents_query = mysqli_query($db, $agents);
                                 $count = mysqli_num_rows($agents_query);
 
                                 if ($count < 1) {
-                                    echo "<tr><td colspan='11'>There are no Active Agents!!</td></tr>";
+                                    echo "<tr><td colspan='11'>No Agents Found!</td></tr>";
                                 } else {
                                     while ($row = mysqli_fetch_assoc($agents_query)) {
                                         $id = $row['id'];
@@ -174,10 +190,9 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                             if ($delete) {
                                 header('location:inactive_agent.php');
                             } else {
-                                echo "<div class='alert alert-danger mt-2'>An Error Occured While Deleting!</div>";
+                                echo "<div class='alert alert-danger mt-2'>An Error Occurred While Deleting!</div>";
                             }
                         } ?>
-
 
 
                         <!-- Pagination Links -->
@@ -185,15 +200,18 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                             <ul class="pagination">
                                 <?php if ($page > 1) { ?>
                                     <li class="page-item"><a class="page-link"
-                                            href="?page=<?php echo $page - 1; ?>">Previous</a></li>
+                                            href="?page=<?php echo $page - 1; ?>&search=<?php echo $search; ?>">Previous</a>
+                                    </li>
                                 <?php } ?>
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
                                     <li class="page-item <?php echo $page == $i ? 'active' : ''; ?>">
-                                        <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                        <a class="page-link"
+                                            href="?page=<?php echo $i; ?>&search=<?php echo $search; ?>"><?php echo $i; ?></a>
                                     </li>
                                 <?php } ?>
                                 <?php if ($page < $total_pages) { ?>
-                                    <li class="page-item"><a class="page-link" href="?page=<?php echo $page + 1; ?>">Next</a>
+                                    <li class="page-item"><a class="page-link"
+                                            href="?page=<?php echo $page + 1; ?>&search=<?php echo $search; ?>">Next</a>
                                     </li>
                                 <?php } ?>
                             </ul>
