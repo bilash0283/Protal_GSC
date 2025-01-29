@@ -151,7 +151,7 @@ $agentname = $_SESSION['name'];
 
                                             <tr>
                                                 <th>Email</th>
-                                                <td><?php echo htmlspecialchars($email); ?></td>
+                                                <td><a href="mailto:<?php echo $email; ?>"><?php echo htmlspecialchars($email); ?></a></td>
                                             </tr>
 
                                             <tr>
