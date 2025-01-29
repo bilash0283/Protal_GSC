@@ -191,7 +191,7 @@ if (isset($_POST['btn'])) {
 
     if ($password == $co_password) {
 
-        $agent_sql = "INSERT INTO agents (name, email, password,phone, role ,status ) VALUES('$name','$phone', '$email', '$co_password', '4','2')";
+        $agent_sql = "INSERT INTO agents (name, email, password, phone, role ,status ) VALUES('$name', '$email','$co_password',' $phone', '4','2')";
         $agent_res = mysqli_query($db,$agent_sql);
 
         $sql = "INSERT INTO newstudents (name, email, phone, last_qulification,last_pass_year, last_gpa, 

@@ -11,7 +11,6 @@
 $agentname = $_SESSION['name'];
 ?>
 
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -35,10 +34,8 @@ $agentname = $_SESSION['name'];
 
     <?php
     if (isset($_GET['edit'])) {
-
         $edit_id = $_GET['edit'];
-
-        $agents = "SELECT * FROM newstudents WHERE id = '$edit_id'";
+        $agents = "SELECT * FROM newstudents WHERE id = '$edit_id' ";
         $agents_query = mysqli_query($db, $agents);
 
         while ($row = mysqli_fetch_assoc($agents_query)) {
@@ -47,7 +44,6 @@ $agentname = $_SESSION['name'];
             $name = $row['name'];
             $email = $row['email'];
             $phone = $row['phone'];
-            
             $dob = $row['dob'];
             $gender = $row['gender'];
             $nationality = $row['nationality'];
@@ -86,8 +82,6 @@ $agentname = $_SESSION['name'];
 
     ?>
 
-
-
     <section class="content">
         <div class="container-fluid">
             <div class="container">
@@ -96,7 +90,6 @@ $agentname = $_SESSION['name'];
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">
                                 <div class="text-center">
-
                                     <?php
 
                                     if ($profile == null) { ?>
@@ -107,7 +100,6 @@ $agentname = $_SESSION['name'];
                                             class="profile-user-img img-fluid img-circle" alt="User Profile Picture">
                                     <?php }
                                     ?>
-
                                 </div>
                             </div>
                         </div>
@@ -119,17 +111,12 @@ $agentname = $_SESSION['name'];
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-
             <form action="" method="POST" enctype="multipart/form-data">
-
                 <div class="row">
-
                     <div class="col-md-12">
                         <div class="card card-primary">
-
                             <div class="card-header">
                                 <h3 class="card-title">Student's Information</h3>
-
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"
                                         title="Collapse">
@@ -137,11 +124,9 @@ $agentname = $_SESSION['name'];
                                     </button>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card-body">
-
                                         <table class="table table-bordered">
                                             <tr>
                                                 <th>Status</th>
@@ -162,72 +147,58 @@ $agentname = $_SESSION['name'];
                                                 }
                                                 ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>Comments</th>
                                                 <td><?php echo htmlspecialchars($comment); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>Student Full Name</th>
                                                 <td><?php echo htmlspecialchars($name); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>Email</th>
                                                 <td><?php echo htmlspecialchars($email); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>Student Phone No.</th>
                                                 <td><?php echo htmlspecialchars($phone); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>Date Of Birth</th>
                                                 <td><?php echo htmlspecialchars($dob); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>Gender</th>
                                                 <td><?php echo htmlspecialchars($gender); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>Address (According To Passport)</th>
                                                 <td><?php echo htmlspecialchars($address); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>Student Nationality</th>
                                                 <td><?php echo htmlspecialchars($nationality); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>Passport No.</th>
                                                 <td><?php echo htmlspecialchars($passport); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>SSC / O Level's GPA & Group</th>
                                                 <td><?php echo htmlspecialchars($ssc); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>SSC / O Level's Year Of Passing</th>
                                                 <td><?php echo htmlspecialchars($sscyear); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>HSC / A Level's GPA & Group</th>
                                                 <td><?php echo htmlspecialchars($hsc); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>HSC / A Level's Year Of Passing</th>
                                                 <td><?php echo htmlspecialchars($hscyear); ?></td>
                                             </tr>
-
                                             <tr>
                                                 <th>Diploma Course & GPA</th>
                                                 <td><?php echo htmlspecialchars($diploma); ?></td>
@@ -292,7 +263,8 @@ $agentname = $_SESSION['name'];
                                                 <th>Study Destination</th>
                                              <td><?php echo $intre_country; ?></td>
                                             </tr>
-                                            
+
+
                                             <tr>
                                                 <th>Preferable University</th>
                                                 <td>

@@ -65,10 +65,19 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                         $phone = $row['phone'];
                                         $status = $row['status'];
                                         $role = $row['role'];
-                                        $joining = $row['joining']; ?>
+                                        $joining = $row['joining'];
+
+                                        $std_id = "SELECT * FROM newstudents WHERE email = '$email'";
+                                        $std_ql = mysqli_query($db, $std_id);
+                                        while ($row = mysqli_fetch_assoc($std_ql)) {
+                                            $std_ql_id = $row['id'];
+                                        }
+
+                                        ?>
 
                                         <tr>
-                                            <td><a href="stu_single_view.php?edit=<?php echo $id; ?>"><i class="fas fa-eye"></i></a>
+                                            <td><a href="stu_single_view.php?edit=<?php echo $std_ql_id; ?>"><i
+                                                        class="fas fa-eye"></i></a>
                                             </td>
                                             <td><?php echo $name; ?></td>
                                             <td><?php echo $email; ?></td>
@@ -97,7 +106,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                                             class="btn btn-danger btn-sm"
                                                             onclick="return confirm('Are you sure you want to delete this data?');">Delete</a> -->
 
-                                                            <a href="" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                        <a href="" class="btn btn-danger btn-sm" data-toggle="modal"
                                                             data-target="#id<?php echo $id ?>">Delete</a>
                                                     </div>
                                                 </td>
@@ -129,20 +138,32 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                                             </div>
 
                                             <?php if (isset($_GET['delete'])) {
-                                                echo $delete_email = $_GET['delete'];
-                                                $delete_sql = "DELETE FROM agents WHERE id = '$delete_email'";
+                                                $delete_id = $_GET['delete'];
+
+                                                $std_ide = "SELECT * FROM agents WHERE id = '$delete_id'";
+                                                $std_qle = mysqli_query($db, $std_ide);
+                                                while ($row = mysqli_fetch_assoc($std_qle)) {
+                                                    $std_email = $row['email'];
+                                                }
+
+                                                $std_idt = "SELECT * FROM newstudents WHERE email = '$std_email'";
+                                                $std_qlt = mysqli_query($db, $std_idt);
+                                                while ($row = mysqli_fetch_assoc($std_qlt)) {
+                                                    $std_ql_idt = $row['id'];
+                                                }
+
+                                                $delete_sqlr = "DELETE FROM newstudents WHERE id = '$std_ql_idt'";
+                                                $delete_stdr = mysqli_query($db, $delete_sqlr);
+
+                                                $delete_sql = "DELETE FROM agents WHERE id = '$delete_id'";
                                                 $delete = mysqli_query($db, $delete_sql);
-
-                                                // $del_std = "DELETE FROM newstudents WHERE email = '$delete_email";
-                                                // $del_std_qu = mysqli_query($db,$del_std);
-
-                                                if ($delete) {
+                                
+                                                if ($delete AND $delete_stdr) {
                                                     header('location:leed_student_show.php');
                                                 } else {
                                                     echo "<div class='alert alert-danger mt-2'>An Error Occured While Deleting!</div>";
                                                 }
                                             } ?>
-
                                         </tr>
                                     <?php }
                                 } ?>

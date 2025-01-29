@@ -9,19 +9,30 @@ include('dashboard_include/sidebar.php');
 if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
     // Determine current page and set rows per page
     $rows_per_page = 6;
-    $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $current_page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
     $offset = ($current_page - 1) * $rows_per_page;
 
-    // Fetch the total number of rows
-    $total_rows_query = "SELECT COUNT(*) AS total FROM newstudents";
-    $result = mysqli_query($db, $total_rows_query);
+    // Initialize search query
+    $search = isset($_GET['search']) ? mysqli_real_escape_string($db, $_GET['search']) : '';
+
+    // Fetch the total number of rows with search filter
+    $search_query = "SELECT COUNT(*) AS total FROM newstudents ";
+    if (!empty($search)) {
+        $search_query .= "WHERE name LIKE '%$search%' OR email LIKE '%$search%' OR phone LIKE '%$search%' OR agent LIKE '%$search%' ";
+    }
+    $result = mysqli_query($db, $search_query);
     $total_rows = mysqli_fetch_assoc($result)['total'];
 
     // Calculate total pages
     $total_pages = ceil($total_rows / $rows_per_page);
 
-    // Fetch data for the current page
-    $agents_query = mysqli_query($db, "SELECT * FROM newstudents ORDER BY id DESC LIMIT $rows_per_page OFFSET $offset");
+    // Fetch data for the current page with search filter
+    $agents_query_string = "SELECT * FROM newstudents ";
+    if (!empty($search)) {
+        $agents_query_string .= "WHERE name LIKE '%$search%' OR email LIKE '%$search%' OR phone LIKE '%$search%' OR agent LIKE '%$search%' ";
+    }
+    $agents_query_string .= "ORDER BY id DESC LIMIT $rows_per_page OFFSET $offset";
+    $agents_query = mysqli_query($db, $agents_query_string);
     $count = mysqli_num_rows($agents_query);
 
     ?>
@@ -34,8 +45,14 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                     </div>
                     <div class="col-sm-3">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <form action="" method="GET">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control"
+                                        placeholder="Search by Name, Email, Phone, Agent"
+                                        value="<?php echo htmlspecialchars($search); ?>">
+                                    <button type="submit" class="input-group-text">Search</button>
+                                </div>
+                            </form>
                         </ol>
                     </div>
                 </div>
@@ -84,13 +101,16 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                             <tbody>
                                 <?php
                                 if ($count < 1) {
-                                    echo "<tr><td colspan='30'>There are no Active Students!!</td></tr>";
+                                    echo "<tr><td colspan='30'>No Students Found!</td></tr>";
                                 } else {
                                     while ($row = mysqli_fetch_assoc($agents_query)) {
+                                        $id = $row['id'];
+                                        $name = $row['name'];
                                         ?>
                                         <tr>
                                             <td>
-                                                <a href="view-student.php?edit=<?php echo $row['id']; ?>"><i class="fas fa-eye"></i></a>
+                                                <a href="view-student.php?edit=<?php echo $row['id']; ?>"><i
+                                                        class="fas fa-eye"></i></a>
                                             </td>
                                             <td>
                                                 <?php
@@ -103,7 +123,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                             </td>
                                             <td><?php echo $row['agent']; ?></td>
                                             <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['email']; ?></td>
+                                            <td><a href="mailto:<?php echo $row['email']; ?>"><?php echo $row['email']; ?></a></td>
                                             <td><?php echo $row['phone']; ?></td>
                                             <td><?php echo $row['dob']; ?></td>
                                             <td><?php echo $row['gender']; ?></td>
@@ -130,23 +150,64 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                             <td><?php echo $row['comment']; ?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="update_student.php?edit=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
-                                                    <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#id<?php echo $row['id']; ?>">Delete</a>
+                                                    <a href="update_student.php?edit=<?php echo $row['id']; ?>"
+                                                        class="btn btn-primary btn-sm">Edit</a>
+                                                    <a href="" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                        data-target="#id<?php echo $id ?>">Delete</a>
                                                 </div>
                                             </td>
+
+                                            <div class="modal fade" id="id<?php echo $id ?>" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Delete Agent</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Are you sure to delete <strong><?php echo $name ?></strong></p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                            <a href="all-student.php?delete=<?php echo $id ?>"
+                                                                class="btn btn-primary">Delete Agent</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </tr>
-                                        <?php
-                                    }
+                                    <?php }
                                 }
                                 ?>
                             </tbody>
                         </table>
+
+                        <?php if (isset($_GET['delete'])) {
+                            $delete_id = $_GET['delete'];
+
+                            $delete_sql = "DELETE FROM newstudents WHERE id = '$delete_id'";
+                            $delete = mysqli_query($db, $delete_sql);
+
+                            if ($delete) {
+                                header('location:all-student.php');
+                            } else {
+                                echo "<div class='alert alert-danger mt-2'>An Error Occurred While Deleting!</div>";
+                            }
+                        } ?>
+
                         <!-- Pagination -->
                         <nav>
                             <ul class="pagination">
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
                                     <li class="page-item <?php echo ($i == $current_page) ? 'active' : ''; ?>">
-                                        <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                        <a class="page-link"
+                                            href="?page=<?php echo $i; ?>&search=<?php echo htmlspecialchars($search); ?>"><?php echo $i; ?></a>
                                     </li>
                                 <?php } ?>
                             </ul>
