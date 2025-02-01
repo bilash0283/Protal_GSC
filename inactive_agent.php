@@ -194,6 +194,14 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                             }
                         } ?>
 
+                        <div>
+                            <select name="row_number" id="">
+                                <option ><a href="?num_row=<?php echo 5; ?>">5</a></option>
+                                <option ><a href="?num_row=<?php echo 10; ?>">10</a></option>
+                                <option ><a href="?num_row=<?php echo 20; ?>">20</a></option>
+                                <option ><a href="?num_row=<?php echo 30; ?>">30</a></option>
+                            </select>
+                        </div>
 
                         <!-- Pagination Links -->
                         <nav>
@@ -216,6 +224,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                 <?php } ?>
                             </ul>
                         </nav>
+
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -232,3 +241,13 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
 <?php ob_end_flush(); ?>
 <!-- /.main-footer -->
 <?php include('dashboard_include/footer.php'); ?>
+
+
+
+
+
+
+
+
+
+

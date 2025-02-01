@@ -182,7 +182,6 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                             }
                         } ?>
 
-
                         <div>
                             <!-- Pagination Links -->
                             <nav>
