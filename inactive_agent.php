@@ -78,7 +78,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                     <th scope="col">Apply Date</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Role</th>
-                                    <th scope="col">Student Add</th>
+                                    <th scope="col">Profile</th>
                                     <?php if ($_SESSION['role'] == 1) { ?>
                                         <th scope="col">Action</th>
                                     <?php } ?>
@@ -139,7 +139,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                                 ?>
                                             </td>
                                             <td>
-                                                <?php echo $add_std == 0 ? "<div class='badge bg-success'>Yes</div>" : "<div class='badge bg-danger'>No</div>"; ?>
+                                                <?php echo $add_std == 0 ? "<div class='badge bg-success'>Complete</div>" : "<div class='badge bg-danger'>Incomplete</div>"; ?>
                                             </td>
                                             <?php if ($_SESSION['role'] == 1) { ?>
                                                 <td>
@@ -193,15 +193,6 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                 echo "<div class='alert alert-danger mt-2'>An Error Occurred While Deleting!</div>";
                             }
                         } ?>
-
-                        <div>
-                            <select name="row_number" id="">
-                                <option ><a href="?num_row=<?php echo 5; ?>">5</a></option>
-                                <option ><a href="?num_row=<?php echo 10; ?>">10</a></option>
-                                <option ><a href="?num_row=<?php echo 20; ?>">20</a></option>
-                                <option ><a href="?num_row=<?php echo 30; ?>">30</a></option>
-                            </select>
-                        </div>
 
                         <!-- Pagination Links -->
                         <nav>

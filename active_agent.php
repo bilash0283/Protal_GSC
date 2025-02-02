@@ -74,7 +74,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                     <th>Apply Date</th>
                                     <th>Status</th>
                                     <th>Role</th>
-                                    <th>Student Add</th>
+                                    <th>Profile</th>
                                     <?php if ($_SESSION['role'] == 1) { ?>
                                         <th>Action</th>
                                     <?php } ?>
@@ -124,7 +124,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                                 ?>
                                             </td>
                                             <td>
-                                                <?php echo ($row['add_std'] == 0) ? "<div class='badge bg-success'>Yes</div>" : "<div class='badge bg-danger'>No</div>"; ?>
+                                                <?php echo ($row['add_std'] == 0) ? "<div class='badge bg-success'>Complete</div>" : "<div class='badge bg-danger'>Incomplete</div>"; ?>
                                             </td>
 
                                             <?php if ($_SESSION['role'] == 1) { ?>

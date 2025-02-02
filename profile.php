@@ -108,7 +108,7 @@ $agentemail       = $_SESSION['email'];
 
                 <?php 
                 
-                if ($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 0){ ?>
+                if ($_SESSION['role'] == 2 ){ ?>
                   <a href="add-student.php" class="btn btn-primary btn-block"><b>Add Student</b></a>
                <?php } else { ?>
                 <a href="gsc-add-student.php" class="btn btn-primary btn-block"><b>Add Student</b></a>

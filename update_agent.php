@@ -280,15 +280,15 @@ if ($_SESSION['role'] == 1) { ?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputStatus">Adding Student Permissions </label>
+                                                <label for="inputStatus">Profile Status </label>
                                                 <select id="inputStatus" name="add_std" class="form-control custom-select">
                                                     <option <?php if ($add_std == 0) {
                                                         echo "selected";
-                                                    } ?> value="0">yes
+                                                    } ?> value="0">Complete
                                                     </option>
                                                     <option <?php if ($add_std == 1) {
                                                         echo "selected";
-                                                    } ?> value="1">No
+                                                    } ?> value="1">Incomplete
                                                     </option>
                                                 </select>
                                             </div>
