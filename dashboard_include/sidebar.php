@@ -140,7 +140,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <a href="inactive_agent.php" class="nav-link bg-warning">
+                  <a href="pending_agent.php" class="nav-link bg-warning">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pending Agent</p>
                   </a>
@@ -149,7 +149,7 @@
 
                 <?php if ($_SESSION['role'] == 1) { ?>
                     <li class="nav-item bg-danger">
-                        <a href="revoked_agent.php" class="nav-link">
+                        <a href="inactive_agent.php" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Inactive Agent</p>
                         </a>
