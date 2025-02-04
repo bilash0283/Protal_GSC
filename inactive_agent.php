@@ -43,7 +43,7 @@ $agents_result = mysqli_query($db, $agents_query);
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">All Revoked Agents</h1>
+                        <h1 class="m-0">All Inactive Agents</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
