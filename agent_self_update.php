@@ -155,13 +155,18 @@ if ($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 1) { ?>
                                                        id="inputProjectLeader" class="form-control">
                                             </div>
                                             <div>
-                                                <?php
-                                                if (empty($image)) {
-                                                    echo "<h6 class='text-danger my-2'>Please Upload your Profile Pictuser</h6>";
-                                                } else { ?>
-                                                    <img src="dist/img/agent_image/<?php echo $image; ?>" width="70px" alt="">
+                                            <?php if (empty($image)) {
+                                                echo "<h6 class='text-danger my-2'>Please Upload your Profile Photo !</h6>";
+                                            } else { 
+                                                $pathInfo = pathinfo($image);
+                                                $extension = isset($pathInfo['extension']) ? strtolower($pathInfo['extension']) : '';   
+
+                                                if($extension == 'pdf'){ ?>
+                                                    <iframe src="dist/img/agent_image/<?php echo $image; ?>" frameborder="0"></iframe>
+                                                <?php } else { ?>
+                                                    <img src="dist/img/agent_image/<?php echo $image; ?>" width="70px" alt="" >
                                                 <?php }
-                                                ?>
+                                            } ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputProjectLeader">Profile Image</label>
@@ -223,27 +228,37 @@ if ($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 1) { ?>
                                             </div>
 
                                             <div>
-                                                <?php
-                                                if (empty($company_logo_img)) {
+                                                <?php if (empty($company_logo_img)) {
                                                     echo "<h6 class='text-danger my-2'>Please Upload your Company Logo !</h6>";
-                                                } else { ?>
-                                                    <img src="dist/img/agent_company_logo/<?php echo $company_logo_img; ?>" width="70px" alt="">
-                                                <?php }
-                                                ?>
+                                                } else { 
+                                                    $pathInfo = pathinfo($company_logo_img);
+                                                    $extension = isset($pathInfo['extension']) ? strtolower($pathInfo['extension']) : '';   
+
+                                                    if($extension == 'pdf'){ ?>
+                                                        <iframe src="dist/img/agent_company_logo/<?php echo $company_logo_img; ?>" frameborder="0"></iframe>
+                                                    <?php } else { ?>
+                                                        <img src="dist/img/agent_company_logo/<?php echo $company_logo_img; ?>" width="70px" alt="">
+                                                    <?php }
+                                                } ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputProjectLeader">Company Logo</label>
                                                 <input type="file" name="company_logo" id="inputName">
                                             </div>
-
+                                            
                                             <div>
-                                                <?php
-                                                if (empty($company_reg_certificate)) {
-                                                    echo "<h6 class='text-danger my-2'>Please Upload your Company Registration Certificate</h6>";
-                                                } else { ?>
-                                                    <img src="dist/img/agent_registation_cartificate/<?php echo $company_reg_certificate; ?>" width="70px" alt="">
-                                                <?php }
-                                                ?>
+                                            <?php if (empty($company_reg_certificate)) {
+                                                    echo "<h6 class='text-danger my-2'>Please Upload your Company Registration Certificate  !</h6>";
+                                                } else { 
+                                                    $pathInfo = pathinfo($company_reg_certificate);
+                                                    $extension = isset($pathInfo['extension']) ? strtolower($pathInfo['extension']) : '';   
+
+                                                    if($extension == 'pdf'){ ?>
+                                                        <iframe src="dist/img/agent_registation_cartificate/<?php echo $company_reg_certificate; ?>" frameborder="0"></iframe>
+                                                    <?php } else { ?>
+                                                        <img src="dist/img/agent_registation_cartificate/<?php echo $company_reg_certificate; ?>" width="70px" alt="">
+                                                    <?php }
+                                                } ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputProjectLeader">Company Registration Certificate</label>
