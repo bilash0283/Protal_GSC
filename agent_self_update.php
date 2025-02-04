@@ -131,7 +131,7 @@ if ($_SESSION['role'] == 2 AND $_SESSION['add_std'] == 1) { ?>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="inputProjectLeader">Company Year of Establishment </label>
+                                                <label for="inputProjectLeader">Company Establishment Year </label>
                                                 <input type="text" name="year" value="<?php echo $company_year; ?>"
                                                        id="inputProjectLeader" class="form-control">
                                             </div>

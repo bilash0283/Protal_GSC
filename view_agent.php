@@ -170,7 +170,7 @@ $agentname = $_SESSION['name'];
                                             </tr>
 
                                             <tr>
-                                                <th>company Year</th>
+                                                <th>Company Establishment Year</th>
                                                 <td><?php echo htmlspecialchars($company_year); ?></td>
                                             </tr>
 

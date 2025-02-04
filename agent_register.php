@@ -68,7 +68,7 @@ $successfull = null;
                             <input type="text" name="company_address" id="inputProjectLeader" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="inputClientCompany">Company Year of Establishment </label>
+                            <label for="inputClientCompany">Company Establishment Year </label>
                             <input type="text" name="company_year" id="inputClientCompany" class="form-control" >
                         </div>
                     </div>  
