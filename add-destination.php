@@ -1,23 +1,15 @@
-
-<?php include('dashboard_include/header.php')?>
-<?php ob_start(); ?>
-<?php
-
+<?php include('dashboard_include/header.php');
+ob_start(); 
 $agentname        = $_SESSION['name'];
 $agentemail       = $_SESSION['email'];
 $add_id           = $_GET['add'];
- 
+
+include('dashboard_include/top_header.php');
+include('dashboard_include/sidebar.php');
+
 ?>
-  <!-- Navbar -->
-<?php include('dashboard_include/top_header.php')?>
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <?php include('dashboard_include/sidebar.php')?>
-
-  <?php
-
-    if ($_SESSION['role'] == 2) { ?>
+  <?php if ($_SESSION['role'] == 2) { ?>
       
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -64,15 +56,16 @@ $add_id           = $_GET['add'];
                           <div class="card-body">
 
                           <div class="form-group">
-                              <label for="inputName">English Test Result (Language Proficiency Tests)</label>
+                              <label for="inputName">Language Proficiency Tests & Score</label>
                               <input type="text" name="ielts" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
                               <label for="inputStatus">Preferable Program</label>
                               <select id="inputStatus" name="program" class="form-control custom-select" required>
-                                <option selected="">Select one</option>
+                                <option selected="">---select options---</option>
                                   <option value="1">Foundation</option>
+                                  <option value="5">Foundation with Bachelor</option>
                                   <option value="2">Bachelor's</option>
                                   <option value="3">Master's</option>
                                   <option value="4">Pre-Master's</option>
@@ -121,6 +114,7 @@ $add_id           = $_GET['add'];
 
                             <div class="form-group">
                               <input type="submit" name="submit" value="Next" class="btn btn-lg btn-primary">
+                              
                             </div>
 
                             
@@ -149,10 +143,11 @@ $add_id           = $_GET['add'];
               $destination     = $_POST['destination'];
               $semester        = $_POST['semester'];
 
-              if ($destination != 0) {
-               
-               $agent_insert = "UPDATE newstudents SET ielts = '$ielts', program = '$program', 
-                intre_country = '$destination', semester = '$semester' WHERE id = '$add_id'";
+              if ($destination == 0) {
+                echo "<div class='alert alert-danger mt-2'>Please Select A Destination!</div>";
+              } else {
+                $agent_insert = "UPDATE newstudents SET ielts = '$ielts', program = '$program', 
+                destination = '$destination', semester = '$semester' WHERE id = '$add_id'";
         
                   $agent_sql = mysqli_query($db, $agent_insert);
         
@@ -161,8 +156,6 @@ $add_id           = $_GET['add'];
                   } else {
                     echo "Error";
                   }
-              } else {
-                echo "<div class='alert alert-danger mt-2'>Please Select A Destination!</div>";
               }
                  
             

@@ -1,22 +1,14 @@
-<?php include('dashboard_include/header.php')?>
-<?php ob_start(); ?>
-<?php
-
+<?php include('dashboard_include/header.php');
+ ob_start();
 $agentname        = $_SESSION['name'];
 $agentemail       = $_SESSION['email'];
 $add_id           = $_GET['add'];
- 
+include('dashboard_include/top_header.php');
+include('dashboard_include/sidebar.php');
+
 ?>
-  <!-- Navbar -->
-<?php include('dashboard_include/top_header.php')?>
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <?php include('dashboard_include/sidebar.php')?>
-
-  <?php
-
-    if ($_SESSION['role'] == 2) { ?>
+  <?php if ($_SESSION['role'] == 2) { ?>
       
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -65,7 +57,7 @@ $add_id           = $_GET['add'];
                             <div class="form-group">
                               <label for="inputStatus">Preferable University</label>
                               <select id="inputStatus" name="university" class="form-control custom-select" required>
-                                <option selected="" value="0">Select one</option>
+                                <option selected="" value="0">--Select University</option>
 
                                 <?php
                           
@@ -263,18 +255,16 @@ $add_id           = $_GET['add'];
                                 ?>
 
                                   
-
-
                               </select>
                             </div>
 
                             <div class="form-group">  
-                              <label for="inputProjectLeader">Please upload Student Picture (Profile / Passport Copy)</label>
-                              <input type="file" name="profile" id="inputName" required>
+                              <label for="inputProjectLeader">Please upload Student Picture <span class="text-danger">*</span></label>
+                              <input type="file" name="profile" id="inputName">
                             </div>
 
                             <div class="form-group">  
-                              <label for="inputProjectLeader">Please upload Student's document (CV) in a single PDF File.</label>
+                              <label for="inputProjectLeader">Please upload Student Passport <span class="text-danger">*</span></label>
                               <input type="file" name="image" id="inputName" required>
                             </div>
 
@@ -290,12 +280,6 @@ $add_id           = $_GET['add'];
                               <input type="text" name="subject" id="inputClientCompany" class="form-control">
                             </div>
 
-                            <div class="form-group">
-                              <label for="inputStatus">Status</label>
-                              <select id="inputStatus" name="status" class="form-control custom-select">
-                                <option value="1" selected>Pending</option>
-                              </select>
-                            </div>
 
                             <div class="form-group">
                               <input type="submit" name="submit" value="Add Student" class="btn btn-lg btn-primary">
@@ -321,11 +305,9 @@ $add_id           = $_GET['add'];
           <?php
             
             if(isset($_POST['submit'])){
-
-              
               $subject            = $_POST['subject'];
               $university         = $_POST['university'];
-              $status             = $_POST['status'];
+              $status             = '1';
               $profile            = $_FILES['profile']['name'];
               $profile_temporary_location = $_FILES['profile']['tmp_name']; 
               $image              = $_FILES['image']['name'];
@@ -368,7 +350,7 @@ $add_id           = $_GET['add'];
                     $agent_insertt = "INSERT INTO notifications (id, agent, email, name, message, time) VALUES('$id1', '$agent1', '$email1', '$name1', '$message', now())";
                     $agent_sql = mysqli_query($db, $agent_insertt);
 
-                    header('location:student.php');
+                    header('location:add-file.php?edit='.$id1);
                     } else {
                       echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
                     }

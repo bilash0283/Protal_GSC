@@ -1,24 +1,13 @@
-
-<?php include('dashboard_include/header.php')?>
-<?php ob_start(); ?>
-<?php
-
+<?php include('dashboard_include/header.php');
+ob_start(); 
 $agentname        = $_SESSION['name'];
 $agentemail       = $_SESSION['email'];
-
+include('dashboard_include/top_header.php');
+include('dashboard_include/sidebar.php');
 ?>
-  <!-- Navbar -->
-<?php include('dashboard_include/top_header.php')?>
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <?php include('dashboard_include/sidebar.php')?>
 
-  <!-- roll permation for system for add student and this section  -->
-
-  <?php
-
-    if ($_SESSION['role'] == 2) { ?>
+  <?php if ($_SESSION['role'] == 2) { ?>
       
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -75,12 +64,16 @@ $agentemail       = $_SESSION['email'];
 
                             <div class="form-group">
                               <label for="inputProjectLeader">Date Of Birth (DD-MM-YY)</label>
-                              <input type="text" name="dob" id="inputProjectLeader" class="form-control" required>
+                              <input type="date" name="dob" id="inputProjectLeader" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
                               <label for="inputClientCompany">Gender</label>
-                              <input type="text" name="gender" id="inputClientCompany" class="form-control" required>
+                              <select name="gender" id="inputClientCompany" class="form-control" required>
+                                <option >---Select Options---</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                              </select>
                             </div>
                             
 

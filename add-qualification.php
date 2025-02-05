@@ -1,24 +1,14 @@
 
-<?php include('dashboard_include/header.php')?>
-<?php ob_start(); ?>
-<?php
-
+<?php include('dashboard_include/header.php');
+ ob_start(); 
 $agentname        = $_SESSION['name'];
 $agentemail       = $_SESSION['email'];
 $add_id           = $_GET['add'];
- 
+include('dashboard_include/top_header.php');
+include('dashboard_include/sidebar.php');
 ?>
-  <!-- Navbar -->
-<?php include('dashboard_include/top_header.php')?>
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <?php include('dashboard_include/sidebar.php')?>
-
-  <?php
-
-    if ($_SESSION['role'] == 2) { ?>
-      
+  <?php if ($_SESSION['role'] == 2) { ?>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -64,7 +54,7 @@ $add_id           = $_GET['add'];
                           <div class="card-body">
 
                           <div class="form-group">
-                              <label for="inputName">SSC / O Level's GPA & Group</label>
+                              <label for="inputName">SSC / O Level's GPA & Group <span class="text-danger">*</span></label>
                               <input type="text" name="ssc" id="inputName" class="form-control" required>
                             </div> 
 
@@ -74,17 +64,17 @@ $add_id           = $_GET['add'];
                             </div> 
 
                             <div class="form-group">
-                              <label for="inputName">Diploma Course & GPA</label>
+                              <label for="inputName">Diploma CGPA & Major</label>
                               <input type="text" name="diploma" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
-                              <label for="inputName">Bachelor's Major & CGPA</label>
+                              <label for="inputName">Bachelor's CGPA & Major</label>
                               <input type="text" name="undergrad" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
-                              <label for="inputClientCompany">Masters's Major & CGPA</label>
+                              <label for="inputClientCompany">Masters's CGPA & Major </label>
                               <input type="text" name="level" id="inputClientCompany" class="form-control">
                             </div>
 
@@ -95,28 +85,28 @@ $add_id           = $_GET['add'];
                           <div class="card-body">
 
                           <div class="form-group">
-                              <label for="inputName">SSC / O Level's Year Of Passing</label>
-                              <input type="text" name="sscyear" id="inputName" class="form-control" required>
+                              <label for="inputName">SSC / O Level's Year Of Passing <span class="text-danger">*</span></label>
+                              <input type="number" name="sscyear" id="inputName" class="form-control" required>
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">HSC / A Level's Year Of Passing</label>
-                              <input type="text" name="hscyear" id="inputName" class="form-control" >
+                              <input type="number" name="hscyear" id="inputName" class="form-control" >
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">Diploma Year Of Passing</label>
-                              <input type="text" name="diplomayear" id="inputName" class="form-control" >
+                              <input type="number" name="diplomayear" id="inputName" class="form-control" >
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">Bachelor's Year Of Passing</label>
-                              <input type="text" name="undergradyear" id="inputName" class="form-control">
+                              <input type="number" name="undergradyear" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
                               <label for="inputClientCompany">Masters's Year Of Passing</label>
-                              <input type="text" name="qualificationyear" id="inputClientCompany" class="form-control">
+                              <input type="number" name="qualificationyear" id="inputClientCompany" class="form-control">
                             </div>
 
                             <div class="form-group">

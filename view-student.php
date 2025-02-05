@@ -1,15 +1,10 @@
-<?php include('dashboard_include/header.php') ?>
-<?php ob_start(); ?>
-<!-- Navbar -->
-<?php include('dashboard_include/top_header.php') ?>
-<!-- /.navbar -->
-
-<!-- Main Sidebar Container -->
-<?php include('dashboard_include/sidebar.php') ?>
-
-<?php
-$agentname = $_SESSION['name'];
+<?php include('dashboard_include/header.php');
+ ob_start(); 
+ include('dashboard_include/top_header.php');
+ include('dashboard_include/sidebar.php');
+ $agentname = $_SESSION['name'];
 ?>
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -156,6 +151,7 @@ $agentname = $_SESSION['name'];
                                                     case 4:
                                                         echo "Declined";
                                                         break;
+                                                        
                                                 }
                                                 ?></td>
                                             </tr>
@@ -275,6 +271,9 @@ $agentname = $_SESSION['name'];
                                                         break;
                                                     case 4:
                                                         echo "Pre-Master's";
+                                                        break;
+                                                    case 5:
+                                                        echo "Foundation with Bachelor";
                                                         break;
                                                 }
                                                 ?></td>
