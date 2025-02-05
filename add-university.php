@@ -55,7 +55,7 @@ include('dashboard_include/sidebar.php');
                           <div class="card-body">
 
                             <div class="form-group">
-                              <label for="inputStatus">Preferable University</label>
+                              <label for="inputStatus">Preferable University <span class="text-danger">*</span></label>
                               <select id="inputStatus" name="university" class="form-control custom-select" required>
                                 <option selected="" value="0">--Select University</option>
 
@@ -90,7 +90,9 @@ include('dashboard_include/sidebar.php');
                                         <option value="Ulster University">Ulster University</option>
                                         <option value="University of Winchester">University of Winchester</option>
                                         <option value="London Metropolitan University">London Metropolitan University</option>
+                                        <option value="Bloomsbury Institute London">Bloomsbury Institute London</option>
                                         <option value="Cardiff and Vale College">Cardiff and Vale College</option>
+                                        <option value="University Centre Leeds">University Centre Leeds</option>
                                         <option value="University of Chester">University of Chester</option>
                                         <option value="Wrexham Glyndwr University">Wrexham Glyndwr University</option>
                                         <option value="University of Suffolk and Global Banking School">University of Suffolk and Global Banking School</option>
@@ -259,7 +261,7 @@ include('dashboard_include/sidebar.php');
                             </div>
 
                             <div class="form-group">  
-                              <label for="inputProjectLeader">Please upload Student Picture <span class="text-danger">*</span></label>
+                              <label for="inputProjectLeader">Please upload Student Picture </label>
                               <input type="file" name="profile" id="inputName">
                             </div>
 
@@ -317,15 +319,16 @@ include('dashboard_include/sidebar.php');
 
                 if (!empty($image)) {
 
-                  if (!empty($profile)) {
+                    if(!empty($profile)){
                     // -------------------------------
-                    $random = rand(0,999999);
-                    $final_profile_name = 'Student_'.$name."_Agent_".$agentname."_ID_".$id."_".$random.time()."_".$profile;
-          
-                    move_uploaded_file($profile_temporary_location, 'dist/student_profile/'.$final_profile_name);
-                  //  --------------------------------
+                      $random = rand(0,999999);
+                      $final_profile_name = $name."_".$agentname."_ID_".$id."_".$random.time()."_".$profile;
+            
+                      move_uploaded_file($profile_temporary_location, 'dist/student_profile/'.$final_profile_name);
+                    }
+                    //  --------------------------------
                     $rand = rand(0,999999);
-                    $final_image_name = 'Agent_'.$agentname."_Student_".$name."_ID_".$id."_".$rand.time()."_".$image;
+                    $final_image_name = $agentname."_".$name."_ID_".$id."_".$rand.time()."_".$image;
           
                     move_uploaded_file($temporary_location, 'dist/student_file/'.$final_image_name);
           
@@ -347,17 +350,15 @@ include('dashboard_include/sidebar.php');
                         $message       = 'Agent '. $agent1 .' added a new student '. $name1;
                       }
 
-                    $agent_insertt = "INSERT INTO notifications (id, agent, email, name, message, time) VALUES('$id1', '$agent1', '$email1', '$name1', '$message', now())";
-                    $agent_sql = mysqli_query($db, $agent_insertt);
+                      $agent_insertt = "INSERT INTO notifications (id, agent, email, name, message, time) VALUES('$id1', '$agent1', '$email1', '$name1', '$message', now())";
+                      $agent_sql = mysqli_query($db, $agent_insertt);
 
-                    header('location:add-file.php?edit='.$id1);
+                      header('location:add-file.php?edit='.$id1);
                     } else {
                       echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
                     }
 
-                  } else {
-                    echo "<div class='alert alert-danger mt-2'>Please Upload All Necessary Documents!</div>";
-                  }
+                  
                 } else{
                   header('Location:error.php');
                   //echo "<div class='alert alert-danger mt-2'>Insert All Qualification File in One PDF Format!</div>";

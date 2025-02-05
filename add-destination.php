@@ -56,12 +56,12 @@ include('dashboard_include/sidebar.php');
                           <div class="card-body">
 
                           <div class="form-group">
-                              <label for="inputName">Language Proficiency Tests & Score</label>
+                              <label for="inputName">Language Proficiency Tests & Score </label>
                               <input type="text" name="ielts" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
-                              <label for="inputStatus">Preferable Program</label>
+                              <label for="inputStatus">Preferable Program <span class="text-danger">*</span></label>
                               <select id="inputStatus" name="program" class="form-control custom-select" required>
                                 <option selected="">---select options---</option>
                                   <option value="1">Foundation</option>
@@ -79,7 +79,7 @@ include('dashboard_include/sidebar.php');
                           <div class="card-body">
 
                           <div class="form-group">
-                              <label for="inputStatus">Study Destination</label>
+                              <label for="inputStatus">Study Destination <span class="text-danger">*</span></label>
                               <select id="inputStatus" name="destination" class="form-control custom-select" required>
                                   <option selected="" value="0">Select one</option>
                                   <option value="1">USA</option>

@@ -53,24 +53,23 @@ include('dashboard_include/sidebar.php');
                         <div class="col-md-6">
                           <div class="card-body">
                             <div class="form-group">
-                              <label for="inputName">Student Full Name</label>
+                              <label for="inputName">Student Full Name <span class="text-danger">*</span></label>
                               <input type="text" name="name" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputName">Student Phone No.</label>
+                              <label for="inputName">Student Phone No. <small class="text-info">with country code</small> <span class="text-danger">*</span></label>
                               <input type="text" name="phone" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputProjectLeader">Date Of Birth (DD-MM-YY)</label>
+                              <label for="inputProjectLeader">Date Of Birth (DD-MM-YY) <span class="text-danger">*</span></label>
                               <input type="date" name="dob" id="inputProjectLeader" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
-                              <label for="inputClientCompany">Gender</label>
+                              <label for="inputClientCompany">Gender <span class="text-danger">*</span></label>
                               <select name="gender" id="inputClientCompany" class="form-control" required>
-                                <option >---Select Options---</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                               </select>
@@ -83,22 +82,22 @@ include('dashboard_include/sidebar.php');
                         <div class="col-md-6">
                           <div class="card-body">
                           <div class="form-group">
-                              <label for="inputName">Email</label>
+                              <label for="inputName">Email <span class="text-danger">*</span></label>
                               <input type="email" name="email" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputProjectLeader">Student Nationality</label>
+                              <label for="inputProjectLeader">Student Nationality <span class="text-danger">*</span></label>
                               <input type="text" name="nationality" id="inputProjectLeader" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputName">Passport No.</label>
+                              <label for="inputName">Passport No. <span class="text-danger">*</span></label>
                               <input type="text" name="passport" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputProjectLeader">Address (According To Passport)</label>
+                              <label for="inputProjectLeader">Address (According To Passport) <span class="text-danger">*</span></label>
                               <input type="text" name="address" id="inputProjectLeader" class="form-control" required>
                             </div>
 

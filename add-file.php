@@ -1,20 +1,12 @@
-<?php include('dashboard_include/header.php');
-ob_start();
-
-?>
-<!-- Navbar -->
-<?php include('dashboard_include/top_header.php') ?>
-<!-- /.navbar -->
-
-<!-- Main Sidebar Container -->
-<?php include('dashboard_include/sidebar.php') ?>
-
 <?php
-
+include('dashboard_include/header.php');
+ob_start();
+include('dashboard_include/top_header.php');
+include('dashboard_include/sidebar.php');
 $agentname = $_SESSION['name'];
 $agentemail = $_SESSION['email'];
-
 ?>
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -76,43 +68,59 @@ $agentemail = $_SESSION['email'];
               </div>
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-10 mx-auto">
                   <div class="card-body">
-                    <div class="form-group">
+
+                    <!-- <div class="form-group">
                       <label for="inputName">Student Full Name</label>
-                      <input type="text" name="name" value="<?php echo $sname; ?>" id="inputName" class="form-control"
-                        required>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="inputName">Document Type (Ex - Passport, Transcript, Certificates)</label>
-                      <input type="text" name="document_type" id="inputName" class="form-control" required>
-                    </div>
-
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="card-body">
+                      <input type="text" name="name" readonly value="" id="inputName"
+                        class="form-control" required>
+                    </div> 
 
                     <div class="form-group">
                       <label for="inputName">Passport No.</label>
-                      <input type="text" name="passport" value="<?php echo $spassport; ?>" id="inputName"
+                      <input type="text" readonly name="passport" value="" id="inputName"
                         class="form-control" required>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
-                      <label for="inputProjectLeader">Please upload all Missing/Updated documents in a single PDF File.
-                        (CV, Passport, All Academic Certificates and Transcript,
-                        LOR/Testimonials, English Test Results and etc)</label>
-                      <input type="file" name="image" id="inputName" required>
+                      <label for="inputName">Upload the following documents</label>
+                      <select name="document_type" id="" class="form-control" required>
+                        <option value="SSC_Certificate">SSC/O-Level Certificate</option>
+                        <option value="SSC_Transcript">SSC/O-Level Transcript</option>
+                        <option value="HSC_Certificate">HSC/A-Level Certificate</option>
+                        <option value="HSC_Transcript">HSC/A-Level Transcript</option>
+                        <option value="Bachelor_Certificate">Bachelor Certificate</option>
+                        <option value="Bachelor_Transcript">Bachelor Transcript</option>
+                        <option value="Master_Certificate">Master Certificate</option>
+                        <option value="Master_Transcript">Master Transcript</option>
+                        <option value="Language_Proficiency">Language Proficiency Test
+                          [IELTS,PTE & other]</option>
+                        <option value="Recommendation1">Recommendation Letter 1</option>
+                        <option value="Recommendation2">Recommendation Letter 2</option>
+                        <option value="Recommendation3">Recommendation Letter 3</option>
+                        <option value="Testimonial1">Testimonial 1</option>
+                        <option value="Testimonial2">Testimonial 2</option>
+                        <option value="Job_Letter">Job Letter</option>
+                        <option value="CV">CV</option>
+                        <option value="Others">Others</option>
+                      </select>
                     </div>
-
+                    <h6 class="text-success" role="">
+                      <?php if (isset($_SESSION['document_name'])) {
+                        echo $_SESSION['document_name'] . '   Uploaded Successfully. Please upload more Documents !';
+                      } ?>
+                    </h6>
                     <div class="form-group">
-                      <input type="submit" name="submit" value="Attach File" class="btn btn-lg btn-primary">
+                      <label for="inputProjectLeader"></label>
+                      <input type="file" name="image" id="inputName" class="form-control" required>
                     </div>
 
-
+                    <div class="form-group d-flex gap-3 justify-content-between align-items-center">
+                      <input type="submit" name="submit" value="Upload" class="btn btn-md btn-primary ">
+                      <a href="view-student.php?edit=<?php echo $edit_id; unset($_SESSION['document_name']);?>" class="btn btn-info btn-md ">Finish</a>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -131,12 +139,14 @@ $agentemail = $_SESSION['email'];
       <?php
 
       if (isset($_POST['submit'])) {
-
-        $name = $_POST['name'];
-        $passport = $_POST['passport'];
+        $name = $sname;
+        $passport = $spassport;
         $document = $_POST['document_type'];
         $image = $_FILES['image']['name'];
         $temporary_location = $_FILES['image']['tmp_name'];
+        $_SESSION['document_name'] = $_POST['document_type'];
+
+
 
         $agents = "SELECT * FROM newstudents WHERE name = '$name' AND agent = '$agentname' AND passport = '$passport'";
         $agents_query = mysqli_query($db, $agents);
@@ -148,8 +158,8 @@ $agentemail = $_SESSION['email'];
         } else {
 
           if (!empty($image)) {
-            $rand = rand(0, 999999);
-            $final_image_name = 'Document_' . $document . '_Agent_' . $agentname . "_Student_" . $name . "_Passport_" . $passport . "_" . $rand . time() . "_" . $image;
+            $rand = rand(0, 9999);
+            $final_image_name = $document .'_' . $rand . "_" .time().'_'. $image;
 
             move_uploaded_file($temporary_location, 'dist/student_file_missing_documents/' . $final_image_name);
 
@@ -175,9 +185,9 @@ $agentemail = $_SESSION['email'];
 
 
               if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
-                header('location:gsc-student.php');
+                header('location:add-file.php?message=' . $document_type_name);
               } else {
-                header('location:student.php');
+                header('location:add-file.php?edit=' . $edit_id);
               }
 
 
