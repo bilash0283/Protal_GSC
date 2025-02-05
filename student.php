@@ -149,7 +149,7 @@ $agentemail       = $_SESSION['email'];
                             <td><?php echo $university; ?></td>
                             <td><?php ?>
                             
-                            <a href="add-file.php?edit=<?php echo $id; ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
+                            <a href="add-file.php?edit=<?php echo $id; ?>" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add</a>
                             <?php 
                             ?></td>
                             <td>

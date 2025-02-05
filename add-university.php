@@ -321,14 +321,14 @@ include('dashboard_include/sidebar.php');
 
                     if(!empty($profile)){
                     // -------------------------------
-                      $random = rand(0,999999);
-                      $final_profile_name = $name."_".$agentname."_ID_".$id."_".$random.time()."_".$profile;
+                      $random = rand(0,9999);
+                      $final_profile_name = $name."_".$random.time()."_".$profile;
             
                       move_uploaded_file($profile_temporary_location, 'dist/student_profile/'.$final_profile_name);
                     }
                     //  --------------------------------
                     $rand = rand(0,999999);
-                    $final_image_name = $agentname."_".$name."_ID_".$id."_".$rand.time()."_".$image;
+                    $final_image_name = $agentname."_".$name."_".$id."_".$rand.time()."_".$image;
           
                     move_uploaded_file($temporary_location, 'dist/student_file/'.$final_image_name);
           
