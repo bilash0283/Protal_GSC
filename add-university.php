@@ -95,15 +95,6 @@ include('dashboard_include/sidebar.php');
                                         <option value="University Centre Leeds">University Centre Leeds</option>
                                         <option value="University of Chester">University of Chester</option>
                                         <option value="Wrexham Glyndwr University">Wrexham Glyndwr University</option>
-                                        <option value="University of Suffolk and Global Banking School">University of Suffolk and Global Banking School</option>
-                                        <option value="University of Creative Arts">University of Creative Arts</option>
-                                        <option value="University of Bedfordshire">University of Bedfordshire</option>
-                                        <option value="London South Bank University">London South Bank University</option>
-                                        <option value="BPP University">BPP University</option>
-                                        <option value="University of Portsmouth">University of Portsmouth</option>
-                                        <option value="Harrow College">Harrow College</option>
-                                        <option value="Uxbridge College">Uxbridge College</option>
-                                        <option value="University of South Wales">University of South Wales</option>
                                     <?php } else if ($destination == 3) {?>
                                         <option value="Lakehead University">Lakehead University</option>
                                         <option value="Trent University">Trent University</option>
