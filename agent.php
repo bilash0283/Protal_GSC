@@ -43,9 +43,13 @@
               </thead>
               <tbody>
                 <?php
-                // Pagination variables
-                $limit = 5; // Rows per page
-                $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                $selectedValue = "5"; // Initialize variable
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['selectedValue'])) {
+                  $selectedValue = $_POST['selectedValue']; // Store selected value in PHP variable
+                }
+
+                $limit = $selectedValue; // Rows per page
+                $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
                 $offset = ($page - 1) * $limit;
 
                 // Get total count for pagination
@@ -70,39 +74,47 @@
                     $year = $row['year'];
                     $status = $row['status'];
                     $role = $row['role'];
-                ?>
+                    ?>
                     <tr>
                       <td><a href="agent-student.php?email=<?php echo $email; ?>"><i class="fas fa-eye"></i></a></td>
-                      <td><img src="<?php echo empty($image) ? 'dist/img/avatar5.png' : 'dist/img/agent_image/' . $image; ?>" width="40px"></td>
+                      <td><img src="<?php echo empty($image) ? 'dist/img/avatar5.png' : 'dist/img/agent_image/' . $image; ?>"
+                          width="40px"></td>
                       <td><?php echo $company; ?></td>
-                      <td><a href="view_agent.php?id=<?php echo $id; ?>"><i class="fas fa-eye pr-2"></i><?php echo $name; ?></a></td>
+                      <td><a href="view_agent.php?id=<?php echo $id; ?>"><i
+                            class="fas fa-eye pr-2"></i><?php echo $name; ?></a></td>
                       <td><?php echo $phone; ?></td>
                       <td><?php echo $email; ?></td>
                       <td><?php echo $year; ?></td>
-                      <td><div class='badge <?php echo $status == 1 ? 'bg-success' : 'bg-secondary'; ?>'><?php echo $status == 1 ? 'Active' : 'Inactive'; ?></div></td>
                       <td>
-                        <?php 
-                          if ($role == 1) {
-                            echo "<div class='badge bg-success'>Admin</div>";
-                          } elseif ($role == 2) {
-                            echo "<div class='badge bg-warning'>Agent</div>";
-                          } else if($role == 3) {
-                            echo "<div class='badge bg-info'>Employee</div>";
-                          }else if($role == 4){
-                            echo "<div class='badge bg-info'>Student</div>";
-                          }
+                        <div class='badge <?php echo $status == 1 ? 'bg-success' : 'bg-secondary'; ?>'>
+                          <?php echo $status == 1 ? 'Active' : 'Inactive'; ?>
+                        </div>
+                      </td>
+                      <td>
+                        <?php
+                        if ($role == 1) {
+                          echo "<div class='badge bg-success'>Admin</div>";
+                        } elseif ($role == 2) {
+                          echo "<div class='badge bg-warning'>Agent</div>";
+                        } else if ($role == 3) {
+                          echo "<div class='badge bg-info'>Employee</div>";
+                        } else if ($role == 4) {
+                          echo "<div class='badge bg-info'>Student</div>";
+                        }
                         ?>
                       </td>
                       <?php if ($_SESSION['role'] == 1) { ?>
                         <td>
                           <div class="btn-group">
                             <a href="update_agent.php?edit=<?php echo $id ?>" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#id<?php echo $id ?>">Delete</a>
+                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal"
+                              data-target="#id<?php echo $id ?>">Delete</a>
                           </div>
                         </td>
                       <?php } ?>
                     </tr>
-                    <div class="modal fade" id="id<?php echo $id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="id<?php echo $id ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -121,18 +133,38 @@
                         </div>
                       </div>
                     </div>
-                <?php } } ?>
+                  <?php }
+                } ?>
               </tbody>
             </table>
 
             <!-- Pagination -->
             <nav>
               <ul class="pagination">
+                <li>
+                  <form method="post">
+                    <select class="form-control" name="selectedValue" id="mySelect" onchange="this.form.submit()">
+                      <option value="5" <?php if ($selectedValue == "5")
+                        echo "selected"; ?>>5</option>
+                      <option value="10" <?php if ($selectedValue == "10")
+                        echo "selected"; ?>>10</option>
+                      <option value="20" <?php if ($selectedValue == "20")
+                        echo "selected"; ?>>20</option>
+                      <option value="30" <?php if ($selectedValue == "30")
+                        echo "selected"; ?>>30</option>
+                      <option value="50" <?php if ($selectedValue == "50")
+                        echo "selected"; ?>>50</option>
+                      <option value="100" <?php if ($selectedValue == "100")
+                        echo "selected"; ?>>100</option>
+                    </select>
+                  </form>
+                </li>
                 <?php if ($page > 1) { ?>
                   <li class="page-item"><a class="page-link" href="?page=<?php echo $page - 1; ?>">Previous</a></li>
                 <?php } ?>
                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                  <li class="page-item <?php echo $i == $page ? 'active' : ''; ?>"><a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                  <li class="page-item <?php echo $i == $page ? 'active' : ''; ?>"><a class="page-link"
+                      href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                 <?php } ?>
                 <?php if ($page < $total_pages) { ?>
                   <li class="page-item"><a class="page-link" href="?page=<?php echo $page + 1; ?>">Next</a></li>
@@ -161,6 +193,5 @@
 <?php } else {
   echo "<div class='alert alert-danger mt-2 text-center'><h1>Only Admin Allowed!</h1></div>";
 } ?>
-
 <?php ob_end_flush(); ?>
 <?php include('dashboard_include/footer.php') ?>
