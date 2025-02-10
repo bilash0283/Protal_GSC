@@ -186,6 +186,14 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                             <!-- Pagination Links -->
                             <nav>
                                 <ul class="pagination">
+                                    <li>
+                                        <select name="row_number" id="row_number" class="form-control">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                        </select>
+                                    </li>
                                     <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
                                         <li class="page-item <?php echo ($page == $i) ? 'active' : ''; ?>">
                                             <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
@@ -206,3 +214,13 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
 include('dashboard_include/footer.php');
 ob_end_flush();
 ?>
+
+<script>
+    $row_number_var = document.getElementById("row_number");
+    console.log($row_number_var);
+</script>
+
+
+
+
+
