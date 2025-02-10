@@ -7,7 +7,17 @@ include('dashboard_include/sidebar.php');
 
 if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
     // Pagination setup
-    $limit = 5; // Number of records per page
+
+
+
+    $selectedValue = "5"; // Initialize variable
+
+    // Check if form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['selectedValue'])) {
+       $selectedValue = $_POST['selectedValue']; // Store selected value in PHP variable
+    }
+
+    $limit = $selectedValue; // Number of records per page
     $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
     $offset = ($page - 1) * $limit;
 
@@ -187,12 +197,18 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                             <nav>
                                 <ul class="pagination">
                                     <li>
-                                        <select name="row_number" id="row_number" class="form-control">
-                                            <option value="5">5</option>
-                                            <option value="10">10</option>
-                                            <option value="20">20</option>
-                                            <option value="50">50</option>
-                                        </select>
+                                        <form method="post">
+                                            <select class="form-control" name="selectedValue" id="mySelect" onchange="this.form.submit()" >
+                                                <option value="5" <?php if ($selectedValue == "5")
+                                                    echo "selected"; ?>>5</option>
+                                                <option value="10" <?php if ($selectedValue == "10")
+                                                    echo "selected"; ?>>10</option>
+                                                <option value="20" <?php if ($selectedValue == "20")
+                                                    echo "selected"; ?>>20</option>
+                                                <option value="30" <?php if ($selectedValue == "30")
+                                                    echo "selected"; ?>>30</option>
+                                            </select>
+                                        </form>
                                     </li>
                                     <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
                                         <li class="page-item <?php echo ($page == $i) ? 'active' : ''; ?>">
@@ -214,13 +230,3 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
 include('dashboard_include/footer.php');
 ob_end_flush();
 ?>
-
-<script>
-    $row_number_var = document.getElementById("row_number");
-    console.log($row_number_var);
-</script>
-
-
-
-
-
