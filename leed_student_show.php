@@ -43,7 +43,11 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                             </thead>
                             <tbody>
                                 <?php
-                                $rows_per_page = 6; // Number of rows per page
+                                $selectedValue = "5"; // Initialize variable
+                                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['selectedValue'])) {
+                                    $selectedValue = $_POST['selectedValue']; // Store selected value in PHP variable
+                                }
+                                $rows_per_page = $selectedValue; // Number of rows per page
                                 $current_page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
                                 $offset = ($current_page - 1) * $rows_per_page;
 
@@ -157,8 +161,8 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
 
                                                 $delete_sql = "DELETE FROM agents WHERE id = '$delete_id'";
                                                 $delete = mysqli_query($db, $delete_sql);
-                                
-                                                if ($delete AND $delete_stdr) {
+
+                                                if ($delete and $delete_stdr) {
                                                     header('location:leed_student_show.php');
                                                 } else {
                                                     echo "<div class='alert alert-danger mt-2'>An Error Occured While Deleting!</div>";
@@ -175,6 +179,25 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                 <!-- Pagination -->
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
+                        <li>
+                            <form method="post">
+                                <select class="form-control" name="selectedValue" id="mySelect"
+                                    onchange="this.form.submit()">
+                                    <option value="5" <?php if ($selectedValue == "5")
+                                        echo "selected"; ?>>5</option>
+                                    <option value="10" <?php if ($selectedValue == "10")
+                                        echo "selected"; ?>>10</option>
+                                    <option value="20" <?php if ($selectedValue == "20")
+                                        echo "selected"; ?>>20</option>
+                                    <option value="30" <?php if ($selectedValue == "30")
+                                        echo "selected"; ?>>30</option>
+                                    <option value="50" <?php if ($selectedValue == "50")
+                                        echo "selected"; ?>>50</option>
+                                    <option value="100" <?php if ($selectedValue == "100")
+                                        echo "selected"; ?>>100</option>
+                                </select>
+                            </form>
+                        </li>
                         <?php if ($current_page > 1) { ?>
                             <li class="page-item"><a class="page-link"
                                     href="?page=<?php echo $current_page - 1; ?>">Previous</a></li>

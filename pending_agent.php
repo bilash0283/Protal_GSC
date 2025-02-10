@@ -1,19 +1,19 @@
 <?php
-// Include necessary files and initialize the database connection
 global $db;
 include('dashboard_include/header.php');
-?>
-<?php ob_start(); ?>
-<!-- Navbar -->
-<?php include('dashboard_include/top_header.php'); ?>
-<!-- /.navbar -->
-<!-- Main Sidebar Container -->
-<?php include('dashboard_include/sidebar.php'); ?>
+ob_start();
+include('dashboard_include/top_header.php');
+include('dashboard_include/sidebar.php');
 
-<?php
 if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
-    // Pagination setup
-    $limit = 5; // Number of rows per page
+
+    $selectedValue = "5"; // Initialize variable
+    // Check if form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['selectedValue'])) {
+        $selectedValue = $_POST['selectedValue']; // Store selected value in PHP variable
+    }
+
+    $limit = $selectedValue; // Number of rows per page
     $page = isset($_GET['page']) ? (int) $_GET['page'] : 1; // Get current page or default to 1
     $offset = ($page - 1) * $limit; // Calculate offset
 
@@ -197,6 +197,25 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                         <!-- Pagination Links -->
                         <nav>
                             <ul class="pagination">
+                                <li>
+                                    <form method="post">
+                                        <select class="form-control" name="selectedValue" id="mySelect"
+                                            onchange="this.form.submit()">
+                                            <option value="5" <?php if ($selectedValue == "5")
+                                                echo "selected"; ?>>5</option>
+                                            <option value="10" <?php if ($selectedValue == "10")
+                                                echo "selected"; ?>>10</option>
+                                            <option value="20" <?php if ($selectedValue == "20")
+                                                echo "selected"; ?>>20</option>
+                                            <option value="30" <?php if ($selectedValue == "30")
+                                                echo "selected"; ?>>30</option>
+                                            <option value="50" <?php if ($selectedValue == "50")
+                                                echo "selected"; ?>>50</option>
+                                            <option value="100" <?php if ($selectedValue == "100")
+                                                echo "selected"; ?>>100</option>
+                                        </select>
+                                    </form>
+                                </li>
                                 <?php if ($page > 1) { ?>
                                     <li class="page-item"><a class="page-link"
                                             href="?page=<?php echo $page - 1; ?>&search=<?php echo $search; ?>">Previous</a>
@@ -232,13 +251,3 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
 <?php ob_end_flush(); ?>
 <!-- /.main-footer -->
 <?php include('dashboard_include/footer.php'); ?>
-
-
-
-
-
-
-
-
-
-

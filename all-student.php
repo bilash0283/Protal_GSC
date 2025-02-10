@@ -1,5 +1,4 @@
 <?php
-// Include necessary files
 include('dashboard_include/header.php');
 ob_start();
 include('dashboard_include/top_header.php');
@@ -7,8 +6,14 @@ include('dashboard_include/sidebar.php');
 
 // Check user role
 if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
-    // Determine current page and set rows per page
-    $rows_per_page = 6;
+
+    $selectedValue = "5";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['selectedValue'])) {
+        $selectedValue = $_POST['selectedValue']; // Store selected value in PHP variable
+    }
+
+    $rows_per_page = $selectedValue;
     $current_page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
     $offset = ($current_page - 1) * $rows_per_page;
 
@@ -204,6 +209,25 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                         <!-- Pagination -->
                         <nav>
                             <ul class="pagination">
+                                <li>
+                                    <form method="post">
+                                        <select class="form-control" name="selectedValue" id="mySelect"
+                                            onchange="this.form.submit()">
+                                            <option value="5" <?php if ($selectedValue == "5")
+                                                echo "selected"; ?>>5</option>
+                                            <option value="10" <?php if ($selectedValue == "10")
+                                                echo "selected"; ?>>10</option>
+                                            <option value="20" <?php if ($selectedValue == "20")
+                                                echo "selected"; ?>>20</option>
+                                            <option value="30" <?php if ($selectedValue == "30")
+                                                echo "selected"; ?>>30</option>
+                                            <option value="50" <?php if ($selectedValue == "50")
+                                                echo "selected"; ?>>50</option>
+                                            <option value="100" <?php if ($selectedValue == "100")
+                                                echo "selected"; ?>>100</option>
+                                        </select>
+                                    </form>
+                                </li>
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
                                     <li class="page-item <?php echo ($i == $current_page) ? 'active' : ''; ?>">
                                         <a class="page-link"

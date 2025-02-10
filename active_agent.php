@@ -8,13 +8,9 @@ include('dashboard_include/sidebar.php');
 if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
     // Pagination setup
 
-
-
     $selectedValue = "5"; // Initialize variable
-
-    // Check if form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['selectedValue'])) {
-       $selectedValue = $_POST['selectedValue']; // Store selected value in PHP variable
+        $selectedValue = $_POST['selectedValue']; // Store selected value in PHP variable
     }
 
     $limit = $selectedValue; // Number of records per page
@@ -198,7 +194,8 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                 <ul class="pagination">
                                     <li>
                                         <form method="post">
-                                            <select class="form-control" name="selectedValue" id="mySelect" onchange="this.form.submit()" >
+                                            <select class="form-control" name="selectedValue" id="mySelect"
+                                                onchange="this.form.submit()">
                                                 <option value="5" <?php if ($selectedValue == "5")
                                                     echo "selected"; ?>>5</option>
                                                 <option value="10" <?php if ($selectedValue == "10")
@@ -207,6 +204,10 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                                     echo "selected"; ?>>20</option>
                                                 <option value="30" <?php if ($selectedValue == "30")
                                                     echo "selected"; ?>>30</option>
+                                                <option value="50" <?php if ($selectedValue == "50")
+                                                    echo "selected"; ?>>50</option>
+                                                <option value="100" <?php if ($selectedValue == "100")
+                                                    echo "selected"; ?>>100</option>
                                             </select>
                                         </form>
                                     </li>
