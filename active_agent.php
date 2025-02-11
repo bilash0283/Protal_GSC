@@ -100,8 +100,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
 
                                         ?>
                                         <tr>
-                                            <td><a href="agent-student.php?email=<?php echo $row['email']; ?>"><i
-                                                        class="fas fa-eye"></i></a></td>
+                                            <td><a href="agent-student.php?email=<?php echo $row['email']; ?>" target="_blank"><i class="fas fa-eye"></i></a></td>
                                             <td>
                                                 <?php if (empty($row['image'])) {
                                                     echo "<img src='dist/img/avatar5.png' width='40px'>";
@@ -110,7 +109,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                                 <?php } ?>
                                             </td>
                                             <td><?php echo $row['company']; ?></td>
-                                            <td><a href="view_agent.php?id=<?php echo $row['id']; ?>"><i
+                                            <td><a href="view_agent.php?id=<?php echo $row['id']; ?>" target="_blank"><i
                                                         class="fas fa-eye pr-2"></i><?php echo $row['name']; ?></a></td>
                                             <td><?php echo $row['phone']; ?></td>
                                             <td><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></td>

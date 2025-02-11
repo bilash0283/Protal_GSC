@@ -108,7 +108,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                         ?>
                                         <tr>
                                             <td>
-                                                <a href="agent-student.php?email=<?php echo $email; ?>"><i
+                                                <a href="agent-student.php?email=<?php echo $email; ?>" target="_blank"><i
                                                         class="fas fa-eye"></i></a>
                                             </td>
                                             <td>
@@ -119,7 +119,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                                 <?php } ?>
                                             </td>
                                             <td><?php echo $company; ?></td>
-                                            <td><a href="view_agent.php?id=<?php echo $id; ?>"><i
+                                            <td><a href="view_agent.php?id=<?php echo $id; ?>" target="_blank"><i
                                                         class="fas fa-eye pr-2"></i><?php echo $name; ?></a></td>
                                             <td><?php echo $phone; ?></td>
                                             <td><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></td>
