@@ -59,20 +59,20 @@ if ($_SESSION['role'] == 1) { ?>
                             <div class="col-12 col-md-6 px-2">
                                 <!-- input file start  -->
                                 <div class="form-group">
-                                    <label for="inputName">Agent Name *</label>
+                                    <label for="inputName">Agent Name <span class="text-danger">*</span></label>
                                     <input type="text" name="agent_name" id="inputName" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputName"> Phone *</label>
+                                    <label for="inputName"> Phone <span class="text-danger">*</span></label>
                                     <input type="text" name="phone" id="inputName" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputProjectLeader">Designation*</label>
+                                    <label for="inputProjectLeader">Designation <span class="text-danger">*</span></label>
                                     <input type="text" name="designation" id="inputProjectLeader" class="form-control"
                                         required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputProjectLeader">Country *</label>
+                                    <label for="inputProjectLeader">Country <span class="text-danger">*</span></label>
                                     <select name="country" id="inputProjectLeader" class="form-control" required>
                                         <option value="Afghanistan">Afghanistan</option>
                                         <option value="Albania">Albania</option>
@@ -221,15 +221,15 @@ if ($_SESSION['role'] == 1) { ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputName">Email *</label>
+                                    <label for="inputName">Email <span class="text-danger">*</span></label>
                                     <input type="email" name="email" id="inputName" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputName">Password *</label>
+                                    <label for="inputName">Password <span class="text-danger">*</span></label>
                                     <input type="password" name="password" id="inputName" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputName">Confirm Password *</label>
+                                    <label for="inputName">Confirm Password <span class="text-danger">*</span></label>
                                     <input type="password" name="confirm_password" id="inputName" class="form-control"
                                         required>
                                 </div>
@@ -239,12 +239,12 @@ if ($_SESSION['role'] == 1) { ?>
                                     <input type="file" name="profile_image" id="inputGroupFile01">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputClientCompany"> Company Name *</label>
+                                    <label for="inputClientCompany"> Company Name <span class="text-danger">*</span></label>
                                     <input type="text" name="company_name" id="inputClientCompany" class="form-control"
                                         required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputProjectLeader">Company Address *</label>
+                                    <label for="inputProjectLeader">Company Address <span class="text-danger">*</span></label>
                                     <input type="text" name="company_address" id="inputProjectLeader" class="form-control"
                                         required>
                                 </div>
