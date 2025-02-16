@@ -102,6 +102,7 @@ $agentemail = $_SESSION['email'];
                         <option value="Testimonial1">Testimonial 1</option>
                         <option value="Testimonial2">Testimonial 2</option>
                         <option value="Job_Letter">Job Letter</option>
+                        <option value="SOP">Statement of Purpose (SOP)</option>
                         <option value="CV">CV</option>
                         <option value="Others">Others</option>
                       </select>
