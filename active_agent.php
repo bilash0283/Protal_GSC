@@ -8,7 +8,7 @@ include('dashboard_include/sidebar.php');
 if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
     // Pagination setup
 
-    $selectedValue = "5"; // Initialize variable
+    $selectedValue = "10"; // Initialize variable
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['selectedValue'])) {
         $selectedValue = $_POST['selectedValue']; // Store selected value in PHP variable
     }
@@ -360,10 +360,6 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                         <form method="post">
                                             <select class="form-control" name="selectedValue" id="mySelect"
                                                 onchange="this.form.submit()">
-                                                <option value="5" <?php if ($selectedValue == "5")
-                                                    echo "selected"; ?>>5</option>
-                                                <option value="10" <?php if ($selectedValue == "10")
-                                                    echo "selected"; ?>>10</option>
                                                 <option value="20" <?php if ($selectedValue == "20")
                                                     echo "selected"; ?>>20</option>
                                                 <option value="30" <?php if ($selectedValue == "30")
