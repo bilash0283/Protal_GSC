@@ -138,7 +138,7 @@ if ($_SESSION['role'] == 1) { ?>
 
                                             <div class="form-group">
                                                 <label for="inputProjectLeader">Country Name</label>
-                                                <input type="text" name="country" value="<?php echo $country; ?>"
+                                                <input type="text" readonly name="country" value="<?php echo $country; ?>"
                                                     id="inputProjectLeader" class="form-control">
                                             </div>
 
