@@ -116,7 +116,7 @@ $agentemail = $_SESSION['email'];
                         <?php if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
                             <a href="college-details.php?id=9999" class="small-box-footer">View Institutes <i
                                     class="fas fa-arrow-circle-right"></i></a>
-                        <?php } else if ($_SESSION['role'] == 2 and $_SESSION['add_std'] == 0) { ?>
+                        <?php } else if ($_SESSION['role'] == 2 ) { ?>
                                 <a href="college-details.php?id=9999" class="small-box-footer">View Institutes <i
                                         class="fas fa-arrow-circle-right"></i></a>
                         <?php } ?>
