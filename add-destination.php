@@ -91,7 +91,7 @@ include('dashboard_include/sidebar.php');
                                   <option value="7">Ireland</option>
                                   <option value="8">Malaysia</option>
                                   <option value="9">Dubai</option>
-                                  <option value="10">Hungury</option>
+                                  <option value="10">Hungary</option>
                                   <option value="11">Bulgaria</option>
                                   <option value="12">Malta</option>
                                   <option value="13">Romania</option>
