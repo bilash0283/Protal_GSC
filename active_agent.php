@@ -247,8 +247,8 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                     <th>Status</th>
                                     <th>Role</th>
                                     <th>Profile</th>
-                                    <th>Agrement</th>
                                     <?php if ($_SESSION['role'] == 1) { ?>
+                                        <th>Agrement</th>
                                         <th>Action</th>
                                     <?php } ?>
                                 </tr>
@@ -301,11 +301,12 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                             <td>
                                                 <?php echo ($row['add_std'] == 0) ? "<div class='badge bg-success'>Complete</div>" : "<div class='badge bg-danger'>Incomplete</div>"; ?>
                                             </td>
-                                            <td>
-                                                <a href="docx_modify/docx_file_modify.php?id=<?php echo $id; ?>" class="badge bg-info">send</a>
-                                            </td>
 
                                             <?php if ($_SESSION['role'] == 1) { ?>
+                                                <td>
+                                                    <a href="docx_modify/docx_file_modify.php?id=<?php echo $id; ?>"
+                                                        class="badge bg-info">send</a>
+                                                </td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <a href="update_agent.php?edit=<?php echo $id ?>"

@@ -47,7 +47,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                         <h1 class="m-0">All Pending Agents</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
-                    <div class="row">
+                        <div class="row">
                             <div class="col-md-6">
                                 <form action="" method="POST">
                                     <div class="input-group">
@@ -238,8 +238,8 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                     <th scope="col">Status</th>
                                     <th scope="col">Role</th>
                                     <th scope="col">Profile</th>
-                                    <th scope="col">Agrement</th>
                                     <?php if ($_SESSION['role'] == 1) { ?>
+                                        <th scope="col">Agrement</th>
                                         <th scope="col">Action</th>
                                     <?php } ?>
                                 </tr>
@@ -253,9 +253,9 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
 
                                 if (isset($_POST['search_coun_btn'])) {
                                     echo $country_search = $_POST['country_search'];
-                                     $agents_querye = "SELECT * FROM agents WHERE status = 1 AND role = 2 AND add_std = 1 AND country = '$country_search' ORDER BY id DESC";
-                                     $agents_query = mysqli_query($db, $agents_querye);
-                                 }
+                                    $agents_querye = "SELECT * FROM agents WHERE status = 1 AND role = 2 AND add_std = 1 AND country = '$country_search' ORDER BY id DESC";
+                                    $agents_query = mysqli_query($db, $agents_querye);
+                                }
 
                                 if ($count < 1) {
                                     echo "<tr><td colspan='11'>No Agents Found!</td></tr>";
@@ -309,10 +309,11 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                             <td>
                                                 <?php echo $add_std == 0 ? "<div class='badge bg-success'>Complete</div>" : "<div class='badge bg-danger'>Incomplete</div>"; ?>
                                             </td>
-                                            <td>
-                                                <a href="docx_modify/docx_file_modify.php?id=<?php echo $id; ?>" class="badge bg-info">send</a>
-                                            </td>
                                             <?php if ($_SESSION['role'] == 1) { ?>
+                                                <td>
+                                                    <a href="docx_modify/docx_file_modify.php?id=<?php echo $id; ?>"
+                                                        class="badge bg-info">send</a>
+                                                </td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <a href="update_agent.php?edit=<?php echo $id ?>"
