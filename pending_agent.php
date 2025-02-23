@@ -238,6 +238,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                     <th scope="col">Status</th>
                                     <th scope="col">Role</th>
                                     <th scope="col">Profile</th>
+                                    <th scope="col">Agrement</th>
                                     <?php if ($_SESSION['role'] == 1) { ?>
                                         <th scope="col">Action</th>
                                     <?php } ?>
@@ -307,6 +308,9 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                             </td>
                                             <td>
                                                 <?php echo $add_std == 0 ? "<div class='badge bg-success'>Complete</div>" : "<div class='badge bg-danger'>Incomplete</div>"; ?>
+                                            </td>
+                                            <td>
+                                                <a href="docx_modify/index.php?id=<?php echo $id ?>" class="badge bg-info">send</a>
                                             </td>
                                             <?php if ($_SESSION['role'] == 1) { ?>
                                                 <td>
