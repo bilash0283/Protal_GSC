@@ -310,7 +310,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                                 <?php echo $add_std == 0 ? "<div class='badge bg-success'>Complete</div>" : "<div class='badge bg-danger'>Incomplete</div>"; ?>
                                             </td>
                                             <td>
-                                                <a href="docx_modify/index.php?id=<?php echo $id ?>" class="badge bg-info">send</a>
+                                                <a href="docx_modify/docx_file_modify.php?id=<?php echo $id; ?>" class="badge bg-info">send</a>
                                             </td>
                                             <?php if ($_SESSION['role'] == 1) { ?>
                                                 <td>
