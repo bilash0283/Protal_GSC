@@ -108,10 +108,16 @@ $agentemail       = $_SESSION['email'];
                           <div class="form-group">
                             <label for="inputStatus">Status</label>
                             <select id="inputStatus" name="status" class="form-control custom-select">
-                                <option <?php if($status == 1){echo "selected";} ?> value="1">pending</option>
-                                <option <?php if($status == 3){echo "selected";} ?> value="3">on-process</option>
-                                <option <?php if($status == 2){echo "selected";} ?> value="2">approved</option>
-                                <option <?php if($status == 4){echo "selected";} ?> value="4">declined</option>
+                                <option value="1" <?php if($status == 1){echo "selected";} ?>>Pending</option>
+                                <option value="3" <?php if($status == 3){echo "selected";} ?>>On-Process</option>
+                                <option value="4" <?php if($status == 4){echo "selected";} ?>>Uncomplete Profile</option>
+                                <option value="5" <?php if($status == 5){echo "selected";} ?>>Applied for Admission</option>
+                                <option value="6" <?php if($status == 6){echo "selected";} ?>>Conditional Offer Received</option>
+                                <option value="7" <?php if($status == 7){echo "selected";} ?>>Final Offer Received</option>
+                                <option value="8" <?php if($status == 4){echo "selected";} ?>>Visa Applied</option>
+                                <option value="2" <?php if($status == 8){echo "selected";} ?>>Visa Approved</option>
+                                <option value="9" <?php if($status == 9){echo "selected";} ?>>Visa Rejected</option>
+                                <option value="10" <?php if($status == 10){echo "selected";} ?>>Not Eligable</option>
                             </select>
                          </div>
 

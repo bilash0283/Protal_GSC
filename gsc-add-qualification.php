@@ -16,6 +16,7 @@ $add_id           = $_GET['add'];
   <?php include('dashboard_include/sidebar.php')?>
 
 
+
   <?php 
     if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) { ?>
       
@@ -74,17 +75,17 @@ $add_id           = $_GET['add'];
                             </div> 
 
                             <div class="form-group">
-                              <label for="inputName">Diploma Course & GPA</label>
-                              <input type="text" name="diploma" id="inputName" class="form-control" >
+                              <label for="inputName">Diploma CGPA & Major</label>
+                              <input type="text" name="diploma" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
-                              <label for="inputName">Bachelor's Major & CGPA</label>
+                              <label for="inputName">Bachelor's CGPA & Major</label>
                               <input type="text" name="undergrad" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
-                              <label for="inputClientCompany">Masters's Major & CGPA</label>
+                              <label for="inputClientCompany">Masters's CGPA & Major </label>
                               <input type="text" name="level" id="inputClientCompany" class="form-control">
                             </div>
 
@@ -96,32 +97,33 @@ $add_id           = $_GET['add'];
 
                           <div class="form-group">
                               <label for="inputName">SSC / O Level's Year Of Passing <span class="text-danger">*</span></label>
-                              <input type="text" name="sscyear" id="inputName" class="form-control" required>
+                              <input type="number" name="sscyear" id="inputName" class="form-control" required>
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">HSC / A Level's Year Of Passing</label>
-                              <input type="text" name="hscyear" id="inputName" class="form-control" >
+                              <input type="number" name="hscyear" id="inputName" class="form-control" >
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">Diploma Year Of Passing</label>
-                              <input type="text" name="diplomayear" id="inputName" class="form-control" >
+                              <input type="number" name="diplomayear" id="inputName" class="form-control" >
                             </div> 
 
                             <div class="form-group">
                               <label for="inputName">Bachelor's Year Of Passing</label>
-                              <input type="text" name="undergradyear" id="inputName" class="form-control">
+                              <input type="number" name="undergradyear" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
                               <label for="inputClientCompany">Masters's Year Of Passing</label>
-                              <input type="text" name="qualificationyear" id="inputClientCompany" class="form-control">
+                              <input type="number" name="qualificationyear" id="inputClientCompany" class="form-control">
                             </div>
 
                             <div class="form-group">
                               <input type="submit" name="submit" value="Next" class="btn btn-lg btn-primary">
                             </div>
+
                             
                           </div>
                         </div>
@@ -162,7 +164,7 @@ $add_id           = $_GET['add'];
                   $agent_sql = mysqli_query($db, $agent_insert);
         
                   if ($agent_sql){
-                  header('location:gsc-add-destination.php?add=' . $add_id);
+                  header('location:gsc-add-destination.php?add_id=' . $add_id);
                   } else {
                     echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
                   }

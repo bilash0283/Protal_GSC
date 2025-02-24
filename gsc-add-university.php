@@ -1,20 +1,15 @@
-<?php include('dashboard_include/header.php') ?>
-<?php ob_start(); ?>
-<?php
-
+<?php include('dashboard_include/header.php');
+ ob_start(); 
 $agentname = $_SESSION['name'];
 $agentemail = $_SESSION['email'];
-$add_id = $_GET['add'];
 
-?>
-<!-- Navbar -->
-<?php include('dashboard_include/top_header.php') ?>
-<!-- /.navbar -->
+if(isset($_GET['add_id'])){
+  $add_id = $_GET['add_id'];
+}
 
-<!-- Main Sidebar Container -->
-<?php include('dashboard_include/sidebar.php') ?>
+include('dashboard_include/top_header.php');
+include('dashboard_include/sidebar.php');
 
-<?php
 if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) { ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -38,9 +33,9 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
     <!-- /.content-header -->
 
     <?php
-    if (isset($_GET['add'])) {
-
-      $get_id = $id;
+    if (isset($_GET['add_id'])) {
+      $add_id = $_GET['add_id'];
+      $get_id = $add_id;
 
 
       $visql = "SELECT * FROM newstudents WHERE id ='$get_id' ";
@@ -114,18 +109,18 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
 
                       <div class="form-group">
                         <label for="inputClientCompany">Preferable University</label>
-                        <input type="text" value="<?php echo $gscuniversity; ?>" name="gscuniversity"
+                        <input type="text" value="<?php if(isset($gscuniversity)){echo $gscuniversity;} ?>" name="gscuniversity"
                           id="inputClientCompany" class="form-control">
                       </div>
 
                       <div class="form-group">
-                        <label for="inputProjectLeader">Please upload Student Picture (Profile / Passport Copy)</label>
+                        <label for="inputProjectLeader">Please upload Student Picture (Profile / Passport Copy) <span class="text-danger">*</span></label>
                         <input type="file" name="profile" id="inputName" required>
                       </div>
 
                       <div class="form-group">
                         <label for="inputProjectLeader">Please upload Student's documents (CV) in a single PDF
-                          File.</label>
+                          File. <span class="text-danger">*</span></label>
                         <input type="file" name="image" id="inputName" required>
                       </div>
 
@@ -138,7 +133,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
 
                       <div class="form-group">
                         <label for="inputClientCompany">Preferable Course</label>
-                        <input type="text" value="<?php echo $subject; ?>" name="subject" id="inputClientCompany"
+                        <input type="text" value="<?php if(isset($subject)){echo $subject;} ?>" name="subject" id="inputClientCompany"
                           class="form-control">
                       </div>
 
@@ -146,6 +141,15 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
                         <label for="inputStatus">Status</label>
                         <select id="inputStatus" name="status" class="form-control custom-select">
                           <option value="1" selected>Pending</option>
+                          <option value="3">On-Process</option>
+                          <option value="4">Uncomplete Profile</option>
+                          <option value="5">Applied for Admission</option>
+                          <option value="6">Conditional Offer Received</option>
+                          <option value="7">Final Offer Received</option>
+                          <option value="8">Visa Applied</option>
+                          <option value="2">Visa Approved</option>
+                          <option value="9">Visa Rejected</option>
+                          <option value="10">Not Eligable</option>
                         </select>
                       </div>
 
@@ -173,7 +177,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
         <?php
 
         if (isset($_POST['submit'])) {
-
+          $get_id = $id;
 
           $subject = $_POST['subject'];
           $university = $_POST['gscuniversity'];

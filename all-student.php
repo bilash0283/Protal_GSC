@@ -111,6 +111,10 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                     while ($row = mysqli_fetch_assoc($agents_query)) {
                                         $id = $row['id'];
                                         $name = $row['name'];
+                                        $gscdestination = $row['gscdestination'];
+                                        $destination = $row['destination'];
+                                        $program = $row['program'];
+                                        $status = $row['status'];
                                         ?>
                                         <tr>
                                             <td>
@@ -147,11 +151,119 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                             <td><?php echo $row['qualificationyear']; ?></td>
                                             <td><?php echo $row['ielts']; ?></td>
                                             <td><?php echo $row['semester']; ?></td>
-                                            <td><?php echo $row['destination']; ?></td>
+                                            <td><?php
+                                            if ($gscdestination != '') {
+                                                echo htmlspecialchars($gscdestination);
+                                            } else {
+                                                switch ($destination) {
+                                                    case 1:
+                                                        echo "USA";
+                                                        break;
+                                                    case 2:
+                                                        echo "UK";
+                                                        break;
+                                                    case 3:
+                                                        echo "Canada";
+                                                        break;
+                                                    case 4:
+                                                        echo "Australia";
+                                                        break;
+                                                    case 5:
+                                                        echo "Denmark";
+                                                        break;
+                                                    case 6:
+                                                        echo "Cyprus";
+                                                        break;
+                                                    case 7:
+                                                        echo "Ireland";
+                                                        break;
+                                                    case 8:
+                                                        echo "Malaysia";
+                                                        break;
+                                                    case 9:
+                                                        echo "Dubai";
+                                                        break;
+                                                    case 10:
+                                                        echo "Hungary";
+                                                        break;
+                                                    case 11:
+                                                        echo "Bulgaria";
+                                                        break;
+                                                    case 12:
+                                                        echo "Malta";
+                                                        break;
+                                                    case 13:
+                                                        echo "Romania";
+                                                        break;
+                                                    case 14:
+                                                        echo "Russia";
+                                                        break;
+                                                    case 15:
+                                                        echo "Turkey";
+                                                        break;
+                                                    case 16:
+                                                        echo "Georgia";
+                                                        break;
+                                                    case 17:
+                                                        echo "China";
+                                                        break;
+                                                    case 18:
+                                                        echo "Latvia";
+                                                        break;
+                                                    case 19:
+                                                        echo "Netherland";
+                                                        break;
+                                                    case 20:
+                                                        echo "Poland";
+                                                        break;
+                                                    case 21:
+                                                        echo "France";
+                                                        break;
+                                                    case 22:
+                                                        echo "Spain";
+                                                        break;
+                                                }
+                                            }
+
+                                            ?></td>
                                             <td><?php echo $row['university']; ?></td>
-                                            <td><?php echo $row['program']; ?></td>
+                                            <td><?php
+                                            switch ($program) {
+                                                case 1:
+                                                    echo "Foundation";
+                                                    break;
+                                                case 2:
+                                                    echo "Bachelor's";
+                                                    break;
+                                                case 3:
+                                                    echo "Master's";
+                                                    break;
+                                                case 4:
+                                                    echo "Pre-Master's";
+                                                    break;
+                                                case 5:
+                                                    echo "Foundation with Bachelor";
+                                                    break;
+                                            }
+                                            ?></td>
                                             <td><?php echo $row['subject']; ?></td>
-                                            <td><?php echo $row['status']; ?></td>
+                                            <td><?php
+                                            switch ($status) {
+                                                case 1:
+                                                    echo "Pending";
+                                                    break;
+                                                case 2:
+                                                    echo "Approved";
+                                                    break;
+                                                case 3:
+                                                    echo "On-Process";
+                                                    break;
+                                                case 4:
+                                                    echo "Declined";
+                                                    break;
+
+                                            }
+                                            ?></td>
                                             <td><?php echo $row['comment']; ?></td>
                                             <td>
                                                 <div class="btn-group">

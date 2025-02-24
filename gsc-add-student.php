@@ -67,18 +67,21 @@ $agentemail       = $_SESSION['email'];
                             </div>
 
                             <div class="form-group">
-                              <label for="inputName">Student Phone No. <span class="text-danger">*</span></label>
+                              <label for="inputName">Student Phone No. <small class="text-info">with country code</small> <span class="text-danger">*</span></label>
                               <input type="text" name="phone" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                               <label for="inputProjectLeader">Date Of Birth (DD-MM-YY) <span class="text-danger">*</span></label>
-                              <input type="text" name="dob" id="inputProjectLeader" class="form-control" required>
+                              <input type="date" name="dob" id="inputProjectLeader" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
                               <label for="inputClientCompany">Gender <span class="text-danger">*</span></label>
-                              <input type="text" name="gender" id="inputClientCompany" class="form-control" required>
+                              <select name="gender" id="inputClientCompany" class="form-control" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                              </select>
                             </div>
                             
 
