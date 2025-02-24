@@ -5,9 +5,10 @@
 
 $agentname        = $_SESSION['name'];
 $agentemail       = $_SESSION['email'];
-$add_id           = $_GET['add'];
+$add_id           = $_GET['add_id'];
  
 ?>
+
   <!-- Navbar -->
 <?php include('dashboard_include/top_header.php')?>
   <!-- /.navbar -->
@@ -39,9 +40,9 @@ $add_id           = $_GET['add'];
         <!-- /.content-header -->
 
         <?php 
-        if(isset($_GET['add'])){
+        if(isset($_GET['add_id'])){
 
-           $get_id = $id;
+           $get_id = $_GET['add_id'];
           
 
         $visql = "SELECT * FROM newstudents WHERE id ='$get_id' ";
@@ -115,11 +116,11 @@ $add_id           = $_GET['add'];
 
                           <div class="form-group">
                               <label for="inputName">English Test Result (Language Proficiency Tests)</label>
-                              <input type="text" name="ielts" value="<?php echo $ielts; ?>" id="inputName" class="form-control">
+                              <input type="text" name="ielts" value="<?php if(isset($ielts)){echo $ielts;}; ?>" id="inputName" class="form-control">
                             </div> 
 
                             <div class="form-group">
-                              <label for="inputStatus">Preferable Program</label>
+                              <label for="inputStatus">Preferable Program <span class="text-danger">*</span></label>
                               <select id="inputStatus" name="program" class="form-control custom-select" required>
                                 <option selected="">Select one</option>
                                   <option value="1">Foundation</option>
@@ -136,13 +137,13 @@ $add_id           = $_GET['add'];
                           <div class="card-body">
 
                             <div class="form-group">
-                              <label for="inputClientCompany">Study Destination</label>
-                              <input type="text" name="gscdestination" value="<?php echo $intre_country; ?>" id="inputClientCompany" class="form-control">
+                              <label for="inputClientCompany">Study Destination <span class="text-danger">*</span></label>
+                              <input type="text" name="gscdestination" value="<?php if(isset($intre_country)){echo $intre_country;}; ?>" id="inputClientCompany" class="form-control">
                             </div>
 
                             <div class="form-group">
                               <label for="inputClientCompany">Preferable Intake</label>
-                              <input type="text" name="semester" value="<?php echo $semester; ?>" id="inputClientCompany" class="form-control">
+                              <input type="text" name="semester" value="<?php if(isset($semester)){echo $semester;}; ?>" id="inputClientCompany" class="form-control">
                             </div>
 
                             <div class="form-group">

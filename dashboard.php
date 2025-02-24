@@ -165,21 +165,8 @@ $agentemail = $_SESSION['email'];
                 $inactive_agent = mysqli_num_rows($inactive_agentrow);
 
                 ?>
-
                 <div class="row mt-3">
-                    
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                Bar Chart Example
-                            </div>
-                            <div class="card-body">
-                                <canvas id="barChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
+                    <div class="col-md-6 mx-auto">
                         <table class="table table-bordered">
                             <thead class="thead-dark">
                                 <tr>

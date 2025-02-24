@@ -62,22 +62,22 @@ $agentemail       = $_SESSION['email'];
                         <div class="col-md-6">
                           <div class="card-body">
                             <div class="form-group">
-                              <label for="inputName">Student Full Name</label>
+                              <label for="inputName">Student Full Name <span class="text-danger">*</span></label>
                               <input type="text" name="name" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputName">Student Phone No.</label>
+                              <label for="inputName">Student Phone No. <span class="text-danger">*</span></label>
                               <input type="text" name="phone" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputProjectLeader">Date Of Birth (DD-MM-YY)</label>
+                              <label for="inputProjectLeader">Date Of Birth (DD-MM-YY) <span class="text-danger">*</span></label>
                               <input type="text" name="dob" id="inputProjectLeader" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
-                              <label for="inputClientCompany">Gender</label>
+                              <label for="inputClientCompany">Gender <span class="text-danger">*</span></label>
                               <input type="text" name="gender" id="inputClientCompany" class="form-control" required>
                             </div>
                             
@@ -88,22 +88,22 @@ $agentemail       = $_SESSION['email'];
                         <div class="col-md-6">
                           <div class="card-body">
                           <div class="form-group">
-                              <label for="inputName">Email</label>
+                              <label for="inputName">Email <span class="text-danger">*</span></label>
                               <input type="email" name="email" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputProjectLeader">Student Nationality</label>
+                              <label for="inputProjectLeader">Student Nationality <span class="text-danger">*</span></label>
                               <input type="text" name="nationality" id="inputProjectLeader" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputName">Passport No.</label>
+                              <label for="inputName">Passport No. <span class="text-danger">*</span></label>
                               <input type="text" name="passport" id="inputName" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputProjectLeader">Address (According To Passport)</label>
+                              <label for="inputProjectLeader">Address (According To Passport) <span class="text-danger">*</span></label>
                               <input type="text" name="address" id="inputProjectLeader" class="form-control" required>
                             </div>
 
@@ -140,7 +140,6 @@ $agentemail       = $_SESSION['email'];
               $passport         = $_POST['passport'];
               $address          = $_POST['address'];
               $nationality      = $_POST['nationality'];
-
 
                 $agent_insert = "INSERT INTO newstudents (agent, agentemail, name, email, phone, dob, 
                   gender, nationality, address, passport) VALUES('$agentname', '$agentemail', '$name', '$email', '$phone', 
