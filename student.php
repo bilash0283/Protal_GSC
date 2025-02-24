@@ -156,13 +156,27 @@ $agentemail       = $_SESSION['email'];
                             <?php
                               
                               if ($status == 2) {
-                                echo "<div class='badge bg-success' >Approved</div>";
-                              } else if ($status == 1){
-                                echo "<div class='badge bg-warning' >Pending</div>";
-                              } else if ($status == 3){
-                                echo "<div class='badge bg-info' >On-Process</div>";
+                                echo "<div class='badge bg-success'>Visa Approved</div>";
+                              } else if ($status == 1) {
+                                echo "<div class='badge bg-warning'>Pending</div>";
+                              } else if ($status == 3) {
+                                echo "<div class='badge bg-info'>On-Process</div>";
+                              } else if ($status == 4) {
+                                echo "<div class='badge bg-secondary'>Uncomplete Profile</div>";
+                              } else if ($status == 5) {
+                                echo "<div class='badge bg-primary'>Applied for Admission</div>";
+                              } else if ($status == 6) {
+                                echo "<div class='badge bg-secondary'>Conditional Offer Received</div>";
+                              } else if ($status == 7) {
+                                echo "<div class='badge bg-primary'>Final Offer Received</div>";
+                              } else if ($status == 8) {
+                                echo "<div class='badge bg-warning'>Visa Applied</div>";
+                              } else if ($status == 9) {
+                                echo "<div class='badge bg-danger'>Visa Rejected</div>";
+                              } else if ($status == 10) {
+                                echo "<div class='badge bg-dark'>Not Eligible</div>";
                               } else {
-                                echo "<div class='badge bg-danger' >Declined</div>";
+                                echo "<div class='badge bg-danger'>Declined</div>";
                               }
 
                               ?>
