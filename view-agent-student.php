@@ -141,10 +141,36 @@ $agent        = $_SESSION['name'];
                                                 <th>Status</th>
                                                 <td><?php 
                                                     switch($status) {
-                                                        case 1: echo "Pending"; break;
-                                                        case 2: echo "Approved"; break;
-                                                        case 3: echo "On-Process"; break;
-                                                        case 4: echo "Declined"; break;
+                                                        case 1:
+                                                            echo "Pending";
+                                                            break;
+                                                        case 3:
+                                                            echo "On-Process";
+                                                            break;
+                                                        case 4:
+                                                            echo "Uncomplete Profile";
+                                                            break;
+                                                        case 5:
+                                                            echo "Applied for Admission";
+                                                            break;
+                                                        case 6:
+                                                            echo "Conditional Offer Received";
+                                                            break;
+                                                        case 7:
+                                                            echo "Final Offer Received";
+                                                            break;
+                                                        case 8:
+                                                            echo "Visa Applied";
+                                                            break;
+                                                        case 2:
+                                                            echo "Visa Approved";
+                                                            break;
+                                                        case 9:
+                                                            echo "Visa Rejected";
+                                                            break;
+                                                        case 10:
+                                                            echo "Not Eligible";
+                                                            break;
                                                     }
                                                 ?></td>
                                             </tr>
