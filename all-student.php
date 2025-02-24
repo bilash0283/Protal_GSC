@@ -226,7 +226,14 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                             }
 
                                             ?></td>
-                                            <td><?php echo $row['university']; ?></td>
+                                            <td><?php
+                                            if(!empty($row['university'])){
+                                                echo $row['university']; 
+                                            }else{
+                                                echo $row['gscdestination'];
+                                            }
+                                             
+                                             ?></td>
                                             <td><?php
                                             switch ($program) {
                                                 case 1:
@@ -252,14 +259,32 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
                                                 case 1:
                                                     echo "Pending";
                                                     break;
-                                                case 2:
-                                                    echo "Approved";
-                                                    break;
                                                 case 3:
                                                     echo "On-Process";
                                                     break;
                                                 case 4:
-                                                    echo "Declined";
+                                                    echo "Uncomplete Profile";
+                                                    break;
+                                                case 5:
+                                                    echo "Applied for Admission";
+                                                    break;
+                                                case 6:
+                                                    echo "Conditional Offer Received";
+                                                    break;
+                                                case 7:
+                                                    echo "Final Offer Received";
+                                                    break;
+                                                case 8:
+                                                    echo "Visa Applied";
+                                                    break;
+                                                case 2:
+                                                    echo "Visa Approved";
+                                                    break;
+                                                case 9:
+                                                    echo "Visa Rejected";
+                                                    break;
+                                                case 10:
+                                                    echo "Not Eligible";
                                                     break;
 
                                             }

@@ -196,7 +196,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
             $agent_sql = mysqli_query($db, $agent_insert);
 
             if ($agent_sql) {
-              header('location:gsc-add-university.php?add='. $add_id);
+              header('location:gsc-add-university.php?add_id='. $add_id);
             } else {
               echo "Error";
             }

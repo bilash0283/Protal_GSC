@@ -1,12 +1,8 @@
 <?php include('dashboard_include/header.php');
- ob_start(); 
+ob_start(); 
 $agentname = $_SESSION['name'];
 $agentemail = $_SESSION['email'];
-
-if(isset($_GET['add_id'])){
-  $add_id = $_GET['add_id'];
-}
-
+$add_id = $_GET['add_id'];
 include('dashboard_include/top_header.php');
 include('dashboard_include/sidebar.php');
 
@@ -34,8 +30,8 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
 
     <?php
     if (isset($_GET['add_id'])) {
-      $add_id = $_GET['add_id'];
-      $get_id = $add_id;
+
+      $get_id = $_GET['add_id'];
 
 
       $visql = "SELECT * FROM newstudents WHERE id ='$get_id' ";
@@ -177,7 +173,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
         <?php
 
         if (isset($_POST['submit'])) {
-          $get_id = $id;
+
 
           $subject = $_POST['subject'];
           $university = $_POST['gscuniversity'];
@@ -224,8 +220,7 @@ if ($_SESSION['role'] == 1 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4) 
                   $agent_insertt = "INSERT INTO notifications (id, agent, email, name, message, time) VALUES('$id1', '$agent1', '$email1', '$name1', '$message', now())";
                   $agent_sql = mysqli_query($db, $agent_insertt);
 
-                   //header('location:stu_single_view.php');
-                  echo "<div class='alert alert-success rounded-2 p-2'>successfully submit your document ! please view your document</div>";
+                  header('location:gsc-student.php');
                 } else {
                   echo "<div class='alert alert-danger mt-2'>An Error Occured!</div>";
                 }
